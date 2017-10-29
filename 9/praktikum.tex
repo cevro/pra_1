@@ -1,0 +1,417 @@
+\documentclass[a4paper,10pt]{article}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+
+%\usepackage{caption}
+\renewcommand{\popi}[2]{$#1$[\jd{#2}]}
+\renewcommand{\figurename}{Obr.}
+\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
+\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+
+\begin{document}
+\def\mean#1{\left< #1 \right>}
+\noindent
+{\large Fyzikální praktikum 1.} \hfil {\large FJFI ČVUT V Praze}\\
+\noindent
+{\large\textbf{pracovní úkol \# 9}}
+\begin{center}
+{\large\textit{Rozšířená rozsahu miliampármetru a voltmetru,cejchováná kompenzátorem}}
+\end{center}
+\noindent
+\rule{\textwidth}{1px}
+\vspace{\baselineskip}
+
+\emph{Michal Červeňák}
+\par
+\vspace{\baselineskip}
+\begin{minipage}[l]{0.5\textwidth}%
+\textit{dátum merania:}~10.10. 2016\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{skupina:}~4\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{Klasifikace:}\dotfill\\%
+\end{minipage}
+
+\section{Pracovní úkol}
+
+\begin{enumerate}
+\item DU: V přípravě odvoď ťe vztah (7)\footnote{Wrong reference by definition.}.
+\item Pomocí kompenzátoru ocejchujte stupnici voltmetru (cejchujte v celém rozsahu stupnice). Pro 10 naměřených hodnot sestrojte kalibrační křivku a vyneste ji do grafu.
+\item Pomocí kompenzátoru ocejchujte stupnici miliampérmetru (cejchujte v celém rozsahu stupnice). Pro 10 naměřených hodnot sestrojte kalibrační křivku a vyneste ji do grafu.
+\item Pomocí kompenzátoru ocejchujte odporovou dekádu. Měření provedťe pro 10 hodnot v rozsahu $"100-1000 \Omega"$. Pro 10 naměřených hodnot sestrojte kalibrační křivku a vyneste ji do grafu.
+\item Rozšiřte rozsah miliampérmetru dvakrát a určete jeho vnitřní odpor $R_0$. Měření provedťe pro
+10 různých nastavení obvodu, t.j. pro 10 různých proudů.
+\item Rozšiřte rozsah voltmetru dvakrát a určete jeho vnitřní odpor. Měření provedťe pro 10 různých
+nastavení obvodu, t.j. pro 10 různých napětí.
+\item Při zpracování výsledků z měření vnitřních odporů vezměte v úvahu výsledky získané cejchováním
+stupnic voltmetru a miliampérmetru a provedťe korekci naměřených hodnot. Diskutujte
+rozdíl mezi výsledkem získaným bez korekce a s korekcí.
+\end{enumerate}
+
+\section{Postup merania}
+\begin{enumerate}
+\item Pomocou Westnového normálneho članku sa skalibruje kompenzátor.
+\item Podľa schémy Obr. (6) \cite{C_1} sa zostavý obvod
+\item Pomocou reostatu sa reguluje napätie aby sa nameral celý rozsah ciachovaného voltmetru.
+\item Podľa schémy Obr. (7) \cite{C_1} sa zostaví obvod
+\item Pomocou reostatu sa reguluje prúd aby sa nameral celý rozsah ciachovaného ampérmetru.
+\item Podľa schémy Obr. (8) \cite{C_1} sa zostaví obvod
+\item Na odporovej dekáde sa reguluje mení odpor v rozsahu $R = "100-1000 \Omega"$ a pre každú hodnotu sa odmeria hodnota napätia na normálovom rezistore a odporovej dekáde.
+\item Zostaví sa obvod podľa schémy Obr. (5) \cite{C_1}.
+\item Pomocou odporovej dekády sa mení rozsah tak aby zväčšil rozsah voltmetru presne 2 krát.
+\item Zostaví sa obvod podľa schémy Obr. (4) \cite{C_1}.
+\item Pomocou odporovej dekády sa mení rozsah tak aby zväčšil rozsah ampérmetru presne 2 krát.
+\end{enumerate}
+
+\section{Pomôcky}
+Miliampérmetr, voltmetr, zdroj $"0-20 V"$, batéria $"1.5 V"$, odporová dekáda, reostaty $"115 \Omega"$ a $"6000 \Omega"$, 
+dva vypínače, multimetr, odporové normály $"100 \Omega"$ a $"1000 \Omega"$ a $"10\,000 \Omega"$ , technický kompenzátor, 
+Westonův normálná článek, vodiče
+
+\section{Teória}
+Závislosť napätia Westnového normálneho článku na teplote udáva vzťah
+\eq{
+U_t = U_{20}-"4.06" \cdot 10^{−5}\(t − 20\)-"0.95" \cdot 10^{−6}\(t − 20\)^2+1 \cdot 10^{−8}\(t − 20\)^3" V"\,,
+}
+pričom $t$ je teplota v $\jd{\C}$ a napätie pri teplote $t = "20 \C"$ je $U_{20} = "1.01865 \C"$.
+
+Pre prepočet napätia $U$ na rezistore s odporom $R$ na prúd $I$ prechádzajúci rezistorom môžeme použiť vzťah
+\eq{
+I = \frac{U}{R} \,. \lbl{R_2}
+}
+
+
+Pre výpočet odporu rezistrou porovnávaním pomerov napätí na dvoch rezistoroch platí vzťah
+\eq{
+R_k = \frac{U_x}{U_n} R_n\,, \lbl{R_3}
+}
+kde $R_k$ je neznámy odpor s úbytkom napätia $U_x$ a $R_n$ rezistor so známym odporom a úbytkom napätia na ňom $U_n$.
+
+
+Pre zväčšovanie rozsahu voltmetru platí vzťah
+\eq{
+R_V = \frac{R_p}{n-1} \,, \lbl{R_6}
+}
+kde $R_v$ je vnútorný odpor voltmetru, a $R_p$ je odpor predradeného odporu, a $n$ udáva koľkokrát je rozsah zväčšení v našom pripade $n = U_1/U^\prime$.
+
+Pre zväčšenie rozsahu ampérmetru platí vzťah
+\eq{
+R_0 = \(n-1\)R_b\,, \lbl{R_5}
+}
+kde $n$ je koľkokrát sa zväčši rozsah ampérmetru, $R_b$ je odpor bočníku\footnote{Odporu zaradeného paralelne k ampérmetru}, a $R_0$ je vnútorný odpor ampérmetru. 
+
+
+
+
+\subsubsection{Spracovanie chýb merania}
+
+Označme $\mean{t}$ aritmetický priemer nameraných hodnôt $t_i$, a $\Delta t$ hodnotu $\mean{t}-t$, pričom 
+\eq{
+\mean{t} = \frac{1}{n}\sum_{i=1}^n t_i \,, \lbl{SCH_1}
+}  
+a chybu aritmetického priemeru 
+\eq{
+  \sigma_0=\sqrt{\frac{\sum_{i=1}^n \(t_i - \mean{t}\)^2}{n\(n-1\)}}\,, \lbl{SCH_2}
+}
+pričom $n$ je počet meraní.
+
+
+\section{Výsledky merania}
+
+
+\subsection{Ciachovanie voltmetru}
+
+Odčítané hodnoty na stupnici ciachovaného voltmetru označme $U_x$ a hodnoty odčítané z kompenzátoru
+ako $U_k$. Namerané hodnoty boli vynesené do grafu Obr. \ref{G_1} a Tab. \ref{T_1}.
+
+\begin{table}[h]
+
+\begin{center}
+\begin{tabular}{| c | c |}
+\hline
+ \popi{U_x}{V} & \popi{U_k}{V}  \\
+\hline
+$9  \pm0.1$ &$9.549\pm0.001$ \\
+$8.6\pm0.1$ &$9.236\pm0.001$ \\
+$8.0\pm0.1$ &$8.613\pm0.001$ \\
+$7.0\pm0.1$ &$7.623\pm0.001$ \\
+$6.6\pm0.1$ &$7.133\pm0.001$ \\
+$6.0\pm0.1$ &$6.594\pm0.001$ \\
+$5.4\pm0.1$ &$5.952\pm0.001$ \\
+$5.0\pm0.1$ &$5.494\pm0.001$ \\
+$3  \pm0.1$&  $3.292\pm0.001$ \\
+$1.5\pm0.1$ &$1.746\pm0.001$ \\
+\hline
+
+\end{tabular}
+\caption{Namerané hodnoty ciachovaného voltmetru $U_x$ v závislosti od hodnôt odčítaných z kompenzátoru 
+$U_k$} \label{T_1}
+\end{center}
+\end{table}
+
+
+
+\begin{figure}
+\input{data/graph_U.tex}
+\caption{Namerané hodnoty ciachovaného voltmetru $U_v$ v závislosti od hodnôt odčítaných z kompenzátoru 
+$U_k$, preložené závislosťou $U_k = "1.05" \cdot U_x + "0.21 V"$ }  \label{G_1}
+\end{figure}
+
+Z lineárneho fitu dostávame výsledný vzťah
+\eq{
+U_k = "1.05" \cdot U_x + "0.21 V" \,. \lbl{R_10}
+}
+
+
+
+
+\subsection{Ciachovanie ampérmetru}
+
+Odčítané hodnoty na stupnici ciachovaného ampérmetru označme $I_x$ a hodnoty odčítané z kompenzátoru
+ako $U_k$. Normálový rezistor bol použitý $R_b="1000 \Omega"$, ktoré boli pomocou \ref{R_2} prepočítané na $I_k$. 
+Namerané hodnoty boli vynesené do grafu Obr. \ref{G_2} a Tab. \ref{T_2}.
+
+\begin{table}[h]
+
+\begin{center}
+\begin{tabular}{| c | c |}
+\hline
+ \popi{I_x}{mA} & \popi{I_k}{mA}  \\
+\hline
+$0.96\pm0.1$ & $0.92\pm0.001$\\
+$0.90\pm0.1$ & $0.87\pm0.001$\\
+$0.84\pm0.1$ & $0.81\pm0.001$\\
+$0.80\pm0.1$ & $0.78\pm0.001$\\
+$0.7\pm0.1$  & $0.69\pm0.001$\\
+$0.68\pm0.1$ & $0.67\pm0.001$\\
+$0.62\pm0.1$ & $0.62\pm0.001$\\
+$0.40\pm0.1$ & $0.39\pm0.001$\\
+$0.30\pm0.1$& $0.30\pm0.001$\\
+$0.2\pm0.1$& $0.20\pm0.001$\\
+\hline
+
+\end{tabular}
+\caption{Namerané hodnoty ciachovaného ampérmetru $I_x$ v závislosti od hodnôt odčítaných z kompenzátoru
+a prepočítaných na $\jd{mA}$ ako $I_k$} \label{T_2}
+\end{center}
+\end{table}
+
+
+
+\begin{figure}
+\input{data/graph_I.tex}
+\caption{Namerané hodnoty ciachovaného ampérmetru $I_x$ v závislosti od hodnôt odčítaných z kompenzátoru
+a prepočítaných na prúd $I_k$, preložené závislosťou $I_k = "0.95" \cdot I_x + "0.017 mA"$ }  \label{G_2}
+\end{figure}
+
+Z lineárneho fitu dostávame výsledný vzťah
+\eq{
+I_k = "0.95" \cdot I_x + "0.017 mA" \,. \lbl{R_11}
+}
+
+
+\subsection{Ciachovanie odporové dekády}
+
+Pre hodnoty odporu na odporovej dekáde v rozsahu $R = "1000-500 \Omega"$ 
+bol použitý normálový rezistor o hodnote $R_n = "1000 \Omega"$ a 
+pre hodnoty nižšie ako $R="500 \Omega"$ bol použitý normálový rezistor $R_n = "100 \Omega"$.
+
+Napätie na odporovej dekáde označme ako $U_x$ a na normálovom odpore $U_n$, pričom $R_n$ je odpor normálového rezistoru a $R_x$ hodnota odporu nevoleného na odporovej dekáde.
+
+Namerané hodnoty boli vynesené do tabuľky \ref{T_3} a podľa vzťahu \ref{R_3} 
+boli vypočítané hodnoty $R_k$.
+
+Závislosť $R_k$ na $R_x$ bola vynesená do grafu Obr. \ref{G_3} a z výsledku fitu bol určený vzťah $R_k$ na $R_x$
+\eq{
+R_k = "1.00" \cdot R_x +"1.83 \Omega" \,.
+}
+\begin{table}[h]
+
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+ \popi{U_x}{V} & \popi{I}{mA} &\popi{U_n}{V} & \popi{R_c}{\Omega} &\popi{R_x}{\Omega} & \popi{R_k}{\Omega}\\
+\hline
+$0.6195\pm0.001$ & $0.6$ & $0.6158\pm0.001$ & $1000$ & $1000$ & $1006.00$\\
+$0.5792\pm0.001$ & $0.64$ & $0.6431\pm0.001$ & $1000$ & $900$ & $900.64$\\
+$0.5373\pm0.001$ & $0.66$ & $0.6709\pm0.001$ & $1000$ & $800$ & $800.86$\\
+$0.4915\pm0.001$ & $0.70$ & $0.7021\pm0.001$ & $1000$ & $700$ & $700.04$\\
+$0.4418\pm0.001$ & $0.72$ & $0.7364\pm0.001$ & $1000$ & $600$ & $599.95$\\
+$0.3874\pm0.001$ & $0.76$ & $0.7745\pm0.001$ & $1000$ & $500$ & $500.19$\\
+$0.6450\pm0.001$ & $1.62$ & $0.163\pm0.001$ & $100$ & $400$ & $395.71$\\
+$0.5482\pm0.001$ & $1.82$ & $0.183\pm0.001$ & $100$ & $300$ & $299.56$\\
+$0.4170\pm0.001$ & $2.06$ & $0.2088\pm0.001$ & $100$ & $200$ & $199.71$\\
+$0.2426\pm0.001$ & $2.4$ & $0.2429\pm0.001$ & $100$ & $100$ & $99.88$\\
+$0.2004\pm0.001$ & $2.48$ & $0.2504\pm0.001$ & $100$ & $80$ & $80.032$\\
+\hline
+
+\end{tabular}
+\caption{Namerané hodnoty ciachovania odporovej dekády $R_x$ v závislosti vypočítanej hodnote odporu $R_k$} \label{T_3}
+\end{center}
+\end{table}
+
+
+
+\begin{figure}
+\input{data/graph_R.tex}
+\caption{Namerané hodnoty ciachovania odporovej dekády $R_x$ v závislosti vypočítanej hodnote odporu $R_k$, preložené závislosťou $R_k = "1.00" \cdot R_x +"1.83 \Omega"$ }  \label{G_3}
+\end{figure}
+
+
+
+
+
+\subsection{Rozšírenie rozsahu ampérmetru}
+
+
+
+Namerané hodnoty prúdu na ampérmetri s bočníkom onačme ako $I_2$ a prúd pretekajúci častou s nezaradením bočníkom ako $T_1$. Odpor bočníka označme $R_b$.
+Na meranie prúdu $T_2$ bol použitý ampérmeter ktorý bol v predchádzajúcej časti ciachovaný. Teda skutočné hodnoty prúdu po prepočet vzťahom \ref{R_11} boli označené ako $I^\prime_2$.
+Tieto hodnoty boli vynesené do Tab. \ref{T_4}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | }
+\hline
+ \popi{R_b}{\Omega} & \popi{I_2}{mA} &\popi{I_1}{mA} & \popi{I^\prime_2}{mA}  & \popi{R_0}{\Omega}\\
+\hline
+$\infty$ & $0.22$ & $0.22$ & $0.22$ & $-$\\
+$200$ & $0.16$ & $0.22$ & $0.17$    &  $60.72$\\
+$100$ & $0.12$ & $0.22$ & $0.13$   &  $68.25$\\
+$70$ & $0.1$ & $0.22$ & $0.11$      &  $67.80$\\
+$90$ & $0.11$ & $0.22$ & $0.12$ & $73.30$\\
+$300$ & $0.18$ & $0.22$ & $0.19$ & $51.50$\\
+$400$ & $0.2$ & $0.22$ & $0.21$ &  $25.60$\\
+$20$ & $0.04$ & $0.22$ & $0.055$ &  $60.38$\\
+$50$ & $0.08$ & $0.22$ & $0.093$ & $68.60$\\
+$500$ & $0.21$ & $0.22$ & $0.21$ &  $8.63$\\
+$800$ & $0.21$ & $0.22$ & $0.21$ &  $13.80$\\
+
+\hline
+
+\end{tabular}
+\caption{Namerané hodnoty prúdov $I_1$ a $I_2$, hodnota odporu bočníku, prepočítaný prúd kalibračnou rovnicou pre ampérmeter $I^\prime_2$ a vypočítaný vnútorný odpor ampérmetru $R_0$} \label{T_4}
+\end{center}
+\end{table}
+
+Podľa vzťahu \ref{R_5} bola vypočítaná hodnota $R_0$pre jednotlivé merania. 
+Pričom pri štatistickom spracovaní boli vynechané hodnoty $R_b>"300 \Omega"$, 
+kde sa meranie ukazuje ako veľmi nepresné z dôvodu malého rozdielu prúdov oproti ich hodnote.
+Teda bola pomocou vzťahu \ref{SCH_1} a vzťahu \ref{SCH_2} určená hodnota vnútorného odporu ampérmetru 
+\eq{
+R_0= "\(52.5\pm24.3\) \Omega"\,.
+} 
+
+\subsection{Rozšírenie rozsahu voltmetru}
+
+Namerané hodnoty na voltmetri s preradeným odporom (ďalej len predradník), 
+sú označené $U$, po prepočte vzťahom \ref{R_10} označené ako $U_1$ a napätie na voltmetri spolu predradníkom  ako $U^\prime$ a vnútorný odpor voltmetru $R_V$.
+Tieto hodnoty boli zanesené do tabuľky \ref{T_5}
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | }
+\hline
+ \popi{U}{V} & \popi{U^\prime}{V} &\popi{R}{\Omega} & \popi{U_1}{V}  & \popi{R_V}{\Omega}\\
+\hline
+$5.2$ & $5.93$ & $0$ & $5.672318$ &  $0$ \\
+$4.2$ & $5.93$ & $1000$ & $4.621868$ & $3533.181667$ \\
+$3.6$ & $5.93$ & $2000$ & $3.991598$  & $4118.441892$ \\
+$3.2$ & $5.93$ & $3000$ & $3.571418$  & $4542.667586$ \\
+$2.8$ & $5.93$ & $4000$ & $3.151238$  & $4536.175462$ \\
+$2.4$ & $5.93$ & $5000$ & $2.731058$ & $4268.68946$ \\
+$2.2$ & $5.93$ & $6000$ & $2.520968$ & $4436.980351$ \\
+$2$ & $5.93$ & $7000$ & $2.310878$ &  $4469.63269$ \\
+$1.6$ & $5.93$ & $10000$ & $1.890698$  & $4680.754249$ \\
+$0.4$ & $5.93$ & $50000$ & $0.630158$  & $5945.064023$ \\
+$2.6$ & $5.93$ & $4600$ & $2.941148$ & $4526.581042$\\
+\hline
+
+\end{tabular}
+\caption{Namerané hodnoty napätie $U$ a $U^\prime$, hodnota odporu predradníku, prepočítané napätie kalibračnou rovnicou pre voltmeter $U_1$ a vypočítaný vnútorný odpor ampérmetru $R_V$} \label{T_5}
+\end{center}
+\end{table}
+
+Podľa vzťahu \ref{R_6} bola vypočítaná hodnota $R_V$ a z nej podľa vzťahu \ref{SCH_1} a vzťahu \ref{SCH_2} bola určená výsledná hodnota odporu
+\eq{
+R_V = "4505.8\pm602.1 \Omega"\,.
+}
+
+
+\section{Diskusia}
+Pri kalibrácii voltmetru ale i ampérmetru, sa ukázalo ako najväčší nedostatok veľká veľkosť dielika. 
+Pri voltmetri $\Delta U = "0.2 V"$ a  $\Delta I = "0.2 mA"$. 
+S tým súvisí aj neskorší problém pri rozširovaní, 
+rozsahov kde pri zmene odporu nedokázal merák dostatočne presne reagovať 
+a ručička sa vychýlila o menej ako pol dielika, čo spôsobovalo veľké nepresnosti.
+Tieto nepresnosti sa najviac prejavili u merania ampérmetru kde hodnoty 
+pre väčšie hodnoty odporu sa pohybovali ďaleko za hranicou $\sigma_0$.
+
+Samotné vzťahy \ref{R_11} a \ref{R_10} sú zaťažené chybou fitu, ktorá 
+sa pohybuje u lineárneho členu v rádoch desatín \% a u absolútneho členu 
+v ráde jednotiek \%. Bohužiaľ nebola určená hodnota v 0, čo by fit výrazne spresnilo.
+
+Pri meraní ampérmetru, zároveň vidíme, že v oblasti kde sa $n\doteq2$ sa hodnota $R_0\doteq "70 \Omega"$. 
+Čo je podľa môjho subjektívneho názoru správna hodnota, bez zaťažená meraniami v oblasti rádovo rozdielnej od nameranej hodnoty.
+
+
+%Pri kalibrácii či už voltmetru alebo ampermetru, sa ukazuje ako \uv{magic} pristroj reostat, 
+%ktorého sa stačí dotknúť a voltmeter resp. ampermeter ukazuje o rád iné hodnoty.
+
+
+
+
+
+
+\section{Záver}
+Kalibračná rovnica ampérmetru bola určená ako
+\eq{
+I_k = "0.95" \cdot I_x + "0.017 mA" \,,
+} 
+pre voltmeter 
+\eq{
+U_k = "1.05" \cdot U_x + "0.21 V" \,,
+}
+a pre odporovú dekádu
+\eq{
+R_k = "1.00" \cdot R_x +"1.83 \Omega" \,.
+}
+
+Vnútorný odpor ampérmetru bol určený ako 
+\eq{
+R_0= "\(52.5\pm24.3\) \Omega"\,,
+} a pre voltmeter
+\eq{
+R_V = "4505.8\pm602.1 \Omega"\,.
+}
+
+\begin{thebibliography}{2}
+\bibitem{C_1}
+Rozšířená rozsahu miliampármetru a voltmetru,cejchováná kompenzátorem [cit. 21.11.2016]Dostupné po prihlásení z Kurz: Fyzikální praktikum I:\url{https://praktikum.fjfi.cvut.cz/pluginfile.php/119/mod_resource/content/12/161010.pdf}
+
+\end{thebibliography}
+
+\section{Prílohy}
+
+
+
+
+
+
+\end{document}
+
+
+
+
+

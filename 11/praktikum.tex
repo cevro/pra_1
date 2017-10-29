@@ -1,0 +1,235 @@
+\documentclass[a4paper,10pt]{article}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+
+%\usepackage{caption}
+\renewcommand{\popi}[2]{$#1$[\jd{#2}]}
+\renewcommand{\figurename}{Obr.}
+\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
+\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+
+\begin{document}
+\def\mean#1{\left< #1 \right>}
+\noindent
+{\large Fyzikální praktikum 1.} \hfil {\large FJFI ČVUT V Praze}\\
+\noindent
+{\large\textbf{pracovní úkol \# 11}}
+\begin{center}
+{\large\textit{Sériový a vázaný rezonanční obvod }}
+\end{center}
+\noindent
+\rule{\textwidth}{1px}
+\vspace{\baselineskip}
+
+\emph{Michal Červeňák}
+\par
+\vspace{\baselineskip}
+\begin{minipage}[l]{0.5\textwidth}%
+\textit{dátum merania:}~28.11. 2016\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{skupina:}~4\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{Klasifikace:}\dotfill\\%
+\end{minipage}
+
+\section{Pracovní úkol}
+
+\begin{enumerate}
+\item DU: Vypište diferenciální rovnice pro mechanický a elektrický harmonický os- ´
+cilátor. Porovnáním členů určete, která veličiny si v obou oscilátorech odpovídají, a
+pokuste se vysvětlit roli jednotlivých prvků v RLC obvodu. Nápověda na Obr. 2\cite{C_1}
+\item Sestavte sáriový rezonanční obvod dle Obr. 9. Pozorujte vliv změny parametrů $R$, $L$ a $C$
+na obvod. Určete frekvenci vlastních kmitů RLC obvodu pro hodnoty R = 50 Ω, L = 1 mH a
+$C = "500 pF"$. Porovnejte s předpokládanou hodnotou získanou z Thompsonova vzorce (10).
+\item Zobrazte v módu rozmítání proudovou rezonanční křivku na osciloskopu a slovně popište její
+změny při zasouvání jádra do cívky. Na základě toho odhadněte magnetický charakter jádra.
+\item Proměřte proudovou rezonanční křivku v závislosti na frekvenci. Měření proveďte dvakrát:
+pro vzduchovou cívku a cívku s jádrem. Znázorněte obě rezonanční křivky do společnáho grafu a
+fitováním stanovte činitele jakosti obou rezonančních obvodů. Na základě toho určete indukčnost
+cívky s jádrem.
+\item Určete kapacitu neznámáho kondenzátoru, o němž víte, že má kapacitu menší, než je maximální
+hodnota kapacity kondenzátoru Tesla.
+\item Sestavte induktivně vázaný obvod a v módu rozmítání zobrazte jeho napěťovou rezonanční
+křivku. Cívky posouvejte tak, abyste dosáhli vazby nadkritická, kritická a podkritická. Nalezněte
+vzdálenost, při níž dochází k vazbě kritická, a vzdálenost, při níž k vazbě již nedochází.
+Nepovinná: Proměřte napěťovou rezonanční křivku pro vazbu nadkritickou a znázorněte do grafu.
+
+\end{enumerate}
+
+
+
+\section{Pomôcky}
+Frekvenční generátor UNI-T UTG9020A, osciloskop GoldStar, 
+odporová dekáda CMT R1-1000 $(1\Omega − 11 M\Omega)$, indukčná dekáda
+CMT L3-250 (1 µH − 11 H), vzduchová cívka PHYWE $(1 mH, 0.4 m\Omega)$, jádro cívky, ladicí kapacitní
+normál Tesla (100 − 1100 pF), kapacitní normál Ulrich (1000 pF), kondenzátor neznámé
+kapacity, dva koaxiální kabely, spojovací vodiče, dvě cívky pro vázané obvody s ladicím kondenzátorem
+na stavebnicových dílech PHYWE.
+
+\section{Teória}
+Rezonančnú frekvenciu $\Omega_0$ môžeme určiť pomocou Thomsonova vzorca
+\eq{
+\Omega_0 = \frac{1}{\sqrt{L C}} \,,\lbl{R_1}
+}
+kde $L$ je indukčnosť cievky a $C$ je kapacita kondenzátoru.
+
+V našom prípade z zapojenia z úlohy 1. môžeme pre $L= "1 mH"$ a $C = "\mu F"$ vypočítať podľa vzťahu \ref{R_1} vlastnú frekvenciu  $\Omega_0= "1.41 MHz"$.
+
+Pre RLC obvod závislosť prúdu $I$ na frekvencií $f$ môžeme opísať vzťahom
+\eq{
+I_{\(f\)} = \frac{I_max}{\sqrt{1 + Q^2 \(\frac{f_0}{f} - \frac{f_0}{f}\)^2}}\,, \lbl{R_2}
+}
+kde $f_0$ je rezonančná frekvencia a $Q$ činiteľ akosti obvodu. 
+
+Kapacitu neznámeho kondenzátoru $C_x$ zapojenie paralelne ku kondenzátoru so známou kapacitou vypočítame
+\eq{
+C_x = C_1 - C_2 \,, \lbl{R_6}
+}
+kde $C_1$ je kapacita bez paralelného neznámeho kondenzátoru a $C_2$ je kapacita so zapojeným paralelným kondenzátorom.
+
+
+Činiteľ akosti $Q$ vypočítame ako 
+\eq{
+Q = \frac{\alpha}{R}\sqrt{\frac{L}{C}}\,, \lbl{R_5}
+}
+kde $L$ je indukčnosť, $C$ je kapacita, $R$ je odpor a $\alpha$ je parameter pre koreláciu.
+
+Pre výpočet indukčnosti cievky môžeme odvodiť zo vzťahu \ref{R_5}
+\eq{
+\(\frac{Q_2}{Q_1}\)^2 = \frac{C_1 L_1}{C_2 L_1} \,. \lbl{R_3}
+}
+
+
+
+\subsubsection{Spracovanie chýb merania}
+
+Označme $\mean{t}$ aritmetický priemer nameraných hodnôt $t_i$, a $\Delta t$ hodnotu $\mean{t}-t$, pričom 
+\eq{
+\mean{t} = \frac{1}{n}\sum_{i=1}^n t_i \,, \lbl{SCH_1}
+}  
+a chybu aritmetického priemeru 
+\eq{
+  \sigma_0=\sqrt{\frac{\sum_{i=1}^n \(t_i - \mean{t}\)^2}{n\(n-1\)}}\,, \lbl{SCH_2}
+}
+pričom $n$ je počet meraní.
+
+\section{Postup merania}
+\begin{enumerate}
+\item Bol zostavený obvod podľa Obr. 1 \cite{C_1} a odmeraná dĺžka jednej periódy kmitu a frekvencia kmitania.
+\item Generátor frekvencií bol nastavený na mód rozmítaní a pozorované zmeny amplitúdy pri vkladaní a vyberaní jadra cievky
+\item Pre rozsah 20 hodnôt frekvencie v okolí vlastnej frekvencie sa zistila amplitúda s jadrom a bez jadra cievky.
+\item Obvod sa pomocou zmeny kapacity na normále uviedol do rezonancie a následne sa paralelne k normále umiestnil kondenzátor s neznámou kapacitou. A opäť bol obvod uvedený do rezonancie.
+\item Obvod bol zostavený podľa Obr. 4. \cite{C_1}, nameraná hodnota vzdialeností pre maximum a úplný útlm.
+\end{enumerate}
+
+\section{Výsledky merania}
+\subsection{Úloha 1.}
+V tabuľke \ref{T_1} sú zaznamenané odmerané hodnoty vlastnenej frekvencie. 
+Z týchto hodnôt bola vypočítaná podľa vzťahu \ref{SCH_1} priemerná hodnota
+\eq[n]{
+f_0 = "\(216\pm1\) kHz" \,,\\
+T_0 = "\(4.60\pm0.03\) \nu s" \,,
+}
+
+\begin{table}[h]
+
+\begin{center}
+\begin{tabular}{| c | c |}
+\hline
+\popi{f_0}{kHz} & \popi{T_0}{\mu s} \\
+\hline
+$217.4$ & $4.6$ \\
+$217.4$ & $4.6$ \\
+$213.7$   & $4.68$ \\
+\hline
+
+\end{tabular}
+\caption{Namerané hodnoty frekvencie $f_0$ a periódy $T_0$ vlastných kmitov RLC obvodu} \label{T_1}
+\end{center}
+\end{table}
+
+\subsection{Úloha 3.}
+Pre vzdušnú cievku s a bez jadra boli namerané hodnoty napätia $U$ v okolí vlastnej frekvencie obvodu, tie boli vynesené do grafov Obr. \ref{G_1} bez jadra a \ref{G_2} s jadrom a spoločne do Obr. \ref{G_3}.
+
+Hodnoty získané pre cievku bez jadra $Q="\(8.5\pm0.3\)"$ a pre cievku s jadrom $Q = "\(2.5\pm0.1\)"$
+Pre výpočet indukčnosti cievky sme využili vzťah \ref{R_3} pričom $C1=C2$. 
+Z toho dostávame indukčnosť cievky $L_2 ="0.085 mH"$\label{MV_1}.
+
+\subsection{Úloha 2.}
+Pre cievku bez jadra sme činiteľ akosti $Q$ vypočítal podľa vzťahu \ref{R_5}, 
+\eq{
+Q= "28.28\alpha"\,,
+}
+pre cievku s jadrom sme využili hodnotu \ref{MV_1} a dosadili opäť do vzťahu \ref{R_5} a tým určili koeficient akosti
+\eq{
+Q= 8.32 \alpha\,.
+}
+
+\subsection{Úloha 4.}
+Pri zisťovaní neznámej kapacity $C_x$ sme namerali hodnoty $C_1="406 pF"$ a $C_2="327 pF"$, následne podľa vzťahu \ref{R_6} sme dopočítali neznámu kapacitu
+\eq{
+C_x = "79 pF"\,.
+}
+
+\subsection{Úloha 5.}
+K maximálnej amplitúde došlo vo vzdialenosti $x_1 = "\(4.4\pm0.1\) mm"$. 
+Úplný útlm nastal vo vzdialenosti $x_2="\(14.3\pm0.1mm\)"$.
+
+
+
+\begin{figure}
+\input{data/graf_1.tex}
+\caption{Závislosť veľkosti prúdu $I$ na rezonančnej frekvencií $f$ pre cievku bez jadra, preložená funkciou $I = \frac{36.8\pm0.4}{\sqrt{1+\(8.5\pm0.3\)\cdot\(\frac{f}{218.1\pm0.2}-\frac{218.1\pm0.2}{f}\)^2}}$.}  \label{G_1}
+\end{figure}
+
+\begin{figure}
+\input{data/graf_2.tex}
+\caption{Závislosť veľkosti prúdu $I$ na rezonančnej frekvencií $f$ pre cievku s jadrom, preložená funkciou $I = \frac{11.5\pm0.14}{\sqrt{1+\(2.5\pm0.1\)\cdot\(\frac{f}{212.2\pm0.1}-\frac{212.2\pm0.1}{f}\)^2}}$.}  \label{G_2}
+\end{figure}
+
+\begin{figure}
+\input{data/graf_3.tex}
+\caption{Závislosť veľkosti prúdu $I$ na rezonančnej frekvencií $f$ pre cievku bez jadra, preložená funkciou $I = \frac{36.8\pm0.4}{\sqrt{1+\(8.5\pm0.3\)\cdot\(\frac{f}{218.1\pm0.2}-\frac{218.1\pm0.2}{f}\)^2}}$ a závislosť veľkosti prúdu $I$ na rezonančnej frekvencií $f$ pre cievku s jadrom, preložená funkciou $I = \frac{11.5\pm0.14}{\sqrt{1+\(2.5\pm0.1\)\cdot\(\frac{f}{212.2\pm0.1}-\frac{212.2\pm0.1}{f}\)^2}}$.}  \label{G_3}
+\end{figure}
+
+
+
+\section{Diskusia}
+V Prvej časti sme spočítali teoretickú rezonančnú frekvenciu obvodu ako $\Omega_0= "1.41 MHz"$ ale nameraná hodnota je $f_0 = "\(216\pm1\) kHz"$. Čo je chyba o skoro celý rád. Vyzerá to pravdepodobne na chybu vo výpočtoch alebo použitých hodnôt pre výpočet.
+
+V druhej časti sa pri vložení jadra do cievky sa zmenšil pretekajúci prúd a teda zmenšila akosť. Teda môžeme predpokladať, že jadro je za paramagnetického materiálu.
+
+Dátam z predchádzajúceho bodu odpovedajú aj dáta vynesené v grafe Obr. \ref{G_3} kde je jasne vidieť pokles prídu v oblasti rezonančnej frekvencie pri vloženom jadre v cievke. 
+
+Pri meraní kapacity neznámeho kondenzátoru bolo meranie uskutočnené len raz, však podľa \cite{C_1} sme mali meranie previesť 5 krát. 
+
+Posledné meranie vzdialenosti je predovšetkým pri hľadaní maxima zaťažené mnohými systematickými chybami. 
+V prvej rade sú obe cievky za v plastovom obale teda neviem odmerať ich presnú vzdialenosť ale len vzdialenosť krytov. 
+Cievky niesu dokonalé rovnobežné voči sebe a teda ich vzdialenosť sa v rôznych miestach po obvode líši, odhadom $\sim "0.2 cm"$. 
+
+
+\section{Záver}
+
+Vlastná frekvencia obvodu bola určená $f_0 = "\(216\pm1\) kHz"$.
+Cievka s jadrom má indukčnosť $L_2 ="0.085 mH"$.
+Neznámy kondenzátor má kapacitu $C_x = "79 pF"$.
+
+
+\begin{thebibliography}{2}
+\bibitem{C_1}
+Sériový a vázaný rezonanční obvod [cit. 4.12.2016]Dostupné po prihlásení z Kurz: Fyzikální praktikum I:\url{https://praktikum.fjfi.cvut.cz/pluginfile.php/123/mod_resource/content/7/navod_rezonancni_obvody_161005.pdf}
+
+\end{thebibliography}
+
+\end{document}
+

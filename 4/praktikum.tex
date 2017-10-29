@@ -1,0 +1,171 @@
+\documentclass[a4paper,10pt]{article}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+
+%\usepackage{caption}
+\renewcommand{\popi}[2]{$#1$[\jd{#2}]}
+\renewcommand{\figurename}{Obr.}
+\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
+\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+
+\begin{document}
+\def\mean#1{\left< #1 \right>}
+\noindent
+{\large Fyzikální praktikum 1.} \hfil {\large FJFI ČVUT V Praze}\\
+\noindent
+{\large\textbf{pracovní úkol \# 4}}
+\begin{center}
+{\large\textit{Cavendishův experiment}}
+\end{center}
+\noindent
+\rule{\textwidth}{1px}
+\vspace{\baselineskip}
+
+\emph{Michal Červeňák}
+\par
+\vspace{\baselineskip}
+\begin{minipage}[l]{0.5\textwidth}%
+\textit{dátum merania:}~10.10. 2016\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{skupina:}~4\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{Klasifikace:}\dotfill\\%
+\end{minipage}
+
+\section{Pracovní úkol}
+\begin{enumerate}
+\item DU: V přípravě odvoďťe vztah pro výpočet relativní chyby měření $G$ a zamyslete
+se, jak vypadá chyba periody kmitu $T$ a chyba rozdílu vzdáleností
+rovnovážných poloh $S$.
+\item Ve spolupráci s asistentem zkontrolujte, zda je torzní kyvadlo horizontálně vyrovnané.
+($"20 min"$)
+\item Pomocí torzního kyvadla změřte gravitační konstantu. Do protokolu přiložte graf naměřených
+dat včetně odchylek a nafitované funkce. Diskutujte, zda bylo kyvadlo rotačně vyrovnané.
+
+\end{enumerate}
+
+\section{Postup merania}
+
+\begin{enumerate}
+\item Najskôr bola aparatúra horizontálne vyrovnaná a dôkladne skontrolované jej vyváženie.
+\item Bolo skontrolované zemnenie aparatúry.
+\item Následne boli na držiaky osadené gule, a prítlačné  na doraz do prvej polohy.
+\item Aparatúra sa odaretovala a nechala sa kmitať dokedy sa pri kmitoch neprestali guličky dotýkať od stien.
+\item Podobu $\sim$ 3 kmitov sa zaznamenávala zmena výchylky laserového paprsku na čase, v našom prípade každých $"20 s"$.
+\item Gule boli otočné do druhej polohy a opakovalo sa meranie pre 3 kmity.
+\end{enumerate}
+
+\section{Pomôcky}
+Torzné kyvadlo, zemniacé káble, radiátor, laser, ochranné okuliare, podstavec pod laser,
+stopky, meracie pásmo, meter.
+
+\section{Teória}
+Newtonov gravitačný zákon \eq{
+F = G\frac{m_1 m_2}{r^2}\,,
+}
+hovorí, že gravitačná sila medzi dvoma telesami je priamo úmerná ich hmotnostiam $m_1$ a $m_2$, a nepriamo štvorci vzdialenosti $r$.
+Pričom $G$ je gravitačná konštanta, ktorá udáva veľkosť interakcie.
+
+Zo vzorcov pre torzné kyvadlo a gravitačného zákona sa dá odvodiť vzorec\eq{
+G = \frac{\pi^2 b^2}{m_2 d} \frac{d^2 + \frac{2}{5}r^2}{\(1-\frac{b^3}{b^2+4d^2}^{3/2}\)} \frac{S}{T^2 L}\,, \\ \lbl{R_2}
+} pričom \eq[m]{
+r = "9,55 mm"\,, \\
+d = "50,7 mm"\,, \\
+b = "45 mm"\,, \\
+S = S^2 - S^1 \,, \\
+m_2 = "1,24 kg"\,. 
+}
+Vzťah pre tlmené harmonické kmity\eq{
+f(t) = A\exp\(-\delta t\) \sin\( \frac{2*\pi}{T}t + \sigma\) + S^{1\(2\)} \lbl{R_1}\,.
+}
+\subsection{Spracovanie chýb merania}
+
+Vzorec \ref{R_2} sa dá pre naše účely prepísať ako \eq{
+G = \const \frac{S}{T^2 L}\,,
+} z čoho môže odvodiť pre chybu merania
+\eq{
+\frac{\Delta G}{\mid G\mid } = \frac{\Delta S}{\mid S\mid } +\frac{2\Delta T}{\mid T\mid } +\frac{\Delta L}{\mid L\mid } \,. \lbl{R_3}
+}
+
+
+
+\section{Výsledky merania}
+
+Namerané dáta sú vynesené do grafu Obr. \ref{G_1}. 
+Následne pre obe polohy gulí boli dáta preložené závislosťou \eqref{R_1}, a z nej zistené hodnoty \eq[m]{
+S^1 = "\(67.9\pm0.1\) cm" \,,\\
+S^2 = "\(81.1\pm0.1\) cm" \,,\\
+T = "\(493.4\pm6.1\) s" \,.\\
+}
+Preloženie je v Obr. \ref{G_2} a Obr. \ref{G_3}, a v Obr. \ref{G_4} sú vykreslené spolu s dátami a fitmi aj hodnoty $S^1$ a $S^2$.
+
+Metrom bola odmeraná hodnota $L = "\(586\pm5\) cm"$, nepresnosť merania bola odhadnutá na $"5 cm"$ hlavne z dôvodu merania popri stene, teda nie kolmo na aparatúru.
+Nepresnosť určovania času pri meraní bola premietnutá do neistoty určovania polohy laseru, ktorá bola aj kvôli divergencií laserového zväzku určená na $"1 cm"$.
+
+Po dosadení do vzorca \eqref{R_2}, bola dopočítaná hodnota $G = "\(8.21\cdot10^{-11}\) m^3 \cdot kg^{-1}\cdot s^{-2}"$.
+Neistota merania bola určená podľa \eqref{R_3} ako $\Delta G = "\(0.86\cdot10^{-11}\) m^3 \cdot kg^{-1}\cdot s^{-2}"$.
+
+\begin{figure}
+\input{data/graph_2.tex}
+\caption{Namereané hodnoty výchylky na čase $t$}  \label{G_1}
+
+\end{figure}
+
+\begin{figure}
+\input{data/graph_3.tex}
+\caption{Fit dát pre prvú polohu gúľ}  \label{G_2}
+
+\end{figure}
+
+\begin{figure}
+\input{data/graph_4.tex}
+\caption{Fit dát pre druhú polohu gúľ}  \label{G_3}
+
+\end{figure}
+
+
+
+
+\begin{figure}
+\input{data/graph_1.tex}
+\caption{Vynesenie hodnôt $S^1$ a $S^2$}  \label{G_4}
+
+\end{figure}
+\section{Diskusia}
+
+Hodnota nami odmeraného $G$ sa rádovo zhoduje s tabuľkovým \eq{
+G_{tab}=\(6.674\,08\pm0,000\,31\)\cdot10^{-11}m^3 \cdot kg^{-1}\cdot s^{-2}"\,.
+}
+zároveň vidíme, že tento experiment bol zaťažený systematickými chybami. 
+
+V prvej rade sa jedná o chyba pri zisťovaní dĺžky,
+či už vzdialenosti aparatúry od premietacej steny alebo určovaní polohy laseru.
+Najväčším zdrojom, s veľkým vplyvom bol, aj okolitých vplyv ostatných telies.
+Zemnenie \uv{uzemnené} o radiátor nie je, hlavne počas vykurovacieho obdobia, najlepšou voľbou.
+Ďalej nerovnosti na guliach vďaka, ktorým sa nedali narovnako prisunúť k aparatúre, a predovšetkým nie dokonalé horizontálne vyváženie.
+
+
+\section{Záver}
+gravitačnú konštantu sme pomocou Cavendishového experimentu určili$G = "\(8.21\cdot10^{-11}\pm0.86\cdot10^{-11}\) m^3 \cdot kg^{-1}\cdot s^{-2}"$.
+
+
+
+
+
+
+\end{document}
+
+
+
+
+

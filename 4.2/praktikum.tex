@@ -1,0 +1,131 @@
+%\documentclass[a4paper,10pt]{article}
+\documentclass[10pt]{scrartcl}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{listings}  
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+\usepackage{mhchem}
+
+%\usepackage{caption}
+
+\input{../normalize.sty}
+\input{const.sty}
+
+\begin{document}
+
+\MakeFJFIHead{}
+
+\section{Pracovní úkol}
+\begin{enumerate}
+\item DU: Zopakujte si výpočet chyb nepřímého měřen´ı, vysvětlete rozdíl mezi lineárním 
+a kvadratickým zákonem hromadění chyb a jejich použití.
+\item DU: Odvoďťe vztah pro výpočet relativní chyby měření $G$ a zamyslete se, jak
+vypadá chyba periody kmitu $T$ a chyba rozdílu vzdáleností rovnovážných poloh $S$.
+\item DU: V přípravě odvoďťe vztah pro výpočet relativní chyby měření $G$ a zamyslete
+se, jak vypadá chyba periody kmitu $T$ a chyba rozdílu vzdáleností
+rovnovážných poloh $S$.
+\item Ve spolupráci s asistentem zkontrolujte, zda je torzní kyvadlo horizontálně vyrovnané.
+($"20 min"$)
+\item Pomocí torzního kyvadla změřte gravitační konstantu. Do protokolu přiložte graf naměřených
+dat včetně odchylek a nafitované funkce. Diskutujte, zda bylo kyvadlo rotačně vyrovnané.
+
+
+\end{enumerate}
+
+\section{Postup merania}
+
+\begin{enumerate}
+\item Najskôr bola aparatúra horizontálne vyrovnaná a dôkladne skontrolované jej vyváženie.
+\item Následne boli na držiaky osadené gule, a prítlačné  na doraz do prvej polohy.
+\item Aparatúra sa odaretovala a nechala sa kmitať dokedy sa pri kmitoch neprestali guličky dotýkať od stien.
+\item Podobu $\sim$ 3 kmitov sa zaznamenávala zmena výchylky laserového paprsku na čase, v našom prípade každých $"20 s"$.
+\item Gule boli otočné do druhej polohy a opakovalo sa meranie pre 3 kmity.
+\item Pomocou metru bola odmeraná vzdialenosť kyvadla od steny, na ktorú sa odčítavala vzdialenosť. 
+\end{enumerate}
+
+\section{Pomôcky}
+Torzné kyvadlo, zemniacé káble, radiátor, laser, ochranné okuliare, podstavec pod laser,
+stopky, meter provázek.
+
+\input{teor.tex}
+
+
+\section{Výsledky merania}
+
+Namerané dáta sú vynesené do grafu Obr. \ref{G_1}. 
+Následne pre obe polohy gulí boli dáta preložené závislosťou \eqref{R_1}, a z nej zistené hodnoty \eq[m]{
+S^1 = "\(115.6\pm 0.3\) cm" \,,\\
+S^2 = "\(125.6\pm 0.1\) cm" \,,\\
+T = "\(493.6\pm 0.4\) s" \,.\\
+}
+Preloženie je v Obr. \ref{G_2} a Obr. \ref{G_3}, a v Obr. \ref{G_4} sú vykreslené spolu s dátami a fitmi aj hodnoty $S^1$ a $S^2$.
+
+Metrom bola odmeraná hodnota $L = "\(598\pm5\) cm"$, nepresnosť merania bola odhadnutá na $"5 cm"$ hlavne z dôvodu merania popri stene a postupného merania.
+Nepresnosť určovania času bola stanovená na $"5 s"$.
+
+Po dosadení do vzorca \eqref{R_2} a \eqref{R_3}, bola dopočítaná hodnota $G = "\(5.71\pm0.95\)\cdot10^{-11} m^3 \cdot kg^{-1}\cdot s^{-2}"$.
+
+\begin{figure}
+\input{data/graph_2.tex}
+\caption{Namereané hodnoty polohy $l$ na čase $t$}  \label{G_1}
+
+\end{figure}
+
+\begin{figure}
+\input{data/graph_3.tex}
+\caption{Vynesená závislosť polohy $l$ na čase $t$ pre prvú polohu a fit $l\(t\) = \(65.3\pm4.9\)\exp\(-\(4.9\pm0.5\)10^{-4}t\)\(\sin\(\frac{2\pi t}{498.2\pm2.0}\) + \(4.93\pm0.07\)\) + \(115.6\pm 0.3\)$.}  \label{G_2}
+
+\end{figure}
+
+\begin{figure}
+\input{data/graph_4.tex}
+\caption{Vynesená závislosť polohy $l$ na čase $t$ pre druhú polohu a fit $l(t) = \(70.9\pm0.5\)\exp\(-\(4.9\pm0.5\)10^{-4}t\)\(\sin\(\frac{2\pi t}{488.9\pm0.5}\)+ \(4.79\pm0.04\)\) + \(125.6\pm 0.1\)$.}  \label{G_3}
+\end{figure}
+
+
+\begin{figure}
+\input{data/graph_1.tex}
+\caption{Namerané hodnoty polohy $l$ na čase $t$ bez chybových úsečiek, so zanesenými hodnotami nulových polôh $S^1$ a $S^2$ pre jednotlivé polohy.}  \label{G_4}
+
+\end{figure}
+\section{Diskusia}
+
+Hodnota nami odmeraného $G$ sa rádovo zhoduje s tabuľkovým\cite{C_2} \eq{
+G_{tab}="\(6.674\,08\pm0,000\,31\)\cdot10^{-11} m^3 \cdot kg^{-1}\cdot s^{-2}"\,.
+}
+zároveň vidíme, že tento experiment bol zaťažený systematickými chybami. 
+
+V prvej rade sa jedná o chyba pri zisťovaní dĺžky,
+či už vzdialenosti aparatúry od premietacej steny alebo určovaní polohy laseru.
+Pri fitovaní cez niekoľkých periód sa však táto chyba fixuje a jej vplyv n výsledok je malý.
+
+Ďalším zdrojom možnej systematickej chyby je počiatočné veľké kmity, kde kyvadlo narážalo na okraje, tieto kyvy boli neboli zanášané do fitu ale predovšetkým na prvý kyv, mohli mať vplyv.
+
+Ďalej nerovnosti na guliach vďaka, ktorým sa nedali narovnako prisunúť k aparatúre a teda vzdialenosť $b$, mohla byť pre každú z polôh odlišná.
+
+Posledným výrazným problémom je uzemnenie aparatúry o radiátor, predovšetkým počas vykurovacej sezóny, môže na radiátore vznikať statický náboj a ten sa preniesť na aparatúru a tým ovplyvniť meranie.
+
+
+\section{Záver}
+Gravitačnú konštantu sme pomocou Cavendishového experimentu určili\eq{
+G = \(8.21\cdot10^{-11}\pm0.86\cdot10^{-11}\) \jd{m^3 \cdot kg^{-1}\cdot s^{-2}}\,.
+}
+
+\begin{thebibliography}{2}
+\bibitem{C_1}
+Cavendishův experiment [cit. 15.10.2017] Dostupné po prihlásení na: \url{https://praktikum.fjfi.cvut.cz/mod/resource/view.php?id=16}
+\bibitem{C_2}
+Fyzikální a jiné konstanty [cit. 15.10.2017] Jiří Bureš: \url{http://www.converter.cz/prevody/konstanty.htm}
+
+\end{thebibliography}
+
+\end{document}
+
+
+
+

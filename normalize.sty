@@ -1,0 +1,44 @@
+%  Umožňuje rozdělovat obsah na více sloupců
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{pgffor}
+
+
+% FJFI Types of popi
+\renewcommand{\popi}[2]{$\frac{#1}{[\jd{#2}]}$}
+
+\renewcommand{\figurename}{Obr.}
+\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
+\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+\def\mean#1{\left< #1 \right>}
+
+
+\newcommand{\MakeFJFIHead}{
+\setlength{\parindent}{0cm}
+\begin{multicols}{2}
+\textsf{\textbf{\FJFISubject \hspace{6.25cm} \FJFIInstitute}\\
+\textbf{\large{\FJFITitle}}}
+
+\begin{tabular}{rlrl}
+	 \textsf{Jméno:} & \textbf{\textsf\FJFIAuthor}    &      \textsf{Kolega:} & \textsf{\FJFICoauthor} \\[1.5pt]
+	  \textsf{Kruh:} & \textbf{\textsf\FJFIGroup}     & \textsf{Číslo skup.:} & \textsf{\FJFICircle}   \\[1.5pt]
+	\textsf{Měřeno:} & \textbf{\textsf{\FJFILabdate}} &  \textsf{Zpracování}: & \textsf{\FJFIWorktime}
+\end{tabular}
+
+\begin{flushright}
+
+\includegraphics[scale=0.2]{../img/fjfi.pdf}
+%\hspace{0.4cm}
+%\includegraphics[scale=0.2]{../img/cvut.pdf}
+
+
+\textsf{Klasifikace:} \hspace{3.2cm} 
+
+\end{flushright}
+\end{multicols}
+
+\hrule
+}
+
+
+

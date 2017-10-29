@@ -1,0 +1,253 @@
+\documentclass[a4paper,10pt]{article}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{listings}  
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+
+%\usepackage{caption}
+\renewcommand{\popi}[2]{$\frac{#1}{[\jd{#2}]}$}
+\renewcommand{\figurename}{Obr.}
+\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
+\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+
+\begin{document}
+\def\mean#1{\left< #1 \right>}
+\noindent
+{\large Fyzikální praktikum 1.} \hfil {\large FJFI ČVUT V Praze}\\
+\noindent
+{\large\textbf{pracovní úkol \# 2}}
+\begin{center}
+{\large\textit{Dynamika rotačního pohybu}}
+\end{center}
+\noindent
+\rule{\textwidth}{1px}
+\vspace{\baselineskip}
+
+\emph{Michal Červeňák}
+\par
+\vspace{\baselineskip}
+\begin{minipage}[l]{0.5\textwidth}%
+\textit{dátum merania:}~16.12. 2016\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{skupina:}~4\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{Klasifikace:}\dotfill\\%
+\end{minipage}
+
+\section{Pracovní úkol}
+
+\begin{enumerate}
+\item DU: Odvoďte kapacitu C deskového kondenzátoru.
+\item DU: Pro deskový kondenzátor stanovte závislost poměru S/d plochy desek S a
+vzdálenosti d mezi nimi jako funkci náboje Q a napětí U. Následně spočítejte hodnotu poměru S/d
+pro vzduchový deskový kondenzátor s volbou Q = Qmax = 50 µC a U = Umax = 100 kV.
+\item Změřte průrazné napětí U mezi deskami kondenzátoru pro deset různých vzdáleností desek
+d. Náboj přivádějte až do průrazu mezi deskami kondenzátoru. Průrazné napětí U určete
+prostřednictvím silového působení na vahách ve chvíli průrazu a vztahu (13). Z naměřených hodnot
+průrazného napětí U pro různé vzdálenosti d určete následně dielektrickou pevnost vzduchu
+a porovnejte ji s tabulkovou hodnotou pro suchý vzduch. Diskutujte důvod případné odlišnosti
+hodnot.
+\item Změřte přitažlivé síly mezi deskami kondenzátoru v závislosti na doskoku jiskřiště s 1 pro tři
+různé vzdálenosti desek d. Náboj přivádějte až do průrazu na kulovém jiskřišti s mikrometrickým
+šroubem, paralelně připojenému k deskovému kondenzátoru. Ze silového působení spočítejte
+napětí a ze vztahu v poznámce se pokuste určit neznámou funkci f(s/D) ze vztahu (14) vzhledem
+k podmínce (15) a monoťonnosti funkce u doskoku s. Experimentální data a nalezenou funkci
+zpracujte do grafu.
+\item Zvolte si dvě konfigurace elektrod, nastavte na nich napětí cca 10 V a zmapujte potenciál v
+síti 12 × 12 bodů. V domácím vyhodnocení prověďte grafické zpracovnání naměřených dat.
+\end{enumerate}
+
+
+
+\section{Pomôcky}
+Wimshurstova elektrika, váhy, doskový kondenzátor, kolové iskrisko, podstavec,
+sada vodičov, zkratovač, regulovatelný zdroj 12V, souprava pro mapování elektrostatického pole,
+voltmetr.
+
+\section{Teória}
+Pre výpočet napätia $U$ zo sily $F = m g$, ktorá pôsobí na dosky kondenzátora s plochou $S$ použijeme vzťah
+\eq{
+U = \sqrt{\frac{2 m g d^2}{\epsilon S}}\,, \lbl{R_1}
+}
+kde $\epsilon$ je primitivita vákua (vzduchu).
+
+K výpočtu dielektrickej pevnosti vzduchu $E_p$ z napätia medzi doskami a ich vzdialenosťami použijeme vzťah
+\eq{
+E_p = \frac{V}{d}\,. \lbl{R_2}
+}
+
+Na spočítanie prierazu použije vzťah
+\eq[m]{
+U = 27.75\(1+\frac{0.757}{\sqrt{\gamma D}}\)\frac{\gamma s}{f\(\frac{s}{D}\)}\,,\lbl{R_3}\\
+\gamma = \frac{p}{p_a}\cdot \frac{293.16}{273.16+t} \,,
+}
+pričom $D$ je priemer guľôčky iskriska a $s$ ich vzdialenosť, $p$ je atmosferický tlak a $p_a$ je normálny atmosferický tlak a $t$ je teplota v $[\C]$
+
+\subsubsection{Spracovanie chýb merania}
+
+Označme $\mean{t}$ aritmetický priemer nameraných hodnôt $t_i$, a $\Delta t$ hodnotu $\mean{t}-t$, pričom 
+\eq{
+\mean{t} = \frac{1}{n}\sum_{i=1}^n t_i \,, \lbl{SCH_1}
+}  
+a chybu aritmetického priemeru 
+\eq{
+  \sigma_0=\sqrt{\frac{\sum_{i=1}^n \(t_i - \mean{t}\)^2}{n\(n-1\)}}\,, \lbl{SCH_2}
+}
+pričom $n$ je počet meraní.
+
+\section{Postup merania}
+\begin{enumerate}
+\item Najskôr bol odmeraný priemer  doskového kondenzátora.
+\item Následne bola pripojená Wimshurstova elektrika ku doskovému kondenzátoru
+\item Kondenzáto bol vyskratovaný a bola pomocou šubléry odmeraná vzdialenosť dosiek, a pomocou elektriky nabíjaný až do prierazu 
+\item Pri prieraze bola odčítaná hmotnosť.
+\item Posledné dva body boli opakované pre rôzne vzdialenosti dosiek kondenzátoru.
+\end{enumerate}
+
+\begin{enumerate}
+\item K obvodu z predchádzajúceho pokusu bolo pripojené paralelne iskrisko
+\item Pomocou šuplery bol odmeraný priemer guličoek iskriska.
+\item Kondenzátor bol vyskratovaný a bola pomocou šuplery odmeraná vzdialenosť dosiek, a vzájomná vzdialenosť guľôčok iskriska a pomocou elektriky nabíjaný až do prierazu na iskrisku.
+\item Pri prieraze bola odčítaná hmotnosť.
+\item Posledné dva body boli opakované pre roznes vzdialenosti dosiek kondenzátoru a vzdialenosti iskriska.
+\end{enumerate}
+
+\begin{enumerate}
+\item Do Petriho misky bola naliatia destilovaná voda
+\item Do Petriho misky boli vložené elektródy.
+\item Elektródy boli pripojené k zdroju napätia
+\item Na každom z 140 bol zmeraný pomocou voltmetru potenciál voči zemi zdroja.
+\item Postup sa opakoval pre oba typy elektród.
+\end{enumerate}
+
+\section{Výsledky merania}
+
+Teplota vzduchu bola určená na $t="22.3 \C"$, tlak vzduchu $p = "991 Hpa"$, priemer guľôčok iskriska na $D = "\(1.465\pm0.005\) cm"$. Plocha kondenzátora na $S="0.022 m^2"$
+
+Chyba pri meraní hmotnosti sa pohybuje v okolo $40\%$, hlavne pretože som nestíhal sledovať pristroj aj nabíjať kondenzátor. 
+
+Do tabuľky Tab. \ref{T_1} boli zaznamenané namerané hodnoty vzdialenosti dosiek kondenzátoru a hmotnosť, teda sila, ktorou sa dosky priťahovali.
+Z nich boli vypočítané podľa \ref{R_1} hodnoty napätia $U$ a pomocou \ref{R_2} hodnota dielektrickej pevnosti vzduchu $E_p$. 
+Pomocou \ref{SCH_1} a \ref{SCH_2} bola určená priemerná hodnota $E_p = "\(1.02\pm0.60\text{st.}\pm0.4\text{sys.}\) MV\cdot m^{-1}"$.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c |}
+\hline
+\popi{d}{cm} & \popi{m}{g} & \popi{U}{kV} & \popi{E_p}{kV\cdot m^{-1}}\\
+\hline
+$1.1$ & $38.0$ & $21.59$ & $1962$\\
+$2.0$ & $35.0$ & $37.67$ & $1883$\\
+$3.0$ & $10.0$ & $30.20$ & $1006$\\
+$4.0$ & $6.0$ & $31.19$ &  $779$\\
+$4.5$ & $4.5$ & $30.39$ &  $675$\\
+$5.0$ & $3.5$ & $29.78$ &  $595$\\
+$5.5$ & $2.0$ & $24.76$ &  $450$\\
+$6.0$ & $0.5$ & $13.51$ &  $225$\\
+$3.5$ & $9.5$ & $34.34$ &  $981$\\
+$2.5$ & $25.0$ & $39.79$ & $1591$\\
+\hline
+\end{tabular}
+\caption{
+Namerané hodnoty vzdialenosti dosiek $d$ kondenzátoru, hmotnosť $m$,vypočítané hodnoty napätia $U$ a dielektrickej pevnosti vzduchu $E_p$. 
+} \label{T_1}
+\end{center}
+\end{table}
+
+
+V tabuľke Tab \ref{T_2} sú namerané hodnoty vzdialenosti dosiek $d$, vzdialenosti guľôčok iskriska $s$, a hmotnosť $m$\footnote{Rovnako ako v prvom prípade}.
+Ďalej vypočítané hodnoty napätia medzi doskami kondenzátoru $U$ podľa \ref{R_1}, a neznámej funkcie $f\(s/D\)$ podľa \ref{R_3}.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+\popi{d}{cm} & \popi{s}{mm} & \popi{m}{g} & \popi{U}{kV} & \popi{\frac{s}{D}}{-} & \popi{f\(\frac{s}{D}\)\cdot 10^{-3}}{-}\\
+\hline
+$1.50$ & $5.00$ & $70$  & $39.95$ & $0.34$ & $0.025$\\
+$1.50$ & $6.00$ & $190$ & $65.82$ & $0.41$ & $0.018$\\
+$1.50$ & $7.00$ & $205$ & $68.37$ & $0.48$ & $0.021$\\
+$1.50$ & $4.00$ & $60$  & $36.99$ & $0.27$ & $0.022$\\
+$1.50$ & $3.00$ & $35$  & $28.25$ & $0.21$ & $0.021$\\
+$1.50$ & $5.50$ & $170$ & $62.26$ & $0.38$ & $0.018$\\
+$1.50$ & $6.50$ & $270$ & $78.46$ & $0.45$ & $0.017$\\
+$1.50$ & $7.50$ & $-$   & $-$     & $0.51$ & $-$\\
+$1.50$ & $4.50$ & $85$  & $44.02$ & $0.31$ & $0.021$\\
+$1.50$ & $3.50$ & $45$  & $32.03$ & $0.24$ & $0.022$\\
+$2.00$ & $5.00$ & $10$  & $20.13$ & $0.34$ & $0.050$\\
+$2.00$ & $6.00$ & $55$  & $47.22$ & $0.41$ & $0.023$\\
+$2.00$ & $6.50$ & $80$  & $56.95$ & $0.45$ & $0.023$\\
+$2.00$ & $7.00$ & $95$  & $62.06$ & $0.48$ & $0.023$\\
+$2.00$ & $7.50$ & $110$ & $66.78$ & $0.51$ & $0.023$\\
+$2.00$ & $8.00$ & $135$ & $73.98$ & $0.55$ & $0.022$\\
+$2.00$ & $8.50$ & $150$ & $77.98$ & $0.58$ & $0.022$\\
+$2.00$ & $9.00$ & $175$ & $84.23$ & $0.62$ & $0.021$\\
+$2.00$ & $9.50$ & $195$ & $88.91$ & $0.65$ & $0.021$\\
+$2.00$ & $10.00$ & $220$& $94.44$ & $0.68$ & $0.021$\\
+$1.00$ & $4.00$ & $225$ & $47.75$ & $0.27$ & $0.017$\\
+$1.00$ & $3.50$ & $185$ & $43.30$ & $0.24$ & $0.016$\\
+$1.00$ & $3.00$ & $170$ & $41.51$ & $0.21$ & $0.015$\\
+$1.00$ & $2.50$ & $105$ & $32.62$ & $0.17$ & $0.015$\\
+$1.00$ & $2.00$ & $50$  & $22.51$ & $0.14$ & $0.018$\\
+$1.00$ & $1.50$ & $5$   & $7.12$ & $0.10$ & $0.042$\\
+\hline
+\end{tabular}
+\caption{
+Namerané hodnoty vzdialenosti dosiek $d$, vzdialenosti guľôčok iskriska $s$, a hmotnosť $m$,
+vypočítané hodnoty napätia $U$, a neznámej funkcie $f\(s/D\)$.
+} \label{T_2}
+\end{center}
+\end{table}
+
+
+Na obrázkoch Obr. \ref{G_1} a \ref{G_2} sú vyobrazené 2 rozmerné mapy elektrického pola v okolí elektród, na z-tovú osu je vynesená hodnota napätia $U$ voči zemi zdroja.
+
+
+
+\begin{figure}
+\input{data/m_1.tex}
+\caption{Grafické znázornenie závislosť potenciálu $U$ na polohe $x$ a $y$}  \label{G_1}
+\end{figure}
+
+
+\begin{figure}
+\input{data/m_2.tex}
+\caption{Grafické znázornenie závislosť potenciálu $U$ na polohe $x$ a $y$}  \label{G_2}
+\end{figure}
+
+\begin{figure}
+\input{data/g_1.tex}
+\caption{Závislosť neznámej funkcie $f\(s/D\)$ od $s/D$}  \label{G_3}
+\end{figure}
+
+
+
+\section{Diskusia \& Záver}
+
+Na wikipedii\cite{C_2} som dohľadal, Dielektrická pevnosť vzduchu, kde je určená na $"3 MV"$, pre suchý vzduch. Keďže v deň merania pršalo/snežilo tak vzduch nebol suchý a najmä toto prispelo k zníženiu prieraznosti.
+
+V druhej časti pri meraní prierazného napätie sa síce experiment podaril ale pri výpočte $f\(s/D\)$, som niekde neustále robil asi numerickú alebo systematickú chybu a hodnota vychádza o 3 rády menšia ako by mala byť a navyše ani nedopovedá predpokladu $f(0)=1$. Aj napriek tomu je vynesený graf  viď Obr, \ref{G_3}.
+
+V poslednej časti vidíme závislosť napätia na polohe, konkrétne Obr. \ref{G_1} a Obr. \ref{G_2}.
+
+
+\begin{thebibliography}{2}
+\bibitem{C_1}
+Dynamika rotačního pohybu [cit. 02.01.2017]Dostupné po prihlásení z Kurz: Fyzikální praktikum I:\url{https://praktikum.fjfi.cvut.cz/pluginfile.php/4352/mod_resource/content/2/Kondenzator_161002.pdf}
+
+\bibitem{C_2}
+Dielektrická pevnost [cit 14.1. 2017] dostupné na: \url{https://cs.wikipedia.org/wiki/Dielektrick\%C3\%A1_pevnost}
+
+\end{thebibliography}
+
+\end{document}
+

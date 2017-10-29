@@ -1,0 +1,313 @@
+\documentclass[a4paper,10pt]{article}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{listings}  
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+
+%\usepackage{caption}
+\renewcommand{\popi}[2]{$\frac{#1}{[\jd{#2}]}$}
+\renewcommand{\figurename}{Obr.}
+\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
+\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+
+\begin{document}
+\def\mean#1{\left< #1 \right>}
+\noindent
+{\large Fyzikální praktikum 1.} \hfil {\large FJFI ČVUT V Praze}\\
+\noindent
+{\large\textbf{pracovní úkol \# 2}}
+\begin{center}
+{\large\textit{Dynamika rotačního pohybu}}
+\end{center}
+\noindent
+\rule{\textwidth}{1px}
+\vspace{\baselineskip}
+
+\emph{Michal Červeňák}
+\par
+\vspace{\baselineskip}
+\begin{minipage}[l]{0.5\textwidth}%
+\textit{dátum merania:}~16.12. 2016\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{skupina:}~4\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{Klasifikace:}\dotfill\\%
+\end{minipage}
+
+\section{Pracovní úkol}
+
+\begin{enumerate}
+\item DU: V přípravě odvoď ťe vzorec pro výpočet momentu setrvačnosti válce a dutého
+válce. Vyjděte z definice a odvodťe vztahy (1) a (2) \cite{1}.
+\item  Změřte momenty setrvačnosti přiložených rotačních objektů experimentálně a porovnejte je s
+hodnotami z teoretických vzorců. Použijte disk, disk + prstenec a pomocí nich stanovte moment
+setrvačnosti samotného prstence.
+\item  Změřte moment setrvačnosti disku, umístěného na dráze mimo osu rotace a pomocí výsledků
+z předchozího úkolu ověřte platnost Steinerovy věty.
+\item  Ověřte zákon zachování momentu hybnosti. Do protokolu přiložte graf závislosti úhové rychlosti
+rotace na čase.
+\item  Změřte rychlost precese gyroskopu jak přímo senzorem, tak i nepřímo z měření rychlosti rotace
+disku. Obě hodnoty porovnejte.
+\end{enumerate}
+
+
+
+\section{Pomôcky}
+”A”base rotational adapter PASCO CI-6690, přídavny disk a prstenec, rotační dráha
+s dvěma závažími, Gyroskop PASCO ME-8960, přídavn´y disk gyroskopu ME-8961, dva rotační
+senzory PASCO PS-2120, USB link PASCO 2100, PC, program pro datový sběr Data
+Studio, nit, posuvné měrítko, stojan s kladkou, milimetrov´e měrítko, váhy.
+
+\section{Teória}
+
+Moment zotrvačnosť rotujúceho disku vypočítame ako
+\eq{
+I = \frac{1}{2} M R^2 \,, \lbl{R_10}
+}
+kde $M$ je hmotnosť disku a $R$ je jeho polomer.
+ 
+Moment zotrvačnosť rotujúcej kruhového prstenca vypočítame ako
+\eq{
+I = \frac{1}{2} M \(R_1^2+R_2^2\) \,, \lbl{R_11}
+}
+kde $M$ je hmotnosť disku a $R_{1,2}$ sú jeho polomery.
+
+Steinerová věta nám hovorí ako vypočítať moment zotrvačnosti telesa,
+keď poznáme jeho hmotnosť a moment zotrvačnosti okolo osi prechádzajúcej ťažiskom $I_0$, ktorá je vzdialená od osi otáčania o $a$
+\eq{
+I = I_0 + M a^2 \,. \lbl{R_12}
+}
+
+Vzťah re aparatúru na výpočet momentu zotrvačnosti z uhlového zrýchlenia $\epsilon$ 
+spôsobeného podaním závažia o hmotnosti $m$ pri tiažovom zrýchlení $g="9.81 m\cdot s^{-2}"$
+a kladke o polomere $r$ znie nasledovne
+\eq{
+I= r m\(\frac{g}{\epsilon}-r\) \,. \lbl{R_1}
+}
+
+K výpočtu teoretickej presecie $\Omega$, z momentu zotrvačnosti rotujúceho disku $I$, hmotnosti protizávažia $m$ a vzdialenosti závažia od osi precesie $d$ a úhlovej rýchlosti disku $\omega$
+\eq{
+\Omega = \frac{m g d}{I \omega} \lbl{R_3}
+}
+
+Moment hybnosti $L$ vypočítame ako
+\eq{
+L= \omega I \,. \lbl{R_2}
+}
+
+\subsubsection{Spracovanie chýb merania}
+
+Označme $\mean{t}$ aritmetický priemer nameraných hodnôt $t_i$, a $\Delta t$ hodnotu $\mean{t}-t$, pričom 
+\eq{
+\mean{t} = \frac{1}{n}\sum_{i=1}^n t_i \,, \lbl{SCH_1}
+}  
+a chybu aritmetického priemeru 
+\eq{
+  \sigma_0=\sqrt{\frac{\sum_{i=1}^n \(t_i - \mean{t}\)^2}{n\(n-1\)}}\,, \lbl{SCH_2}
+}
+pričom $n$ je počet meraní.
+
+\section{Postup merania}
+\begin{enumerate}
+\item Pomocou pusuvného meradla a metru sme zmerali všetky polomery (priemery) disku prstenca.
+\item Na digitálnych váhach sme určili hmotnosť disku aj prstenca.
+\item Odvážili sme aj obe použíté závažia.
+\item Na kladku na aparatúre sme namotali lanko, a na jeho voľný koniec sme umiestnili pripravené závažie. \label{OP_1}
+\item Následne závažie spustili a merali uhlové zrýchlenie disku 
+\item Postup opakujeme pre samostatný disk, disk s prstencom, vychýlený disk a samotnú aparatúru na vychýlenie.
+\item Následne boli na aparatúru umiestené 2 rovnaké závažia 
+\item Pre 2 zvolené symetrické polohy závaží voči stredu boli zmerané podľa \ref{OP_1} uhlové zrýchlenia
+\item Závažia boli priviazané lankom tak aby sa s nimi počas pohybu dalo pohybovať medzi krajnými polohami.
+\item Aparatúra sa roztočila a niekoľko krát sa zmenila poloha závaží a pri tom sme zaznamenávali závislosť uhlovej rýchlosti na čase.
+\end{enumerate}
+\begin{enumerate}
+\item Pomocou posuvného mradla boli odmerané všetky potrebné rozmery na giroskope $d,r_{1,2}$
+\item Na koniec girsokopu boli umiestnené závažie.
+\item Disk bol roztočený a pritom sa merali hodnoty precesie a uhlová rýchlosť disku.
+\end{enumerate}
+
+\section{Výsledky merania}
+V tabuľke Tab. \ref{T_1} sú namerané hodnoty jednotlivých uhlových zrýchlení. 
+Z nich pomocou vzťahov \ref{R_1} a \ref{SCH_1} boli vypočítané hodnoty momentu zotrvačnosti $I$ pre jednotlivé experimenty, pričom $r="3.11 cm"$.
+Disk má polomer $R= "11.45 cm" $ a obruč má polomery $R_1="6.3 cm"$ a $R_2="6.5 cm"$.
+Moment zotrvačnosti samostatného disku s hmotnosťou $m= "1429 g"$
+sme určili
+\eq{
+I_{D} = "\(0.020\pm0.001\)kg m^{2}"\,,
+}
+pričom $m = "50 g"$.
+
+Moment zotrvačnosti disku  prstencom o hmotnosti $m_P= "1428 g"$ 
+sme určili
+\eq{
+I_{D+P} = "\(0.032\pm0.002\)kg m^{2}"\,,
+}
+pričom $m = "50 g"$.
+
+Moment zotrvačnosti disku vychýleného od osi otáčania o vzdialenosť $a= "15 cm" $ 
+sme určili
+\eq{
+I_{PV+A} = "\(0.093\pm0.004\)kg m^{2}"\,,
+}
+pričom $m = "200 g"$.
+
+Moment zotrvačnosti aparatúry na vychýlenie disku 
+sme určili
+\eq{
+I_{A} = "\(0.023\pm0.001\)kg m^{2}"\,,
+}
+pričom $m = "200 g"$.
+
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c |}
+\hline
+\popi{\epsilon_{D}}{\frac{rad}{s^2}} & \popi{\epsilon_{D+P}}{\frac{rad}{s^2}} & \popi{\epsilon_{PV+A}}{\frac{rad}{s^2}} & \popi{\epsilon_{A}}{\frac{rad}{s^2}}\\
+\hline
+$0.723$ & $0.480$ & $0.657$ & $2.53$\\
+$0.744$ & $0.495$ & $0.651$ & $2.53$\\
+$0.768$ & $0.475$ & $0.634$ & $2.48$\\
+$0.749$ & $0.488$ & $0.663$ & $2.55$\\
+$0.810$ & $0.475$ & $0.655$ & $2.88$\\
+$0.813$ & $0.448$ & $0.633$ & - \\
+$0.781$ & $0.473$ & $0.659$ & - \\
+$0.777$ & $0.482$ & $0.679$ & - \\
+$0.721$ & $0.482$ & $0.664$ & - \\
+$0.767$ & $0.479$ & $0.670$ & - \\
+\hline
+\end{tabular}
+\caption{
+Nameraná hodnoty uhlového zrýchlenia $\epsilon_*$ pre jednotlivé merania.
+} \label{T_1}
+\end{center}
+\end{table}
+
+
+V tabuľke Tab. \ref{T_2} sú zaznamenané namerané hodnoty uhlového zrýchlenia pre závažia v jednotlivých polohách, 
+$\epsilon_{17}$ pre vzdialenosť od stredu $r="17 cm"$ a $\epsilon_{7}$ pre vzdialenosť od stredu $r="7 cm"$.
+Z nich podľa vzťahu \ref{R_1} boli vypočítané jednotlivé hodnoty 
+momentov zotrvačnosti $I_{17} = "\(0.013\pm0.0005\) kg\cdot m^2"$ a $I="\(0.0081\pm0.0001\) kg\cdot m^2"$.
+Tie boli použité na výpočet jednotlivých hodnôt momentu hybnosti z nameraných dát v tabuľke Tab. \ref{T_3}.
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c |}
+\hline
+\popi{\epsilon_{17}}{\frac{rad}{s^2}} & \popi{\epsilon_{7}}{\frac{rad}{s^2}}\\
+\hline
+$1.21$ & $1.91$\\
+$1.14$ & $1.84$\\
+$1.22$ & $1.85$\\
+$1.23$ & $1.86$\\
+$1.27$ & $1.84$\\
+\hline
+\end{tabular}
+\caption{
+Nameraná hodnoty uhlového zrýchlenia $\epsilon_*$ pre jednotlivé polohy závaží.
+} \label{T_2}
+\end{center}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c |}
+\hline
+\popi{\omega_{17}}{\frac{rad}{s^2}} & \popi{\omega_{7}}{\frac{rad}{s^2}} & \popi{L_{17}}{\frac{rad kg}{s^2}} & \popi{L_{7}}{\frac{rad kg}{s^2}}\\
+\hline
+$0.0796$ & $0.197$ & $ 0.10$ & $1.61$\\
+$0.056$  & $0.15$  & $ 0.70$ & $1.22$\\
+$0.108$  & $0.152$ & $ 1.35$ & $1.27$\\
+$1.9$    & $0.303$ & $23.81$ & $2.47$\\
+$1.54$   & $0.351$ & $19.30$ & $2.86$\\
+$1.1102$ & $0.617$ & $13.91$ & $5.03$\\
+$0.0995$ & $0.152$ & $ 1.25$ & $1.24$\\
+$0.0571$ & $0.204$ & $ 0.73$ & $1.66$\\
+$0.0565$ & $0.324$ & $ 0.71$ & $2.64$\\
+$0.0788$ & $0.189$ & $ 0.99$ & $1.54$\\
+$0.199$  & $0.163$ & $ 2.49$ & $1.33$\\
+\hline
+\end{tabular}
+\caption{
+Namerané hodnoty uhlových rýchlosti pre jednotlivé vzdialenosti $\omega$ 
+a vypočítané hodnoty momentu hybnosti podľa vzťahu \ref{R_2} $L$.
+} \label{T_3}
+\end{center}
+\end{table}
+
+Z veľkosti kladiek na prevod $d_1="5.6 cm"$ a $d_2="3.11 cm"$ sme určili prevodný pomer medzi nameranými dátami uhlovej rýchlosti rotácie disku giroskopu.
+Vzdialenosť  sme určili ako súčet vzdelaností po disk od disku a hrúbku disku, teda $d = "\(3\pm0.1+7\pm0.5+13.5\pm0.5\) cm" = "23.5\pm1.1 cm"$.
+
+V tabuľke Tab. \ref{T_4} sú namerané a vypočítane hodnoty precesie giroskopu a ich porovnanie.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c |}
+\hline
+\popi{\omega}{\frac{rad}{s^2}} & \popi{\Omega_m}{s^{-1}} & \popi{\Omega_v}{s^{-1}} & \popi{\Omega_m/\Omega_v}{-}\\
+\hline
+$-0.265$ & $-40.891$ & $-0.25$ & $1.07$\\
+$ 0.310$ & $ 27.000$ & $ 0.38$ & $0.83$\\
+$-0.364$ & $-53.724$ & $-0.19$ & $1.93$\\
+$ 0.281$ & $ 46.729$ & $ 0.22$ & $1.30$\\
+$ 0.384$ & $ 33.393$ & $ 0.30$ & $1.27$\\
+\hline
+\end{tabular}
+\caption{
+Namerané hodnoty uhlovej rýchlosti $\omega$ pred prepočtom, 
+v závislosti na hodnote precesie $\Omega_m$ , 
+vypočítané hodnoty precesie podľa vzťahu \ref{R_3} $\Omega_v$ a 
+ich pomer.
+} \label{T_4}
+\end{center}
+\end{table}
+
+
+
+
+\begin{figure}
+\input{data/graph.tex}
+\caption{Závislosť uhlovej $\omega$ frekvencie na čase $t$ pri zmene polohy závaží.}  \label{G_1}
+\end{figure}
+
+
+\begin{figure}
+\input{data/precese.tex}
+\caption{Závislosť uhlovej $\omega$ frekvencie na čase $t$ pri precesí.}  \label{G_1}
+\end{figure}
+
+
+
+\section{Diskusia \& Záver}
+Podľa vzťahu \ref{R_10} sme vypočítali moment zotrvačnosti $I_D="93 g m^2"$ a  a podľa vzťahu \ref{R_11} obruče $I = "5,32 g m^2"$. Kde jasne vidíme, že hodnoty sa od nami nameraných výrazne líšia.
+Podľa vzťahu \ref{R_11} sme sme určili teoretický $I_0$ ako $I_0 = I_{PV+A} - I_{A} - a^2 M = "0.0378 kg m^2" $, čo je opäť v rozpore s nameranými hodnotami. 
+
+Pri overovaní ZZMH sa opäť vo výsledkoch ukazuje veľká nepresnosť a nezrovnalosť nameraných dát s teóriu.
+Vyzerá to že naše meranie zaťažené systematickou chybou, ktorá podľa môjho predpokladu vznikla pri určovaní polomeru kladky. Je to jediný parameter, ktorý sa vyskytuje všade vo výpočtoch.
+Pri takejto výraznej (asi) systematickej chybe je zahŕňať do odhadov nepresností aj iné chyby skoro zbytočné ale predsa ich tu spomeniem.
+Predovšetkým sa jedná o trenie pri otáčaní aparatúry, hmotné lanko, nezapočítaný moment zotrvačnosti podstavca, namotávanie nitky a tým sa zväčšuje polomer kladky, nezapočítaný moment zotrvačnosti druhej kladky.
+
+
+Naopak pri overovaní precesie a vzťahov pre precesiu giroskopu, vidíme veľmi peknú zhodu dát sa teóriou. 
+Tu opäť môžeme diskutovať o vzniku nepresností merania. Meranie hodnoty $d$ bolo nepriame a rozdelená na cca 3 sub-merania každé s presnosťou $"0.5 cm"$, gumička na prevode dosť preklzávala, a teda neprenášala všetky otáčky. 
+
+
+\begin{thebibliography}{2}
+\bibitem{C_1}
+Dynamika rotačního pohybu [cit. 02.01.2017]Dostupné po prihlásení z Kurz: Fyzikální praktikum I:\url{https://praktikum.fjfi.cvut.cz/pluginfile.php/133/mod_resource/content/6/Rotace_161003.pdf}
+
+\end{thebibliography}
+
+\end{document}
+

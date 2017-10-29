@@ -1,0 +1,285 @@
+\documentclass[a4paper,10pt]{article}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+
+%\usepackage{caption}
+\renewcommand{\popi}[2]{$#1$[\jd{#2}]}
+\renewcommand{\figurename}{Obr.}
+\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
+\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+
+\begin{document}
+\def\mean#1{\left< #1 \right>}
+\noindent
+{\large Fyzikální praktikum 1.} \hfil {\large FJFI ČVUT V Praze}\\
+\noindent
+{\large\textbf{pracovní úkol \# 6}}
+\begin{center}
+{\large\textit{Kalorimetrie}}
+\end{center}
+\noindent
+\rule{\textwidth}{1px}
+\vspace{\baselineskip}
+
+\emph{Michal Červeňák}
+\par
+\vspace{\baselineskip}
+\begin{minipage}[l]{0.5\textwidth}%
+\textit{dátum merania:}~10.10. 2016\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{skupina:}~4\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{Klasifikace:}\dotfill\\%
+\end{minipage}
+
+\section{Pracovní úkol}
+\begin{enumerate}
+\item Zkalibrujte teplotní čidlo a sestavte kalibrační křivku
+\item Určete tepelnou kapacitu kalorimetru
+\item Určete měrnou tepelnou kapacitu přiložených kovových válečků a ověřte Dulongův-Petitův zákon
+\item Určete měrné skupenské teplo tání ledu 
+\item Určete měrné skupenské teplo varu vody
+\end{enumerate}
+
+\section{Postup merania}
+
+
+\subsection{Tepelná kapacita kalorimetru}
+\begin{enumerate}
+\item Do kalorimetru sa nalial známe množstvo vody o pokojovej teplote
+\item Dáme sa zohrievať voda.
+\item Po zohriatí sa určila jej teplota
+\item Obe kvapaliny boli zmiešané a určená teplota zmesi.
+\end{enumerate}
+\subsection{Meraná tepelná kapacita pevné látky}
+\begin{enumerate}
+\item Do kalorimetru sa dal známe množstvo vody o známej teplote
+\item Skúmané teleso zohrialo na $"100 \C"$
+\item Teleso sa ponorilo do kvapaliny, pričom sa meral časový vývoj teploty
+\item Tento postup sa opakoval pre všetky telesá
+\end{enumerate}
+\subsection{Meraná skupenské teplo topenia}
+\begin{enumerate}
+\item Pripravila sa zmes vody a ľadu o teplote $t="0 \C"$
+\item Odmerala sa jej teplota --kvôli kalibrácii teplomeru
+\item Do tejto zmesi sa dali kusy ľadu
+\item Po vyrovnaní teplôt sa kúsky ľadu vložili do kalorimetru pričom sa opäť merala časová závislosť teploty.
+\end{enumerate}
+
+\subsection{Meraná skupenské teplo varu}
+\begin{enumerate}
+\item V paro-generátore zahrejeme vodu na $t=100\C$ tak aby nám začal var
+\item Kalorimeter si naplníme vodou o známej teplote a známej hmotnosti
+\item Po tom ako nastane var v paro-generátore vložíme jeho vývod do kalorimetra a regulujeme ohrev tak aby sa všetká para stihla skondenzovať.
+\item Popritom zaznamenávame časový vývoj teploty 
+\end{enumerate}
+
+\section{Pomôcky}
+Kalorimeter, digitálny teplomer, paro-generátor, váhy.
+
+\section{Teória}
+Pre výpočet tepelnej kapacity kalorimetra môžem použiť vzorec
+\eq{
+\kappa = \frac{\(m_z c\)\(t_z-t\)}{t-t_1} - m_1 c \,, \lbl{R_1}
+}
+pričom $c$ je tepelná kapacita vody, 
+$m_z$ a $t_z$ je hmotnosť a teplota zohrievanej vody,
+$m_1$ a $t_1$ je hmotnosť a teplota vody v kalorimetre, a $t$ je teplota zmesi po ustálení teploty. 
+
+Na výpočet tepelnej kapacity neznámej látky použijem vzorec 
+\eq{
+c = \frac{m_1 c_v\(t-t_1\)}{m_d2\(t_2 - t\)}\,, \lbl{R_2}
+}
+kde $m_1$ a $t_1$ je teplota vody v kalorimetre $m_2$ a $t_2$ je hmotnosť a teplota vkladaného telesa. 
+A $t$ je teplota zmesi. 
+
+Prevod medzi mernou tepelnou kapacitou a molárnou tepelnou kapacitou
+\eq{
+c_M = M_n c\,, \lbl{R_3}
+}
+pričom $M_m$ je molárna hmotnosť a $c_M$ je molárna tepelná kapacita.
+
+
+Na výpočet merného tepelného skupenstva topenia uvažujeme vzťah
+\eq{
+k_t = \frac{\(m_1 c+\kappa\)\(t_1-t\)-m c t}{m}\,, \lbl{R_4}
+}
+kde $m$ je hmotnosť ladu, a zvyšné veličiny sú obdobné ako u prechádzajúcich vzťahov.
+
+K výpočtu merného skupenského tepla varu použijeme vzťah
+\eq{
+l_v = \frac{\(m_1 c+\kappa\)\(t-t_1\)-m c\(t_v-t\)}{m}\,, \lbl{R_5}
+}
+kde $t_v$ je teplota varu a $m$ je hmotnosť zkondenzovanej vodnej pary.
+
+
+
+\section{Výsledky merania}
+Hmotnosť kalorimetra~$m_k$ bola pomocou digitálnych váh určená na $m_k = "52.18 g"$.
+
+\subsection{Tepelná kapacita kalorimetru}
+Do kalorimetru bola naliatá voda o hmotnosti $m_1 = "105.66 g"$ a teplote $t_1="22.3 \C"$. 
+Hmotnosť zohrievanej vody bola $m_z = "81.3 g"$.
+Teplota vody po zohriatí bola $t_z = "100 \C"$.
+Po zmeniešaní mala zmes teplotu $t_v = "47.9 \C" $
+Z toho bola pomocou vzťahu \ref{R_1} určená tepelná kapacita kalorimetru $\kappa = "158 J \cdot K^{-1}" $\footnote{Pre ďalšie výpočty je uvažované práve s touto kapacitou.}.
+
+\subsection{Meraná tepelná kapacita pevné látky}
+
+Vážením boli určené hmotnosti všetkých troch valčekov 
+\eq[m]{
+m_{mo} = "334.56 g"\,,\\
+m_{Cu} = "364.00 g"\,,\\
+m_{Al} = "114.36 g"\,.
+}
+Všetky 3 valčeky boli zohraté na teplotu $t_2="100 \C"$.
+Najskôr bolo prevedené meranie bronzového valčeku, ktorý bol ponorený do vody o teplote $t_1="24.7 \C"$ a hmotnosti $m_1 ="238.9 g"$.
+Teplota sa ustálila po istom čase na $t="31.6 \C"$.
+
+Následne bolo prevedené meranie medi ktorý bol ohriaty na $t_2="100 \C"$, a ponorený do vody o teplote $t_1="24.7 \C"$ a hmotnosti $m_1 ="220.7 g"$.
+Teplota sa ustálila po istom čase na $t="33.6 \C"$.
+
+Ako posledné bolo prevedené meranie hliníku, ktorý bol ohriaty na $t_2="100 \C"$, a ponorený do vody o teplote $t_1="24.8 \C"$ a hmotnosti $m_1 ="255.59 g"$.
+Teplota sa ustálila po istom čase na $t="30.4 \C"$.
+
+Podľa vzťahu \ref{R_2} boli vypočítané jednotlivé tepelne kapacity látok
+\eq[m]{
+c_{mo} = "0.35 J\cdot g^{-1} \cdot K^{-1}"\,,\\
+c_{Cu} = "0.39 J\cdot g^{-1} \cdot K^{-1}"\,,\\
+c_{Al} = "0.86 J\cdot g^{-1} \cdot K^{-1}"\,,
+}
+následne boli všetky hodnoty prepočítané na molárnu tepelnú kapacitu podľa vzťahu \ref{R_3},
+a porovnané s hodnotou ktorá bola spočítaná podľa Dulonův-Petitůvého zákona.
+Pričom molárne hmotnosti boli vyhľadané v periodickej tabuľke\cite{C_1}, 
+pre med $M_{Cu}="63.546 g/mol"$ a hliník $M_{Al}="26.98154 g/mol"$
+\eq[m]{
+c_{M_{Cu}} = "24.8 J\cdot mol^{-1} \cdot K^{-1}"\,,\\
+c_{M_{Al}} = "23.2 J\cdot mol^{-1} \cdot K^{-1}"\,,
+}
+pričom molárna hmotnosť mosadze nieje dobre definovaná preto nebola dopočítaná hodnota $c_M$ pre mosadz.
+
+\subsection{Meraná skupenské teplo topenia}
+
+V tomto prípadne boli uskotočnené 2 merania pre rôzne množstvá ľadu.
+V pravom prípade, bola hmotnosť ľadu $m="19.44 g"$, teplota vody na začiatku $t_1="26.7 \C"$, a hmotnosť vody $m_1="247.47 g"$ a $t="19 \C"$.
+Podľa vzťahu \ref{R_4} bolo určené merné skupenská teplo topenia na $l="358.76 J\cdot g^{-1}"$.
+
+Následne bol prevedený experiment s väčším množstvom ľadu, konkrétne $m="76.82 g"$, $t_1="19.6 \C"$ a $t="3.7 \C"$. 
+Pre tento prípad bolo určené merná skupenské teplo $l="251.76 J\cdot g^{-1}"$.
+Obe teploty boli určené z grafov \ref{G_5} a \ref{G_6}
+
+\subsection{Meraná skupenské teplo varu}
+Hmotnosť vody o teplote $t_1="62.3 \C"$ bola $m_1="147.86 g"$. 
+Hmotnosť kondenzovanej vody je $m="21.48 g"$. 
+Pričom teplota vystúpila na $t="62.3 \C"$. 
+Teplota $t$ numerickou integráciou, viď graf \ref{G_4} ako $t="62.3 \C"$
+Z nameraných údajov bola pomocou vzťahu \ref{R_5} určené merné skupenské teplo varu $l_v = "1474 J\cdot g^{-1}"$
+
+
+
+
+\subsection{určenie kalibračnej krivky}
+
+Kalibračná krivka bola určená pomocou teploty varu a topenia vody
+\eq[m]{
+t_t = "99.9 \C"\,, \\
+t_v = "0.6 \C" \,,
+}
+následne bola krivka vykreslená do grafu obr. \ref{G_6}. a spočítaná rovnica priamky
+\eq{
+t\_{nameraná} = 0.993 t\_{skutočná} + 0.6  \,.
+}
+\subsection{Chyby merania}
+Chyby merania a chyby meracích prístrojov v tomto prípade uvažujeme ako zanedbateľné.
+Konkrétne chyba určovanie hmotnosti $\Delta m = "0.01 g"$, teploty $\Delta t = "0.1 \C"$ sú určené ako veľkosť najmenšieho dieliku stupnice.
+
+\section{Diskusia}
+
+Merné skupenské teplo varu vody bolo určené ako $l_v = "1\,474 J\cdot g^{-1}"$, 
+v porovnaní s tabuľkovou hodnotou $l_v = "2\,256 J\cdot g^{-1}"$ sa hodnoty líšia o pol radu. 
+Tento rozdiel je v prvej rade spôsobený únikom časti vodných par von z kalorimetru. 
+Ďalej výmenou tepla s okolitým prostredím a chľadnutím už aparatúre na výrobu pary.
+
+Nami namerané merné skupenské teplo topenie vody v porovnaní s tabuľkovými 
+hodnotami \cite{C_2} $t_t = "333.7 J\cdot g^{-1}"$ je v pravom prípade pri použití malého množstva ľadu veľmi podobná. 
+Pri použití rádovo viac ľadu sa táto hodnota líši už o cca $"40 \%"$. 
+V prvej rade je to spôsobené veľmi dlhým meraním, a teda vplyv okolia 
+je už nezanedbateľný a lineárny odhad teploty je v tomto prípade nedostatočný, treba použiť exponenciálny.
+Ďalším problémom je nemožnosť ochladiť ľad ako celok na $"0 \C"$ aj 
+keď vonkajšok sa ochladil na nulu tak vnútro ľadových kociek malo stále nižšiu teplotu.
+
+Overenie Dulonův-Petitůvého zákona sa pre hliník ale aj meď ukázalo ako celkom presné a nelíši sa od hodnoty $3R \doteq 25 $. 
+Chyby ako u všetkých meraní sú výmena tepla s okolím.
+
+
+
+
+\section{Záver}
+Merné skupenské teplo varu vody bolo určené ako $l_v = "1\,474 J\cdot g^{-1}"$,
+merné skupenské teplo topenia vody bolo určené ako $l_t = "358.76 J\cdot g^{-1}"$.
+
+Pre meď a hliník bol overený Dulonův-Petitůvého zákon. A vynesená kalibračná krivka od obr. \ref{G_7}.
+
+
+
+\begin{thebibliography}{2}
+\bibitem{C_1}
+Periodická tabuľka dostupná na \url{http://galerie2.sweb.cz/prvky.htm}
+
+\bibitem{C_2}
+Fyzikálne tabuľky dostupné na \url{http://physics.mff.cuni.cz/kfpp/skripta/kurz_fyziky_pro_DS/display.php/molekul/8_3}
+\end{thebibliography}
+
+\section{Prílohy}
+\begin{figure}
+\input{data/bronz_1.tex}
+\caption{Priebeh teploty pre mosadzné závažie}  \label{G_1}
+\end{figure}
+
+\begin{figure}
+\input{data/med_1.tex}
+\caption{Priebeh teploty pre medené závažie}  \label{G_2}
+\end{figure}
+
+\begin{figure}
+\input{data/hlinik_1.tex}
+\caption{Priebeh teploty pre hliníkove závažie}  \label{G_3}
+\end{figure}
+
+\begin{figure}
+\input{data/var_1.tex}
+\caption{Priebeh teploty pre var vody}  \label{G_4}
+\end{figure}
+
+\begin{figure}
+\input{data/led_1.tex}
+\caption{Priebeh teploty topenie ľadu}  \label{G_5}
+\end{figure}
+
+\begin{figure}
+\input{data/bronz_1.tex}
+\caption{Priebeh teploty topenie ľadu}  \label{G_6}
+\end{figure}
+
+\begin{figure}
+\input{data/k_1.tex}
+\caption{Priebeh teploty topenie ľadu}  \label{G_6}
+\end{figure}
+
+
+\end{document}
+
+
+
+
+

@@ -1,0 +1,19 @@
+\subsubsection{Spracovanie chýb merania}
+
+Označme $\mean{t}$ aritmetický priemer nameraných hodnôt $t_i$, a $\Delta t$ hodnotu $\mean{t}-t$, pričom 
+\eq{
+\mean{t} = \frac{1}{n}\sum_{i=1}^n t_i \,, \lbl{SCH_1}
+}  
+a chybu aritmetického priemeru 
+\eq{
+  \sigma_0=\sqrt{\frac{\sum_{i=1}^n \(t_i - \mean{t}\)^2}{n\(n-1\)}}\,, \lbl{SCH_2}
+}
+pričom $n$ je počet meraní.
+
+Majme veličina  $ u = f(x,y,z,\ldots)$, potom podľa zákou šírenia chýb platí
+\eq{
+\sigma_u = \sqrt{\(\pder{f}{x}\)^2_0 \sigma_x^2 +\(\pder{f}{y}\)^2_0 \sigma_y^2 + \(\pder{f}{z}\)^2_0 \sigma_z^2 + \ldots}\,, \lbl{SCH_3}
+}
+kde $\sigma_i$ je stredná chyba veličiny $i$ v bode $\(x_0,y_0,z_0\)$.
+
+

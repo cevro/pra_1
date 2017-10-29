@@ -1,0 +1,362 @@
+\documentclass[a4paper,10pt]{article}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+
+%\usepackage{caption}
+\renewcommand{\popi}[2]{$#1$[\jd{#2}]}
+\renewcommand{\figurename}{Obr.}
+\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
+\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+
+\begin{document}
+\def\mean#1{\left< #1 \right>}
+\noindent
+{\large Fyzikální praktikum 1.} \hfil {\large FJFI ČVUT V Praze}\\
+\noindent
+{\large\textbf{pracovní úkol \# 10}}
+\begin{center}
+{\large\textit{LHO}}
+\end{center}
+\noindent
+\rule{\textwidth}{1px}
+\vspace{\baselineskip}
+
+\emph{Michal Červeňák}
+\par
+\vspace{\baselineskip}
+\begin{minipage}[l]{0.5\textwidth}%
+\textit{dátum merania:}~21.11. 2016\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{skupina:}~4\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{Klasifikace:}\dotfill\\%
+\end{minipage}
+
+\section{Pracovní úkol}
+
+\begin{enumerate}
+\item Změřrte tuhost pružiny statickou metodou a vypočtěte vlastní úhlovou frekvenci pro dvě různá
+závaží.
+\item Změřte časový průběh tlumených kmitů pro dvě závaží, ověřte platnost rovnice (14) proložením
+dat a z parametrů proložení vypočtěte vlastní frekvenci volného oscilátoru.
+\item Změřte závislost amplitudy vynucených kmitů na frekvenci vnější síly v okolí rezonance pro
+dvě závaží a proložením dat ověřte platnost vztahu (19), z parametrů proložení vypočtěte vlasní
+frekvenci volného oscilátoru.
+\item Porovnejte výsledky vlastní frekvence ze všech tří předchozích úkolů
+\item Ověřte, že (10) je řešením pohybové rovnice Pohlova kyvadla, nalezněte ´
+řešení pro polohovou a rychlostní podmínku a nakreslete jejich průběh.
+\item Naměřte časový vývoj výchylky kmitů kyvadla pro netlumené kmity a určete vlastní frekvenci
+Pohlova kyvadla.
+\item Změřte koeficient útlumu pro jednu hodnotu tlumícího proudu z intervalu (0,5 – 1,5)A.
+\item Experimentálně nalezněte hodnotu tlumícího proudu, pro který nastává kritický útlum. Realizujte
+polohovou i pohybovou podmínku a za pomoci domácího úkolu a úkolu 2. zjistěte, zda
+platí podmínka $\omega_0 = \delta$.
+\item Bonus: Vytvořte v DataStudiu fázový diagram. Prozkoumejte, jak vypadá pohyb kyvadla ve
+fázovém diagramu za různých podmínek (netlumený, tlumený, kriticky tlumený). Grafy přiložte
+k protokolu a diskutujte je
+
+
+\end{enumerate}
+
+
+
+\section{Pomôcky}
+Experimentální stojan s pružinou a motorkem, tlumící magnety, rotační pohybové
+senzory Pasco, sada závaží, regulovatelný zdroj $"0-20 V"$, voltmetr, digitální tachometr CEM AT-6,
+PC, programy DataStudio a gnuplot, Pohlovo kyvadlo, nastavitelný zdroj $"0-3 A"$, rotační senzor PASCO, PC, program
+DataStudio.
+
+
+\section{Teória}
+Pohlovo kyvadlo je tvorené medeným kotúčom a k menu pripevnená špirálovitá pružina, ktorá sa pri otáčaní skracuje alebo predlžuje. \cite{C_2}\textit{voľná citácia}
+
+Podľa Hookovho zákona platí
+\eq{
+F = - kx \,, \lbl{R_1}
+}
+kde F je sila pôsobiaca na pružinu v našom prípade $F=mg$, 
+kde $m$ je hmotnosť závaží, $g$ je tiažové zrýchlenie a $x$ je výchylka.
+
+Závislosť uhlovej frekvencie $\omega_0$ na tuhosti $k$ platí vzťah
+\eq{
+\omega_0 = \sqrt{\frac{k}{m}}\,, \lbl{R_2}
+}
+kde $m$ je hmotnosť závažia.
+
+Závislosť amplitúdy $B$ kmitov od frekvencie $\gamma$ budiacej sily môžeme vyjadriť ako
+\eq{
+B_{\(\gamma\)} = \frac{f}{m\sqrt{\(\omega_0^2-\gamma^2\)+4\lambda^2\gamma^2}}\,, \lbl{R_4}
+}
+kde $\omega_0$ je vlastná uhlová frekvencia oscilátoru a $\lambda$ je direkté tlmenie oscilátoru.
+
+Označme $\omega_0$ vlastnú uhlovú frekvenciu oscilátoru, $\omega$ uhlovú frekvenciu tlmeného oscilátora a $\gamma$ útlm oscilátora. Potom medzi nimi platí nasledujúci vzťah
+\eq{
+\omega_0 =  \sqrt{\omega^2 + \gamma^2}\,. \lbl{V_PB_1}
+}
+Celá teória spolu s odvodením dostupná na \cite{C_1} a \cite{C_2}.
+
+
+\subsubsection{Spracovanie chýb merania}
+
+Označme $\mean{t}$ aritmetický priemer nameraných hodnôt $t_i$, a $\Delta t$ hodnotu $\mean{t}-t$, pričom 
+\eq{
+\mean{t} = \frac{1}{n}\sum_{i=1}^n t_i \,, \lbl{SCH_1}
+}  
+a chybu aritmetického priemeru 
+\eq{
+  \sigma_0=\sqrt{\frac{\sum_{i=1}^n \(t_i - \mean{t}\)^2}{n\(n-1\)}}\,, \lbl{SCH_2}
+}
+pričom $n$ je počet meraní.
+
+\section{Postup merania}
+\begin{enumerate}
+\item Na digitálnych váhach boli odvážené jednotlivé časti protizávaží a samotné závažia kyvadla.
+\item Pomocou senzoru Pasco boli odmerané jednotlivé rozdiely polôh pre rôzne hmotnosti závaží zavesených na oscilátri.
+\item Oscilátor bol potiahnutím závaží nadol uvedený do pohybu a pomocou senzoru bol zaznamenávaný priebeh výchylky na čase
+\item Elektromotor bol pripojený k zdroji napätia a pomocou tachometru odmeraná závislosť otáčiek na napätí. 
+\item Motorček bol pripojený k oscilátoru, tak aby budil kmity. Pomocou senzoru Pasco bola zaznamenávaná veľkosť výchylky.
+\item Pohlové kyvadlo bolo vychýlením z rovnovážnej polohy uvedené do pohybu, opäť bola zaznamenávaná veľkosť výchylky na čas
+\item Pre prúdy v rozsahu $I= "0.5-1.5 A"$ boli opäť namerané závislosti podľa predchádzajúceho bodu.
+\item Pre rôzne prúdy sa kyvadlo vychýlilo a hľadal sa prúd, v ktorom nastane kritický útlm.
+\item Do kyvadla sa v rovnovážnej polohe buchlo tak aby to spôsobilo výchylku a opäť sa hľadal prúd kedy nastane kritický útlm.
+\end{enumerate}
+
+\section{Výsledky merania}
+\subsection{Statická metóda}
+
+V Tab. \ref{T_1} sú zaznamenané hmotnosti závažia a im prislúchajúcu hodnotu predĺženia. A vypočítaná tuhosť a vlastné frekvencie.
+Na oscilátore okrem závaží sú zavesené aj iné predmety; menovite hliníková tyčka o hmotnosti $m_h="21.84 g"$ a kovový hák na zavesenie závaží o hmotnosti $m_t="21.16 g"$, pričom celková hmotnosť 
+\eq{
+m_0 = m_t + m_h = "43.0 g"\,. 
+}
+
+
+
+\begin{table}[h]
+
+\begin{center}
+\begin{tabular}{| c | c | c | c | c |}
+\hline
+ typ   &\popi{\Delta x}{mm} & \popi{m}{g} & \popi{k}{kg s^{-2}} & \popi{\omega_0}{rad\cdot s^{-1}} \\
+\hline
+Malé    & $3.9   \pm 0.01$ & $ 10.29 $ & $28.88\pm0.2$ & $23.34$\\
+Stredné & $7.56  \pm 0.01$ & $ 22.30 $ & $28.93\pm0.2$ & $21.09$\\
+Veľké   & $17.78 \pm 0.01$ & $ 45.56 $ & $25.14\pm0.2$ & $16.90$\\
+\hline
+
+\end{tabular}
+\caption{Namerané hodnoty výchylky $x$, na hmotnosti závažia $m$, vypočítaná tuhosť pružiny $k$ podľa vzťahu \ref{R_1} a vlastná uhlová frekvencia $\omega_0$ podľa vzťahu \ref{R_2} } \label{T_1}
+\end{center}
+\end{table}
+
+
+
+\subsection{Tlmené kmity}
+Do grafov Obr. \ref{G_1} a Obr. \ref{G_2} boli vynesené namerané hodnoty tlmeného kmitania pre stredné závažie. 
+Tie boli preložené fitmi, a z nich boli získané postupne hodnoty $\omega_0="\(18.88\pm0.007\) rad s^{-1}"$ a $\omega_0="\(18.24\pm0.02\) rad \cdot  s^{-1}"$.
+
+Pre veľké závažia bol postup ekvivalentný, grafy boli vynesené do Obr. \ref{G_3} a Obr. \ref{G_4} a získané hodnoty $\omega_0="\(16.56\pm0.02\) rad s^{-1}"$ a $\omega_0="\(16.30\pm0.01\) rad \cdot  s^{-1}"$.
+
+
+\begin{figure}
+\input{data/graf_tlmeny_S_1.tex}
+\caption{Závislosť polohy $x$ v čase $t$, preložené funkciou $x= \(1\cdot10^7\pm6.7\cdot10^5\)e^{-\(1.26\pm0.01\)t} sin\(\(18.88\pm0.01\)t +\( 15.2\pm0.07\)\) $}  \label{G_1}
+\end{figure}
+
+
+
+\begin{figure}
+\input{data/graf_tlmeny_S_2.tex}
+\caption{Závislosť polohy $x$ v čase $t$, preložené funkciou $x= \(1\cdot10^11\pm2.8\cdot10^10\)e^{-\(1.28\pm0.02\)t} sin\(\(18.24\pm0.02\)t +\( 34.23\pm0.29\)\) $}  \label{G_2}
+\end{figure}
+
+
+
+
+\begin{figure}
+\input{data/graf_tlmeny_V_1.tex}
+\caption{Závislosť polohy $x$ v čase $t$, preložené funkciou $x= \(1\cdot10^7\pm1.5\cdot10^6\)e^{-\(1.14\pm0.02\)t} sin\(\(16.56\pm0.02\)t +\( 37.7\pm0.12\)\) $}  \label{G_3}
+\end{figure}
+
+
+
+
+\begin{figure}
+\input{data/graf_tlmeny_V_2.tex}
+\caption{Závislosť polohy $x$ v čase $t$, preložené funkciou $x= \(1\cdot10^11\pm1.97\cdot10^10\)e^{-\(1.55\pm0.01\)t} sin\(\(16.30\pm0.01\)t +\( 58.8\pm0.19\)\) $}  \label{G_4}
+\end{figure}
+
+
+
+
+
+
+\subsection{Nútené a tlmené kmity}
+
+V grafe Obr. \ref{G_6} je vynesená kalibračná krivka otáčiek motoru na vstupnom napätí. Z toho bola získaný vzťah
+\eq{
+\gamma = "\(2.1U-0.35\) rad \cdot s^{-1} /V"\,, \lbl{R_V1}
+}
+kde $U$ ja úbytok napätie na motorčeku.
+
+\begin{figure}
+\input{data/graph_kalibracia_u.tex}
+\caption{Kalibračná krivka k prevodu napätia $U$ na otáčky motorčeka $\gamma$}  \label{G_6}
+\end{figure}
+
+
+\begin{figure}
+\input{data/graph_nutene.tex}
+\caption{Závislosť amplitúdy $B$ od frekvencia budiacej sily $\gamma$,
+pre stredné a veľké závažie preložená, a 
+pre stredné závažie funkciou $B_{\(\gamma\)} = \frac{1.55}{4.16\sqrt{\(12.23^2 - \gamma^2\)^2+4\cdot 0.5^2 \gamma^2 } }$}  \label{G_5}
+\end{figure}
+
+
+V grafe Obr. \ref{G_5} bola vynesená závislosť maximálnej amplitúdy $B$ na frekvencií budiacej sily $\gamma$, pre veľké závažie preložená závislosťou \ref{R_4}.
+
+Frekvencia $\gamma$ bola vypočítaná pomocou kalibračného vzťahu \ref{R_V1} z napätia.
+Maximum nastalo pre $\gamma ="25.28 Hz"$.
+
+
+
+
+\section{Pohlovo kyvadlo}
+
+Pre pohlové kyvadlo bez tlmenia boli namerané dáta vynesené do grafov napr. Obr. \ref{G_PB_1}.
+Pre ostatné merania sa postupovalo rovnako a fitnuté parametre boli vynesené do tabuľky Tab. \ref{T_PB_1}
+
+\begin{table}[h]
+
+\begin{center}
+\begin{tabular}{| c | c | c |}
+\hline
+\popi{\gamma}{Hz} & \popi{\omega}{rad\cdot s^{-1}} &  \popi{\omega_0}{rad\cdot s^{-1}} \\
+\hline
+$0.10\pm0.02$ & $3.70\pm0.2$ & $3.70\pm0.2$ \\
+$0.04\pm0.01$ & $3.68\pm0.2$ & $3.68\pm0.2$ \\
+$0.05\pm0.01$ & $3.68\pm0.2$ & $3.68\pm0.2$ \\
+$0.03\pm0.01$ & $3.70\pm0.2$ & $3.70\pm0.2$ \\
+$0.03\pm0.01$ & $3.70\pm0.2$ & $3.70\pm0.2$ \\
+\hline
+
+\end{tabular}
+\caption{Namerané hodnoty výchylky $x$, na hmotnosti závažia $m$, vypočítaná tuhosť pružiny $k$ podľa vzťahu \ref{R_1} a vlastná uhlová frekvencia $\omega_0$ podľa vzťahu \ref{R_2} } \label{T_PB_1}
+\end{center}
+\end{table}
+
+A z nich spočítaná podľa vzťahu \ref{V_PB_1} a vzťahu \ref{SCH_1} hodnota 
+\eq{
+\omega_0 = "\(3.69\pm0.01\) rad\cdot s^{-1}" \,.
+}
+
+
+
+
+\begin{figure}
+\input{data/graf_pohl_bez_P1.txt.tex}
+\caption{Namerané hodnoty závislosti výchylky $x$ na čase $t$, preložené závislosťou $x = 2.4\cdot e^{-0.033 t}\cdot sin \(3.6t-3.4\)$}  \label{G_PB_1}
+\end{figure}
+
+
+
+Pre menovité prúdy $I= "0.5 A"$, $I= "1 A"$ a $I= "1.5 A"$ boli namerané dáta vynesené postupne do grafov postupn \ref{G_PT_.5}, \ref{G_PT_1} a \ref{G_PT_1.5}.
+A z fitov získané postupne hodnoty $\gamma = \{ 0.17 , 0.40 , 0.90\}" Hz"$.
+
+
+\subsection{Polohová podmienka}
+
+Pre polohovú podmienku boli boli pre jednotlivé prúdy zaznamenané výchylky kyvadla na čase a vynesené do grafu Obr. \ref{G_7}.
+Z grafu je vidieť že kritický útlm nastáva pre prúd $I= "\(2.6-3\pm0.2\) A"$.
+
+
+\begin{figure}
+\input{data/graph_pohl_poloh.5.tex}
+\caption{Závislosť výchylky $x$ na čase $t$ preložená závislosťou $x= 1.7 e^{-0.17 t} sin\(3.7 t + 6.7\)$ pre tlmiaci prúd $I="0.5 A"$}  \label{G_PT_.5}
+\end{figure}
+
+\begin{figure}
+\input{data/graph_pohl_poloh1.0.tex}
+\caption{Závislosť výchylky $x$ na čase $t$ preložená závislosťou $x= 1.9 e^{-0.40 t} sin\(3.7 t - 16.3\)$ pre tlmiaci prúd $I="1.0 A"$}  \label{G_PT_1}
+\end{figure}
+
+\begin{figure}
+\input{data/graph_pohl_poloh1.5.tex}
+\caption{Závislosť výchylky $x$ na čase $t$ preložená závislosťou $x= 3.3 e^{-0.9 t} sin\(3.6 t - 4.9\)$ pre tlmiací príd $I="1.5 A"$}  \label{G_PT_1.5}
+\end{figure}
+
+\begin{figure}
+\input{data/graph_pohl_poloh.tex}
+\caption{Namerané časové závislosti výchylky $x$ pre jednotlivé prúdy $I$ pre polohovú podmienku}  \label{G_7}
+\end{figure}
+
+
+
+\subsection{Pohybová podmienka}
+
+Pre pohybovú podmienku boli namerané dáta vynesené do grafu Obr. \ref{G_8}, tu nastáva útlm približne pre $I="\(2.8\pm0.2\) A"$
+\begin{figure}
+\input{data/graph_pohl_pohyb.tex}
+\caption{Namerané časové závislosti výchylky $x$ pre jednotlivé prúdy $I$ pre pohybovú podmienku}  \label{G_8}
+\end{figure}
+
+
+\section{Diskusia}
+
+Meranie LHO pre stredné závažie ukazuje, že hodnoty $\omega_0$ sa pre jednotlivé spôsoby odlišujú.
+Ak porovnáme veľké závažie pre statickú metódu a tlmené kmity tak vidíme, že sa výsledné hodnoty podobajú, čo však neplatí pre stredné závažie. 
+
+Ako zdroj chýba je hlavne veľká nepresnosť fitu, pre $a$, ďalej vidíme aj postupnú zmenu pri útlme kmitov. Obe nepresnosti prisudzujem, zásahom meradla, ktoré má istý nenulový moment zotrvačnosti. 
+
+Pri kalibrovaní táčok motorčeku sa pre napätie väčšie ako $U=11V$ používala lineárna extrapolácia, čo môže byť zdrojom ďalších chýb, keďže nevieme či otáčky motorčeku naozaj závisia lineárne na napätí.
+
+Pri určovaní kritického útlmu pohlovho kyvadla, je nepresnosť určovania prúdu v úrovni $"10\%"$, pretože sa hlavne pri prúdoch nad $"2 A"$ nedalo presne a dlhodobou udržať stabilný prúd v obvode. 
+
+Na presné nájdenie kritického útlmu by sme potrebovali zdroj ktorý nám dokáže dlhodobo dodávať min. prúd $I="3 A"$. A cievku ktorá by bola schopná dlhodobo takýto prúd zniesť. 
+
+\section{Záver}
+V prvej časti bola statickou metódou určená tuhosť 
+\eq{
+k = 27.5\pm0.7\,,
+}
+a vlastná uhlová frekvencia lineárne harmonického oscilátoru pre rôzne závažia (postupne malé, stredné, veľké)
+\eq[m]{
+\omega_0= "23.34 rad \cdot  s^{-1}"\,,\\
+\omega_0= "21.09 rad \cdot  s^{-1}"\,,\\
+\omega_0= "16.90 rad \cdot  s^{-1}"\,.
+}
+Metódou tlmených kmitov bola určená vlastná frekvencia pre stredné 
+závažie ako $\omega_0="\(18.88\pm0.007\) rad s^{-1}"$ a $\omega_0="\(18.24\pm0.02\) rad \cdot  s^{-1}"$ a pre veľké 
+$\omega_0="\(16.56\pm0.02\) rad s^{-1}"$ a $\omega_0="\(16.30\pm0.01\) rad \cdot  s^{-1}"$.
+
+Pri budených tlmených kmitoch bola učená vlastná frekvenica ako $\gamma ="25.28 Hz"$.
+
+ 
+Pri pohlovom kyvadle bola určená vlastná $\omega_0 = "\(3.69\pm0.01\) rad\cdot s^{-1}"$. 
+A kritické tlmenie nastáva pri prúde v rozmedzí $I = "2.6-3 A"$.
+
+
+
+
+\begin{thebibliography}{2}
+\bibitem{C_1}
+Lineární harmonický oscilátor [cit. 29.11.2016]Dostupné po prihlásení z Kurz: Fyzikální praktikum I:\url{https://praktikum.fjfi.cvut.cz/pluginfile.php/129/mod_resource/content/7/LHO-navod_160927.pdf}
+
+
+\bibitem{C_2}
+Pohlovo kyvadlo [cit. 29.11.2016]Dostupné po prihlásení z Kurz: Fyzikální praktikum I:\url{https://praktikum.fjfi.cvut.cz/pluginfile.php/130/mod_resource/content/10/PohlovoKyvadlo_161102.pdf}
+
+\end{thebibliography}
+
+\end{document}
+

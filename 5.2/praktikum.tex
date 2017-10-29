@@ -1,0 +1,280 @@
+%\documentclass[a4paper,10pt]{article}
+\documentclass[10pt]{scrartcl}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{listings}  
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+\usepackage{mhchem}
+
+%\usepackage{caption}
+
+\input{../normalize.sty}
+\input{const.sty}
+
+\begin{document}
+
+\MakeFJFIHead{}
+
+\section{Úkol 1}
+\subsection{Pracovní úkol}
+
+\begin{enumerate}
+\item DU: Odvoďte rovnici pro Poissonovu konstantu (14)\cite{1}. Vyjděte z (2)\cite{1} a (13)\cite{1}.
+\item Změřte Poissonovu konstantu metodou kmitajícího pístku.
+\item Změřte Poissonovu konstantu Clément-Désormesovou metodou. Nezapomeňte provést opravu vašeho měření na systematické chyby.
+\item Oba výsledky vzájemně porovnejte (procentuálně) a diskutujte, jestli je v rámci chyb můžete považovat za stejné.
+\end{enumerate}
+
+\subsection{Teória}
+Poissonova konstanta $\kappa$ j pomer merného tepla $C_p$ pri stálom objeme a pri stálom objeme $C_V$, teda 
+\eq{
+\kappa = \frac{C_p}{C_V}\,.
+}
+
+\subsubsection{ Clémentova-Désormesova metoda}
+Metóda určuje Poissonova konstanta z adiabatického deja, pri ktorom vypúšťame plyn z nádoby kde je pretlak $h$. A po vypustení a ustálení teplôt $h^\prime$.
+Pre výpočet $\kappa$ môžeme odvodiť vzorec
+\eq{
+\kappa = \frac{h}{h-h^\prime} \lbl{R_7}\,. 
+}
+
+\subsubsection{Metoda kmitajícího pístku}
+Pre hodnotu $\kappa$ môžeme odvodiť vzťah na závislosť do doby kmitu\eq{
+\kappa = \frac{4mV}{T^2 p r^4}\,,\lbl{R_8}
+}
+kde
+\eq{
+p=b+\frac{mg}{\pi r^2}\,,
+}
+,pričom $b$ je atmosferický tlak, hmotnosť piestu je $m="4.59\cdot10^{-3} kg"$, objem banky je $V="1.133 l"$, priemer piestu je $2r = "11.9\cdot10^{-3} m"$ a g je tiažové zrýchlenie.
+
+\input{../chyby.tex}
+
+\subsection{Postup merania}
+\subsubsection{Metoda kmitajícího pístku}
+Najskôr bolo zapnuté čerpadlo vzduchu ktoré privádza vzduch do nádoby, ventilom bol nastavený prúd vzduchu, tak aby piest kmital medzi značkami.
+Bol spustený digitálny čítač kmitov a nastavený na počítanie kmitov po $t="300 s"$, po uplynutí intervalu boli dáta zaznamenané a opätovné spustenie počítanie. 
+
+\subsubsection{ Clémentova-Désormesova metoda}
+
+Pripravená nádoba nádoba bola natlakovaná pomocou mechu, bol uzavretý prívodný ventil tlak v nádobe bol odmeraný barometru.
+Pomocou rýchlo-ventilu bola časť vzduchu odpustená, pričom bol zaznamenaný čas otvorenia ventilu.
+Následne sa počkalo $\sim "1 min"$ na ustálenie teplôt v nádobe s okolím a bol zmeraný opäť tlak v aparatúre.
+
+\subsection{Pomôcky}
+Barometr, aparatura na měřené Poissonovy konstanty Clément-Désormesovou metodou,
+aparatura pro měření Poissonovy konstanty metodou kmitajícího pístku.
+
+\subsection{Výsledky merania}
+\subsubsection{Metoda kmitajícího pístku}
+V tab. \ref{T_1} sú zaznamenané počty kmitov za čas $t = "300 s"$, pre jednotlivé merania.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c |}
+\hline
+ \popi{N}{-} \\
+\hline
+879\\
+885\\
+886\\
+885\\
+884\\
+883\\
+883\\
+883\\
+882\\
+882\\
+\hline
+\end{tabular}
+\caption{Namerané počty kmitov $N$ za čas $t="300 s"$} \label{T_1}
+\end{center}
+\end{table}
+Z hodnôt v tab \ref{T_1} bol vypočítaná priemerná hodnota počtu kmitov$\mean{N}="883.2\pm2.0"$.
+Pomocou vzťahov \ref{R_8} a \ref{SCH_3} bola vypočítaná Poissonova konstanta $\kappa = "1.62\pm0.01"$.
+
+\subsubsection{ Clémentova-Désormesova metoda}
+Namerané hodnoty výšok hladín, pred a po vypustení, na otváracom čase sú v tabuľke \ref{T_2}.
+Tie boli vynesené do grafu \ref{G_1}, 
+dáta boli preložené lineárnou funkciu $f(t) =  \(-0.15\pm0.10\)t  + \(1.335\pm0.021\)$, 
+kde absolútny člen odpovedá hodnote $\kappa$, extrapolovanej pre nulový otvárací čas, teda pre dokonalý adiabatický dej.
+
+\begin{figure}
+\input{data/graph_2.tex}
+\caption{Vypočítané hodnoty $\kappa$ v závislosti na otváracom čase $t$, preložené funkciou $f(t) =  \(-0.15\pm0.10\)t  + \(1.335\pm0.021\)$}  \label{G_1}
+\end{figure}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+\popi{h_1}{cm} & \popi{h_2}{cm} & \popi{t}{s} & \popi{h^\prime_1}{cm} & \popi{h^\prime_2}{cm} & \popi{\kappa}{-}\\
+\hline
+$"10.0\pm1.0"$ & $"49.0\pm1.0"$ & $"0.154\pm0.001"$ & $"24.5\pm1.0"$ & $"34.5\pm1.0"$ & $"1.34\pm0.21"$\\
+$"14.0\pm1.0"$ & $"45.2\pm1.0"$ & $"0.178\pm0.001"$ & $"26.0\pm1.0"$ & $"33.0\pm1.0"$ & $"1.29\pm0.30"$\\
+$"13.0\pm1.0"$ & $"46.5\pm1.0"$ & $"0.134\pm0.001"$ & $"26.5\pm1.0"$ & $"33.0\pm1.0"$ & $"1.24\pm0.32"$\\
+$"12.0\pm1.0"$ & $"47.0\pm1.0"$ & $"0.158\pm0.001"$ & $"25.5\pm1.0"$ & $"34.0\pm1.0"$ & $"1.32\pm0.25"$\\
+$"11.0\pm1.0"$ & $"48.5\pm1.0"$ & $"0.143\pm0.001"$ & $"25.0\pm1.0"$ & $"34.5\pm1.0"$ & $"1.34\pm0.22"$\\
+$"13.0\pm1.0"$ & $"46.5\pm1.0"$ & $"0.129\pm0.001"$ & $"25.5\pm1.0"$ & $"34.0\pm1.0"$ & $"1.34\pm0.25"$\\
+$" 9.5\pm1.0"$ & $"50.0\pm1.0"$ & $"0.167\pm0.001"$ & $"24.0\pm1.0"$ & $"35.0\pm1.0"$ & $"1.37\pm0.19"$\\
+$"10.0\pm1.0"$ & $"49.5\pm1.0"$ & $"0.150\pm0.001"$ & $"25.0\pm1.0"$ & $"34.5\pm1.0"$ & $"1.32\pm0.22"$\\
+$"13.0\pm1.0"$ & $"46.5\pm1.0"$ & $"0.131\pm0.001"$ & $"25.5\pm1.0"$ & $"34.0\pm1.0"$ & $"1.34\pm0.25"$\\
+$"12.0\pm1.0"$ & $"47.5\pm1.0"$ & $"0.426\pm0.001"$ & $"26.0\pm1.0"$ & $"33.5\pm1.0"$ & $"1.27\pm0.28"$\\
+$"13.5\pm1.0"$ & $"46.0\pm1.0"$ & $"0.180\pm0.001"$ & $"26.0\pm1.0"$ & $"33.5\pm1.0"$ & $"1.30\pm0.28"$\\
+$"19.0\pm1.0"$ & $"40.5\pm1.0"$ & $"0.274\pm0.001"$ & $"27.5\pm1.0"$ & $"32.0\pm1.0"$ & $"1.26\pm0.46"$\\
+$"13.0\pm1.0"$ & $"46.5\pm1.0"$ & $"0.354\pm0.001"$ & $"26.0\pm1.0"$ & $"33.5\pm1.0"$ & $"1.29\pm0.28"$\\
+$"15.0\pm1.0"$ & $"44.5\pm1.0"$ & $"0.143\pm0.001"$ & $"26.0\pm1.0"$ & $"33.5\pm1.0"$ & $"1.35\pm0.28"$\\
+$"18.5\pm1.0"$ & $"41.0\pm1.0"$ & $"0.185\pm0.001"$ & $"27.0\pm1.0"$ & $"32.5\pm1.0"$ & $"1.32\pm0.38"$\\
+$"19.0\pm1.0"$ & $"40.5\pm1.0"$ & $"0.109\pm0.001"$ & $"27.0\pm1.0"$ & $"32.5\pm1.0"$ & $"1.34\pm0.39"$\\
+$"17.5\pm1.0"$ & $"42.0\pm1.0"$ & $"0.095\pm0.001"$ & $"27.5\pm1.0"$ & $"33.0\pm1.0"$ & $"1.29\pm0.38"$\\
+$"12.5\pm1.0"$ & $"47.0\pm1.0"$ & $"0.097\pm0.001"$ & $"25.5\pm1.0"$ & $"34.0\pm1.0"$ & $"1.33\pm0.25"$\\
+$"25.0\pm1.0"$ & $"34.5\pm1.0"$ & $"0.153\pm0.001"$ & $"29.0\pm1.0"$ & $"30.5\pm1.0"$ & $"1.19\pm1.37"$\\
+$"10.0\pm1.0"$ & $"49.5\pm1.0"$ & $"0.407\pm0.001"$ & $"25.5\pm1.0"$ & $"34.0\pm1.0"$ & $"1.27\pm0.25"$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty výšok hladín $h_i$ pred vypustením a $h^\prime_i$ po vypustení časti vzduchu, $t$ je otvárací čas a $\kappa$ vypočítaná pomocou vzťahu \ref{R_7} a \ref{SCH_3}} \label{T_2}
+\end{center}
+\end{table}
+
+Hodnoty vypočítané len za pomoci tabuľky a priemeru podľa vzťahu \ref{SCH_2} je $\kappa = "1.305\pm0.044\text{stat.}\pm0.341\text{sys.}"$.
+
+\subsection{Diskusia}
+Pri metóde kmitajúceho piestu je hlavný zdroj chýb netesnosť medzi piestom a aparatúrou. 
+
+
+Clémentova-Désormesova metoda sa však viac približuje očakávanému výsledku \textit{$\kappa = \sim "1.40"$ pre $N_2$ alebo $O_2$}\cite{C_2}. 
+Hlavné nepresnosti pri tejto metóde spočívajú v nie dokonalým vyrovnaním teplôt po vypustení plynu, nedostatočným tepelným izolovaním nádoby.
+
+Zároveň je vidno, že fitom a extrapoláciou sme výsledok upresnili narozdiel od jednoduchého vypočítania priemernej hodnoty z tabuľky.
+
+\subsection{Záver}
+Clémentova-Désormesovou metódou bola $\kappa_{\(0\)}= "1.335\pm0.021"$ resp. $\kappa = "1.305\pm0.044\text{stat.}\pm0.341\text{sys.}"$, a metódou kmitajúceho piestu $\kappa = "1.62\pm0.01"$.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Úkol \#2}
+\subsection{Pracovní úkol}
+\begin{enumerate}
+\item Určete objem láhve metodou vážení.
+\item Určete objem ťěze láhve pomocí komprese plynu.
+\item Oba výsledky vzájemně porovnejte.
+\end{enumerate}
+
+
+\subsection{Pomôcky}
+Fľaška (nádoba), plynová byreta s porovnávacím ramenem, katetometr,
+teploměr, barometr, digitálne váhy do $"5 kg"$.
+
+\section{Teória}
+
+\subsubsection{Metóda kompresie plynu}
+Pre metódu kompresie plynu v našom prípade môžeme odvodiť vzťah
+\eq{
+V = \( V_2-V_1 \)\frac{p}{\Delta p} + V_2 - V_{100} \,, \lbl{R_6}
+}, kde 
+\eq{
+\Delta p = \Delta h \rho g\,,
+}
+pričom $V_1$ je objem v byrete pri vyrovnaní tlakov, $\Delta h$ je rozdiel hladín, a $V_2$ výška hladiny po kompresií, $g$ je tiažové zrýchlenie a $p$ je atmosferický tlak.
+
+V našom prípade $V_1="14 \%"$ a $V_{100} = "65.6 cm^3"$
+
+\subsubsection{Metóda vážení}
+Jednotkový objem vody je závisí na teplote $t$ v $\C$ podľa vzťahu
+\eq{
+V_v = 0.9998\cdot(1+0.00018 t) \frac{\jd{cm^3}}{\jd{g}}\,.\lbl{R_5}
+} 
+Potom objem metódou váženia určíme ako\eq{
+V = \( m_n- m_p\) V_v \,, \lbl{R_4}
+}
+kde $m_n$ je hmotnosť nádoby s vodou, $m_p$ je hmotnosť prázdnej nádoby a $V_v$ je jednotkový objem zo vzťahu \ref{R_5}.
+
+\subsection{Postup merania}
+\subsubsection{Metóda kompresie plynu}
+Najskôr bol povolením ventilu vyrovnaný tlak v byrete s atmosferickým tlakom. Bola odčítaná a zaznamenaná počiatočná hodnota $V_1$, odzvdušňovací ventil pol zatvorený.
+Následne sa vertikálne pohlo s nádobou s vodou, počkalo sa na ustálenie hladín a boli odčítané hodnoty $\Delta h$ reprezentované $h_1$ a $h_2$ ,$V_2$.
+Postup sa opakoval niekoľkokrát pre veľkú nádobu. Meraná nádoba bola vymenená za utesnenie a postup bol zopakovaný pre meranie objemu len hadičky.
+
+
+\subsubsection{Metóda vážení}
+\begin{enumerate}
+\item Prázdna nádoba bola odvážená na digitálnych váhach 
+\item Merané nádoba bola pookraj naplnená vodou a dôkladne osušení jej povrch
+\item Naplnená nádoba bola opäť odvážená
+\end{enumerate}
+
+
+\subsection{Výsledky merania}
+\subsubsection{Metóda kompresie plynu}
+V tab. \ref{T_2} sú zaznamenané namerané hodnoty $V_2$ a $\Delta h$
+z ktorých bola vypočítaná hodnota $V$. 
+V prvej časti tabuľky sú hodnoty pre fľašku v druhej časti je hodnota pre samotnú hadičku.
+
+
+\begin{table}[h]
+
+\begin{center}
+\begin{tabular}{| c | c | c | c |}
+\hline
+ \popi{h_1}{mm} & \popi{h_2}{mm} & \popi{V_2}{\%} & \popi{V}{cm^3} \\
+\hline
+$"127.90"$ & $"127.90"$ & $"14  "$ & $"-"$\\
+$"102.78"$ & $" 87.76"$ & $"18  "$ & $"1738,07"$\\
+$" 87.95"$ & $" 46.29"$ & $"22  "$ & $"1240,99"$\\
+$"153.53"$ & $"186.76"$ & $"10  "$ & $" 750,90"$\\
+$"143.42"$ & $"169.16"$ & $"11.5"$ & $" 595,49"$\\
+\hline
+$"164.84"$ & $"164,84"$ & $"7	0"$ & $"-"$\\
+$"162.91"$ & $"126,60"$ & $"7.5"$ & $"65.59"$\\
+$"161.35"$ & $"103,88"$ & $"8  "$ & $"65.59"$\\
+$"165.90"$ & $"184,78"$ & $"3.5"$ & $"65.58"$\\
+$"163.40"$ & $"123,39"$ & $"7.4"$ & $"65.59"$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty $h_1$, $h_2$ a $V_2$ a vypočítaný objem $V$, v prvej časti pre nádobu a v druhej pre hadičku.} \label{T_2}
+\end{center}
+\end{table}
+
+Objem fľašky $V_f = "1071.15\pm 514.30 cm^3"$ po odčítaný objemu hadičky $V_h="65.59\pm0,01 cm^3"$ bol určený ako $V = "1005.55\pm514.30 cm^3"$.
+
+
+\subsubsection{Metóda vážení}
+Hmotnosť prázdnej suchej nádoby bola určená $m_p = "\(570\pm1\) g"$, jednotková hmotnosť vody pri $t="12.5 \C"$ bola určená podľa \ref{R_5} ako $V_v="1.003 \frac{cm^3}{g}"$
+Hmotnosť po naplnení vodou bola určená $m_n = "\(1582\pm1\) g"$.
+Podľa vzorca \ref{R_4} bol objem nádoby určený ako $V="\(1012\pm2\) cm^3"$.
+
+\subsection{Diskusia}
+Navzdory veľkej chybe merania u metódy kompresie plynu sa stredná hodnota zhoduje s hodnotou nameranou metódou váženia, 
+ktorá je zároveň omoc presnejšia.
+Hlavným problémom u metódy kompresie plynu bola postupná strata tlaku 
+cez odvzdušňovací ventil a iné netesnosti, pokiaľ sa pomocou katetometru odmerala výška tak časť vzduchu uniklo a teda sa hladina sa výrazne pohla, 
+Je zaujímavé, že pri tomto meraní štatistická chyba dosiahla úrovne $\sim 50\%$, čo z tohoto merania robí veľmi nepresné meranie.
+
+\subsection{Záver}
+Metódou váženia bol objem nádoby určený na  $V="\(1012\pm2\) cm^3"$.
+Metódou kompresie plynu bol určený objem $V = "\(1005.55\pm514.30\) cm^3"$.
+
+
+\begin{thebibliography}{1}
+\bibitem{C_1}
+Měření Poissonovy konstanty a dutých objemů [cit. 22.10.2017] Dostupné po prihlásení na: \url{https://praktikum.fjfi.cvut.cz/pluginfile.php/4350/mod_resource/content/4/Poisson_171006.pdf}
+\bibitem{C_2}
+Fyzikální a jiné konstanty [cit. 15.10.2017] Jiří Bureš: \url{http://www.converter.cz/prevody/konstanty.htm}
+\end{thebibliography}
+
+\end{document}
+
+
+
+
+

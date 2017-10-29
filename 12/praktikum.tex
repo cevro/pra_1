@@ -1,0 +1,331 @@
+\documentclass[a4paper,10pt]{article}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+
+%\usepackage{caption}
+\renewcommand{\popi}[2]{$#1$[\jd{#2}]}
+\renewcommand{\figurename}{Obr.}
+\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
+\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+
+\begin{document}
+\def\mean#1{\left< #1 \right>}
+\noindent
+{\large Fyzikální praktikum 1.} \hfil {\large FJFI ČVUT V Praze}\\
+\noindent
+{\large\textbf{pracovní úkol \# 12}}
+\begin{center}
+{\large\textit{Sonar}}
+\end{center}
+\noindent
+\rule{\textwidth}{1px}
+\vspace{\baselineskip}
+
+\emph{Michal Červeňák}
+\par
+\vspace{\baselineskip}
+\begin{minipage}[l]{0.5\textwidth}%
+\textit{dátum merania:}~05.12. 2016\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{skupina:}~4\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{Klasifikace:}\dotfill\\%
+\end{minipage}
+
+\section{Pracovní úkol}
+
+\begin{enumerate}
+\item DU: V domácí přípravě spočítejte úhel prvních pěti maxim dle vztahu (6) pro 1,
+2 a 5 štěrbin, znáte-li mřížkovou konstantu $d = "3 cm"$, šířku štěrbiny a = 1 cm
+a frekvenci vlnění $f = "40 kHz"$. Tvar difrakčního obrazce graficky znázorněte.
+\item  Změřte velikost přijímaného signálu v závislosti na úhlu mezi přijímačem a kolmicí k odrazové
+ploše. Výsledky zpracujte tabulkově i graficky a ověřte, zda-li platí zákon odrazu pro ultrazvukové
+vlny. Měření proveďte pro 3 různé pevně zvolené úhly dopadu.
+\item  Změřte rychlost zvuku ve vzduchu. Proveďte alespoň deset měření při různých vzdálenostech
+vysílače od přijímače a výsledky zpracujte statisticky. Porovnejte váš výsledek se vztahem (3).
+\item  Změřte alespoˇn pět vzdáleností odrazové plochy od vysílače/přijímače pomocí ultrazvukových
+vln (princip sonaru). Porovnejte vzdálenosti měřené sonarem a měčítkem. Použijte vámi experimentálně
+stanovenou rychlost zvuku z úkolu 2.
+\item  Proměřte závislost intenzity zvukového signálu po průchodu zvukových vln soustavou štěrbin
+pro N (počet štěrbin) = 1,2,5. Výsledky zpracujte graficky a okomentujte v protokolu.
+\item Změřte Dopplerův jev pro dvě rychlosti vozíčku pro jeden případ (přijímač klid nebo přijímač
+pohyb) a porovnejte vyýsledky s teoretickými výpočty. Měření proveďte pro kaˇzdou rychlost
+minimálné 5-krát.
+\end{enumerate}
+
+
+
+\section{Pomôcky}
+Generátor 40 kHz vln, zesilovač, 1 mikrofon, dvoukanálový digitální osciloskop, čítač
+Tesla, odrazová kovová deska, laboratorní stojan, parabolický odrýžeč, difrakční mřížka s nastavitelným
+počtem šterbin, elektický vozíček s nastavitelnou rychlostí pojezdu, pojezdová lavice
+s měřítkem (2 ks), stopky, výsuvné měřítko 50 cm, úhloměr, kabely, sada držákuů pro mikrofony
+
+\section{Teória}
+Závislosť rýchlosti zvuku $v_z$ vzduchu od teploty $T$ od nám vyjadruje vzťah
+\eq{
+v_z = 331.3 \sqrt{1+\frac{T}{273.15}}\,. \lbl{R_0}
+}
+
+K výpočtu rýchlosti zvuku $v_z$ pomocou zvukových vĺn, pre priame usporiadanie použijeme vzťah
+\eq{
+v_z= \frac{s}{t} \,, \lbl{R_1}
+}
+kde $s$ je vzdialenosť vysielaču a prijímaču signálu, v prípade odrazu signálu od prekážky vzorec transformujeme
+\eq{
+v_z = \frac{2s}{t}\,, \lbl{R_2}
+}
+za predpokladu, že vysielač a prijímač je umiestnený v rovnakej vzdialenosti $s$ od odrazovej plochy a $t$ je v oboch prípadoch čas.
+
+
+Pre výpočet rýchlosti vozíku môžeme použiť vzťah z klasickej mechaniky 
+\eq{
+v = \frac{s}{t} \,, \lbl{R_6}
+}
+
+Pre pozorovanie zmeny pozorovanej frekvencie $f$ pri pohybe vozíku rýchlosťou $v$ pričom zdroj vysiela signál o frekvencií $f_0$ platí podľa Dopplerova javu vzťah
+\eq{
+f = \frac{v_z\pm v}{v_z} f_0\,, \lbl{R_7}
+}
+kde $v_z$ je rýchlosť zvuku.
+
+Pre teoretickú závislosť difrakčného obrazca môžeme odvodiť vzťah
+\eq[m]{
+I = I_0\(\frac{\sin\(\alpha\) \sin\(N\beta\)}{\alpha N \cdot \sin\(\beta\)}\)^2\,,\\
+\alpha = \frac{\pi}{\lambda}d\sin\(\theta\)\,,\\
+\beta = \frac{\pi}{\lambda}a\sin\(\theta\)\,,
+}
+kde $d$ je mriežková konštanta a $a$ je šírka štrbiny a vlnová dĺžka $\lambda = "0.0083 m"$.
+
+\subsubsection{Spracovanie chýb merania}
+
+Označme $\mean{t}$ aritmetický priemer nameraných hodnôt $t_i$, a $\Delta t$ hodnotu $\mean{t}-t$, pričom 
+\eq{
+\mean{t} = \frac{1}{n}\sum_{i=1}^n t_i \,, \lbl{SCH_1}
+}  
+a chybu aritmetického priemeru 
+\eq{
+  \sigma_0=\sqrt{\frac{\sum_{i=1}^n \(t_i - \mean{t}\)^2}{n\(n-1\)}}\,, \lbl{SCH_2}
+}
+pričom $n$ je počet meraní.
+
+\section{Postup merania}
+\begin{enumerate}
+\item Podľa schémy Obr. 1 \cite{C_1} boli všetky súčiastky pripojené o odkúšané.
+\item Pre 3 rôzne uhly bola odmeraná amplitúda napätia na osciloskope.
+\item Obvod bol prepojený na Obr. \cite{C_1} a bola domeraná rýchlosť zvuku priamo a odrazom.
+\item Mikrofón bol presunutý do aparatúry a odmerané hodnoty napätia pre  1,2,5 štrbín.
+\item Náslende bol mikrofón presunutý na vozíček a bol meraný doplerov jav.
+\item Pre jazdu vpred a vzad bola odemeraná rýchlosť vozíčku.
+\end{enumerate}
+
+\section{Výsledky merania}
+\subsection{Úloha 1.}
+V tabuľke Tab. \ref{T_1} sú zaznamenané odmerané hodnoty amplitúdy napätie $U$ na rozdiely uhlu prijímača a vysielača $\Delta \sigma$. A vynesené do grafu Obr. \ref{G_1}.
+
+\begin{figure}
+\input{data/graf_1.tex}
+\caption{Závislosť amplitúdy napätia $U$ od rozdielu uhlu $\Delta \sigma$, pri stálom umiestnení vysielaču s dopadovým uhlom $\sigma_v = "45 \deg"$}  \label{G_1}
+\end{figure}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c |}
+\hline
+\popi{U}{mV} & \popi{\varphi_v}{\deg} & \popi{\varphi_p}{\deg} & \popi{\Delta\varphi_v}{\deg}\\
+\hline
+$36.4$&$40$&$130$&$90$\\
+$34.5$&$40$&$130$&$90$\\
+$35.9$&$40$&$130$&$90$\\
+$36.1$&$40$&$130$&$90$\\
+$35.3$&$40$&$130$&$90$\\
+$25.0$&$40$&$110$&$70$\\
+$24.2$&$40$&$110$&$70$\\
+$24.7$&$40$&$110$&$70$\\
+$22.7$&$40$&$110$&$70$\\
+$22.7$&$40$&$110$&$70$\\
+$13.8$&$40$&$90$&$50$\\
+$14.0$&$40$&$90$&$50$\\
+$14.8$&$40$&$90$&$50$\\
+$12.8$&$40$&$90$&$50$\\
+$14.4$&$40$&$90$&$50$\\
+\hline
+
+\end{tabular}
+\caption{Namerané hodnoty napätia $U$ na uhle prijímača $\varphi_p$, vysielača $\varphi_v$} \label{T_1}
+\end{center}
+\end{table}
+
+\subsection{Úloha 2.}
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c |}
+\hline
+\popi{T}{\nu s} & \popi{x}{cm} \\
+\hline
+$100$&$0$ \\
+$330$&$8.5$ \\
+$280$&$6.7$ \\
+$240$&$5.5$ \\
+$210$&$5$ \\
+$190$&$4$ \\
+$170$&$3$ \\
+$440$&$11$ \\
+$460$&$12$ \\
+$680$&$20$ \\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty vzdialenosti vysielaču a prijímaču $x$ a doba oneskorenia signálu $T$ } \label{T_2}
+\end{center}
+\end{table}
+
+V tabuľke Tab. \ref{T_2}. sú zaznamenané hodnoty vzdialenosti vysielaču 
+a prijímaču $x$ k dobe oneskorenia signálu na osciloskope $t$ pre usporiadanie na priamo.
+Z týchto hodnôt bola vypočítaná podľa vzťahov \ref{SCH_1} a \ref{R_1} 
+rýchlosť zvuku $v_v="\(384.9\pm48.5\) m\cdot s^{-1}"$
+
+\subsection{Úloha 3}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c |}
+\hline
+\popi{T}{\nu s} & \popi{x}{cm} \\
+\hline
+$9$&$640$ \\
+$3.2$&$740$ \\
+$37.2$&$2300$ \\
+$32$&$2000$ \\
+$28$&$1700$ \\
+$25$&$1600$ \\
+$23$&$1400$ \\
+$20$&$1200$ \\
+$18$&$1100$ \\
+$98$&$6000$ \\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty vzdialenosti prekážky a vysielači $x$ a doba oneskorenia signálu $T$ } \label{T_3}
+\end{center}
+\end{table}
+
+V tabuľke Tab. \ref{T_3}. sú zaznamenané hodnoty vzdialenosti vysielaču 
+a prijímaču $l$ k dobe oneskorenia signálu na osciloskope $t$ pre meranie 
+s odrazom od prekážky.
+Z týchto hodnôt bola vypočítaná podľa vzťahov \ref{SCH_1} a \ref{R_1} 
+rýchlosť zvuku $v_z="\(320.1\pm78.2\) m\cdot s^{-1}"$
+
+\subsection{Úloha 4.}
+Do grafov Obr. \ref{G_D1}, Obr. \ref{G_D2} a Obr. \ref{G_D5}. Boli postupne namerané dáta pre jedno- dv-e a päť-štrbínové difrakčné obrazce.
+
+\begin{figure}
+\input{data/graf_dif.1.tex}
+\caption{Difrakčný obrazec pre 1 štrbinu, v porovnaní s teoretickou závislosťou. Kde $U/U_0$ je relatívny úbytok napätia a $\theta$ je pozorovaný uhol.}  \label{G_D1}
+\end{figure}
+
+\begin{figure}
+\input{data/graf_dif.2.tex}
+\caption{Difrakčný obrazec pre 2 štrbiny, v porovnaní s teoretickou závislosťou. Kde $U/U_0$ je relatívny úbytok napätia a $\theta$ je pozorovaný uhol.}  \label{G_D2}
+\end{figure}
+
+\begin{figure}
+\input{data/graf_dif.5.tex}
+\caption{Difrakčný obrazec pre 5 štrbín, v porovnaní s teoretickou závislosťou. Kde $U/U_0$ je relatívny úbytok napätia a $\theta$ je pozorovaný uhol.}  \label{G_D5}
+\end{figure}
+
+
+
+
+
+
+\subsection{Úloha 5.}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c |}
+\hline
+\popi{s}{cm} & \popi{t_v}{s} & \popi{t_z}{s} \\
+\hline
+$90 $&$ 3.3 $&$ 4.4 $\\
+$90 $&$ 3.4 $&$ 4.8$\\
+$90 $&$ 3.7 $&$ 4.6$\\
+$90 $&$ 3.7 $&$ 4.8$\\
+$90 $&$ 3.8 $&$ 4.4$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty dráhy $s$ vozíčku na čase pre jazdu vpred $t_v$ a vzad $t_z$.} \label{T_4}
+\end{center}
+\end{table}
+
+
+V tabuľke Tab. \ref{T_4} sú zaznamenané merania rýchlosti vozíku, 
+pričom sme pri výpočet považovali rýchlosť za konštantnú a teda $a=\infty$. 
+Rýchlosť vozíku podľa vzťahu \ref{SCH_1} a \ref{R_6} vyšla pre pohyb 
+vpred $v_p="\(0.25\pm0,02\) m/s"$. a pre pohyb vzad $v_z="\(0,20\pm0,01\) m/s"$
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c |}
+\hline
+\popi{f_s}{MHz} & \popi{f_v}{kHz} & \popi{f_z}{kHz} \\
+\hline
+$39,17$&$38.84$&$38.34$\\
+$39.16$&$38.57$&$38.10$\\
+$39.17$&$38.73$&$38.47$\\
+$39.17$&$38.44$&$38.47$\\
+$39.16$&$38.37$&$38.41$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty prejdutej dráhy $s$ vozíčku a časy pre jazdu vpred $t_v$ a vzad $t_z$.} \label{T_5}
+\end{center}
+\end{table}
+
+V tabuľke Tab. \ref{T_5} sú zaznamenané hodnoty počtu impulzov pre pohyb vozíka vpred $f_v$ vzad $f_z$ a pri státí na mieste. $f_s$. 
+Z týchto hodnôt boli vypočítané za pomoci vzťahu \ref{SCH_1} príšerné hodnoty
+\eq[m]{
+f_s = "\(39.2\pm0.005\) kHz"\,,\\
+f_v = "\(38.6\pm0.19\) kHz"\,,\\
+f_z = "\(38.4\pm0.15\) kHz"\,.
+} 
+Z rýchlosti a smeru vozíku môžeme za pomoci vzťahu \ref{R_7}
+určiť predpokladané posuny frekvencií pri pohybe
+pre pohyb v pred $f_v="39.2 MHz"$ a pre pohyb vzad $f_z="38.6 kHz"$.
+
+\section{Diskusia}
+\subsection{Úloha 1.}
+Podľa nameraných dát jasne vidíme, že najväčšiu intenzitu sme dosiahli pre uhol $"90 \deg"$.
+Však z túto hranicu sme nepokračovali a teda nemáme dáta aj pre uhly väčšie kde by sme mali pozorovať opäť znižovanie intenzity. 
+\subsection{Úloha 2. a 3.}
+
+Pri týchto častiach sme dostali priamym meraním a meraním s odrazom hodnoty rýchlosti zvuku $v_v="\(384.9\pm48.5\) m\cdot s^{-1}"$ a $v_z="\(320.1\pm78.2\) m\cdot s^{-1}"$. Oproti hodnote vypočítanej podľa kde sme sa $v="345 m\cdot s^{-1}"$ s oboma nameranými hodnotami vrámci chyby vošli. hlavný zdroj chýb, ktorý je oneskorenie prístrojov a to hlavne u merania malých vzdialeností a zároveň, ťažko určiteľný začiatok hrany signálu na osciloskope.
+
+\subsection{Úloha 4.}
+Pri tejto úlohe bolo niekoľko závažných problémov ktoré ovplyvnili presnosť experimentu. Hlavný zdroj problému bolo odhadnuť body, kde sa nachádza maximum alebo minimum. Hodnoty na osciloskope aj skákali a teda pri odčítaní sa niekedy líšili aj o pol rádu. Toto meranie by som jednoznačne nepovažoval za presné.
+\subsection{Úloha 5.}
+V poslednej časti jasne vidíme, že sme \uv{vyvrátili} Doplera. 
+Hlavným dôvodom, tohoto výsledku je chyba čítača, ktorý nezachytával, všetky impulzy v momente keď bol vozíček ďalej od zdroja. Pri zisťovaní rýchlosti vozíku sme spravili navyše viacero aproximácii napr., že vozík zrýchľuje nekonečne rýchlo na svoju maximálnu rýchlosť alebo, že sa baterky nevybíjajú
+
+
+\section{Záver}
+Pomocou priameho a merania a merania odrazom bola rýchlosti zvuku určená postupne ako $v_z="\(384.9\pm48.5\) m\cdot s^{-1}"$ a $v_z="\(320.1\pm78.2\) m\cdot s^{-1}"$. 
+
+
+\begin{thebibliography}{2}
+\bibitem{C_1}
+Sonar [cit. 8.12.2016]Dostupné po prihlásení z Kurz: Fyzikální praktikum I:\url{https://praktikum.fjfi.cvut.cz/pluginfile.php/4334/mod_resource/content/9/12-sonar-20161014.pdf}
+
+\end{thebibliography}
+
+\end{document}
+

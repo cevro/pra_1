@@ -1,0 +1,305 @@
+\documentclass[a4paper,10pt]{article}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+
+%\usepackage{caption}
+\renewcommand{\popi}[2]{$#1$[\jd{#2}]}
+\renewcommand{\figurename}{Obr.}
+\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
+\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+
+\begin{document}
+\def\mean#1{\left< #1 \right>}
+\noindent
+{\large Fyzikální praktikum 1.} \hfil {\large FJFI ČVUT V Praze}\\
+\noindent
+{\large\textbf{pracovní úkol \# 5}}
+\begin{center}
+{\large\textit{Měření Poissonovy konstanty a dutých objemů}}
+\end{center}
+\noindent
+\rule{\textwidth}{1px}
+\vspace{\baselineskip}
+
+\emph{Michal Červeňák}
+\par
+\vspace{\baselineskip}
+\begin{minipage}[l]{0.5\textwidth}%
+\textit{dátum merania:}~17.10. 2016\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{skupina:}~4\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{Klasifikace:}\dotfill\\%
+\end{minipage}
+
+\section{Úkol 1}
+\subsection{Pracovní úkol}
+
+\begin{enumerate}
+\item Změřte Poissonovu konstantu metodou kmitajícího pístku.
+\item Změřte Poissonovu konstantu Clément-Désormesovou metodou. Nezapomeňte provést
+opravu vašeho měření na systematické chyby.
+\item Oba výsledky vzájemně porovnejte (procentuálně) a diskutujte, jestli je v rámci chyb
+můžete považovat za stejná.
+\end{enumerate}
+
+
+\subsection{Postup merania}
+\subsubsection{Metoda kmitajícího pístku}
+\begin{enumerate}
+\item ventilom bol nastavený prúd vzduchu tak aby piest kmital medzi značkami
+\item bol spustený digitálny čítač kmitov a nastavený na počítanie kmitov po $t="300 s"$.
+\item po uplynutí intervalu boli dáta zaznamenané a opätovné spustenie počítanie. 
+\end{enumerate}
+
+
+\subsubsection{ Clémentova-Désormesova metoda}
+
+\begin{enumerate}
+\item Nádoba bola natlakovaná pomocou mechu, bol uzavretý prívodný ventil
+\item tlak v nádobe bol odmeraný
+\item pomocou ventilu bol tlak vyrovnaný s atmosferickým, pričom bol zaznamenaný čas otvorenia ventilu.
+\item počkalo sa $\sim "1 min"$ na ustálenie teplôt v nádobe s okolím a následne bol zmeraný opäť tlak v aparatúre.
+\end{enumerate}
+
+
+
+\subsection{Pomôcky}
+Barometr, aparatura na měěené Poissonovy konstanty Clément-Désormesovou metodou,
+aparatura pro měření Poissonovy konstanty metodou kmitajícího pístku.
+
+\subsection{Teória}
+Poissonova konstanta $\kappa$ j pomer merného tepla $C_p$ pri stálom objeme a pri stálom objeme $C_V$, teda 
+\eq{
+\kappa = \frac{C_p}{C_V}\,.
+}
+
+\subsubsection{ Clémentova-Désormesova metoda}
+Metóda určuje Poissonova konstanta z adiabatického deja, pri ktorom vypúšťame plyn z nádoby kde je pretlak $h$. A po vypustení a ustálení teplôt $h^\prime$.
+Pre výpočet $\kappa$ môžeme odvodiť vzorec
+\eq{
+\kappa = \frac{h}{h-h^\prime}\,. 
+}
+
+\subsubsection{Metoda kmitajícího pístku}
+Pre hodnotu $\kappa$ môžeme odvodiť vzťah na závislosť do doby kmitu\eq{
+\kappa = \frac{4mV}{T^2 p r^4}\,,\lbl{R_8}
+}
+kde
+\eq{
+p=b+\frac{mg}{\pi r^2}\,,
+}
+,pričom $b$ je atmosferický tlak, hmotnosť piestu je $m="4.59\cdot10^{-3} kg"$, objem banky je $V="1.133 l"$ a priemer piestu je $2r = "11.9\cdot10^{-3} m"$.
+
+
+%\subsubsection{Spracovanie chýb merania}
+
+
+
+
+\subsection{Výsledky merania}
+\subsubsection{Metoda kmitajícího pístku}
+V tab. \ref{T_1} sú zaznamenané počty kmitov za čas $t = "300 s"$, pre jednotlivé merania.
+\begin{table}[h]
+
+\begin{center}
+\begin{tabular}{| c |}
+\hline
+ \popi{N}{1} \\
+\hline
+877\\
+879\\
+872\\
+876\\
+874\\
+875\\
+877\\
+881\\
+882\\
+884\\
+887\\
+888\\
+888\\
+889\\
+891\\
+892\\
+\hline
+
+
+\end{tabular}
+\caption{Namerané počty kmitov za čas $t="300 s"$} \label{T_1}
+\end{center}
+\end{table}
+Z hodnôt v tab \ref{T_1} bol vypočítaná priemerná hodnota početu kmitov$\mean{N}="882\pm5"$.
+Priemerná hodnota bola dosadená do vzťahu \ref{R_8} a bola vypočítaná Poissonova konstanta $\kappa = "1.68\pm0.01"$.
+
+\subsubsection{ Clémentova-Désormesova metoda}
+
+Touto metódou boli namerané 2 \uv{vzorky dát}. Prvá v pre otvárací čas pod $"200 ms"$ a druhá nad tento čas.
+Dáta boli vynesené do grafu obr. \ref{G_1} a každé zvlášť preložené lineárnou funkciou. 
+Následne bola vypočítaná extrapoláciou dat hodnota $\kappa_{\(0\)}$. 
+
+
+
+\begin{figure}
+\input{data/graph_2.tex}
+\caption{extrapolácia nameraných hodnôt pre $t="0"$}  \label{G_1}
+\end{figure}
+
+Pre dáta s otváracím časom pod $"200 ms"$ je hodnota $\kappa_{\(0\)}= "1.36\pm0.04"$ a 
+pre hodnoty s otváracím časom nad $"200 ms"$ bola vypočítaná $\kappa_{\(0\)}= "1.29\pm0.03"$.
+
+\subsection{Diskusia}
+Pri metóde kmitajúceho piestu spôsobuje hlavný zdroj nepresností a 
+systematických chýb netesnosť medzi piestom a aparatúrou. 
+Ďalej aj pomerne mala dierka na vypúšťanie plynu. 
+Teda expanzia nieje okamžitá a vyrovnanie tlakov úplné.
+Zaujímavosťou je zvyšovanie počtu kmitov s pripadajúcim časom, 
+mojou teóriou na vysvetlenie tohoto javu je na zahrievanie piestu trením a teda jeho zväčšenie a teda sa zlepšilo tesnenie a neunikalo toľko plynu, pokrajoch. 
+
+Clémentova-Désormesova metoda sa však viac približuje očakávanému výsledku \textit{$\kappa = \sim "1.40"$ pre $N_2$ alebo $O_2$}\cite{C_1}. 
+Hlavné nepresnosti pri tejto metóde spočívajú v nie dokonalým vyrovnaním teplôt po vypustení plynu. 
+A nevhodná funkcia na extrapoláciu dát.
+
+\subsection{Záver}
+Clémentova-Désormesovou metódou bola $\kappa_{\(0\)}= "1.36\pm0.04"$, a metódou kmitajúceho piestu $\kappa = "1.68\pm0.01"$.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Úkol \#2}
+\subsection{Pracovní úkol}
+\begin{enumerate}
+\item Určete objem láhve metodou vážení.
+\item Určete objem ťěze láhve pomocí komprese plynu.
+\item Oba výsledky vzájemně porovnejte.
+\end{enumerate}
+
+\subsection{Postup merania}
+\subsubsection{Metóda kompresie plynu}
+\begin{enumerate}
+\item povolením ventilu bol vyrovnaný tlak v byrete s atmosferickým tlakom.
+\item Vertikálnym pohybom nádoby s vodou bola hladina v byrete ustálená na úroveň $"0 \%"$.
+\item Ventil pol zatvorený.
+\item následne sa pohlo nádobou s vodou nahor.
+\item počkalo sa na ustálenie hladín a boli odčítané hodnoty $\Delta h$ ,$V_2$.
+\item Postup sa opakoval niekoľkokrát pre veľkú nádobu.
+\item Meraná nádoba bola vymenená za utesnenie a postup bol zopakovaný pre meranie objemu len hadičky.
+\end{enumerate}
+
+
+\subsubsection{Metóda vážení}
+\begin{enumerate}
+\item Nádoba bola odvážená na digitálnych váhach 
+\item Nádoba bola pookraj naplnená vodou a dôkladne osušení jej povrch
+\item Naplnená nádoba bola opäť odvážená
+\item Bola odmeraná teplota vody.
+\end{enumerate}
+
+\subsection{Pomôcky}
+Fľaška (nádoba), plynová byreta s porovnávacím ramenem, katetometr,
+teploměr, barometr, digitálne váhy do $"5 kg"$.
+
+\section{Teória}
+
+\subsubsection{Metóda kompresie plynu}
+Pre metódu kompresie plynu v našom prípade môžeme odvodiť vzťah
+\eq{
+V = \( V_2-V_1 \)\frac{p}{\Delta p} + V_2 - V_{100} \,, \lbl{R_6}
+}, kde 
+\eq{
+\Delta p = \Delta h \rho g\,.
+}
+Pričom $V_1$ je objem v byrete pri vyrovnaní tlakov.$\Delta h$ je rozdiel hladín, a $V_2$ výška hladiny po kompresií.
+
+V našom prípade $V_1="0 \%"$. Pričom $V_{100} = "65.6 cm^3"$
+
+\subsubsection{Metóda vážení}
+Jednotkový objem vody je závisí na teplote $t$ v $\C$ podľa vzťahu
+\eq{
+V_v = 0.9998\cdot(1+0.00018 t) \frac{\jd{cm^3}}{\jd{g}}\,.\lbl{R_5}
+} 
+Potom objem metódou váženia určíme ako\eq{
+V = \( m_n- m_p\) V_v \,. \lbl{R_4}
+}
+
+
+\subsection{Výsledky merania}
+\subsubsection{Metóda kompresie plynu}
+V tab. \ref{T_2} sú zaznamenané namerané hodnoty $V_2$ a $\Delta h$
+z ktorých bola vypočítaná hodnota $V$. 
+V prvej časti tabuľky sú hodnoty pre fľašku v druhej časti je hodnota pre samotnú hadičku.
+
+
+\begin{table}[h]
+
+\begin{center}
+\begin{tabular}{| c | c | c |}
+\hline
+ \popi{V_2}{\%} & \popi{\Delta h}{cm} & \popi{V}{cm^3} \\
+\hline
+$5$   &	$3.51$ & $896.08$\\
+$9$   & $5.85$  & $975.39$\\
+$6$   & $5.9$   & $619.31$\\
+$4.5$ & $4,10$  & $676.69$\\
+$8$   & $4,68$  & $1\,089.74$\\
+$8$   & $6.83$  & $728.29$\\
+$9$   & $7.41$  & $757.49$\\
+$7$   & $5.27$  & $833.51$\\
+$8$   & $5.46$  & $925.44$\\
+$6.75$& $5.85$  & $715.14$\\
+\hline
+$1$ &	$10.34$ & $5.58$\\							
+\hline
+
+\end{tabular}
+\caption{Namerané hodnoty $V_2$, $\Delta h$ a vypočítaný objem $V$, v prvej časti pre nádobu a v druhej pre hadičku.} \label{T_2}
+\end{center}
+\end{table}
+
+Objem fľašky po odčítaný objemu hadičky bol určený ako $V = "\(816.7\pm148.3\) cm^3"$.
+
+
+\subsubsection{Metóda vážení}
+Hmotnosť prázdnej suchej nádoby bola určená $m_p = "\(582\pm1\) g"$, jednotková hmotnosť vody pri $t="11.8 \C"$ bola určená podľa \ref{R_5} ako $V_v="1.002 \frac{cm^3}{g}"$
+Hmotnosť po naplnení vodou bola určená $m_n = "\(1598\pm1\) g"$.
+Podľa vzorca \ref{R_4} bol objem nádoby určený ako $V="\(1018\pm2\) cm^3"$.
+
+\subsection{Diskusia}
+Vo výsledkoch vidíme veľmi veľký rozdiel nameraných hodnôt, 
+nepresnosť merania pri metóde kompresie plynu spôsobovali extrémne 
+veľké netesnosti, pri ktorých pretlak z aparatúry veľmi rýchlo unikal. 
+Teda toto meranie bolo zaťažené veľkou systematickou chybou. 
+Aj napriek snahe merať rýchlo sa štatistická chyba pohybuje na úrovni $"18 \%"$. 
+Naopak metóda váženia sa ukazuje ako veľmi presná.
+
+\subsection{Záver}
+Metódou váženia bol objem nádoby určený na $V="\(1018\pm2\) cm^3"$.
+Metódou kompresie plynu bol určený objem $V = "\(816.7\pm148.3\) cm^3"$.
+
+
+\begin{thebibliography}{1}
+\bibitem{C_1}
+Článok dostupný na \url{https://cs.wikipedia.org/wiki/Poissonova_konstanta#Hodnoty_pro_re.C3.A1ln.C3.A9_plyny}
+\end{thebibliography}
+
+\end{document}
+
+
+
+
+

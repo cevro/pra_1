@@ -1,0 +1,470 @@
+\documentclass[a4paper,10pt]{article}
+%\usepackage[IL2]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{listings}  
+\usepackage{amsfonts,amsmath,amssymb,graphicx,color}
+%\usepackage[total={17cm,27cm}, top=2cm, left=2cm, includefoot]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{fkssugar}
+\usepackage{hyperref}
+
+%\usepackage{caption}
+\renewcommand{\popi}[2]{$\frac{#1}{[\jd{#2}]}$}
+\renewcommand{\figurename}{Obr.}
+\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
+\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+
+\begin{document}
+\def\mean#1{\left< #1 \right>}
+\noindent
+{\large Fyzikální praktikum 1.} \hfil {\large FJFI ČVUT V Praze}\\
+\noindent
+{\large\textbf{pracovní úkol \# 1}}
+\begin{center}
+{\large\textit{Mechanické pokusy na vzduchové dráze}}
+\end{center}
+\noindent
+\rule{\textwidth}{1px}
+\vspace{\baselineskip}
+
+\emph{Michal Červeňák}
+\par
+\vspace{\baselineskip}
+\begin{minipage}[l]{0.5\textwidth}%
+\textit{dátum merania:}~05.12. 2016\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{skupina:}~4\\%
+%\vspace{\baselineskip}%
+\par%
+\noindent%
+\textit{Klasifikace:}\dotfill\\%
+\end{minipage}
+
+\section{Pracovní úkol}
+
+\begin{enumerate}
+\item DU: Zopakujte si, jak sčítáme, odečítáme a násobíme veličiny s chybou.
+\item Elastické srážky na vzduchové dráze. Při měření použijete 2 vozíčky o různých hmotnostech.
+Zvažte je na digitálních vahách. Jeden z nich ponechte před srážkou v klidu, druhému udělte
+nenulovou počáteční rychlost pomocí startovacího zařízení. Pro každou ze 3 startovacích rychlostí
+proveďte minimálně 10 měření. Poté obraťte konfiguraci vozíčků a měření opakujte. Celkově tedy
+máte alespoň 60 měření. Počet měření je nutné dodržet, bez potřebné statistiky nebudete schopni
+zpracovat výsledky měření.
+\item Z naměřených dat rychlostí prvního vozíčku zjistěte, s jakou přesností jste schopni měřit rychlost
+v. Tuto chybu určete zvlášť pro každou startovací rychlost a obě hmotnosti vozíčků. Do grafu
+naneste závislost relativní a absolutní chyby rychlosti v závislosti na velikosti startovací rychlosti.
+Rozmyslete si, jaký je rozdíl mezi systematickou a statistickou chybou a která z nich je pro
+vaše měření zásadní, t.j. která vám výsledky více ovlivňuje. Pokuste se odhadnou systematickou
+chybu měření - co je jejím hlavním zdrojem? Odhadněte brzdný koeficient vozíčku na dráze.
+\item S použitím získané přesnosti měření rychlosti zjistěte s jakou přesností můžete měřit hybnost
+p a energii E (přesnost měření hmotnosti berte dle použitého přístroje). Určete, jak se vámi
+změřené celkové hybnosti resp. energie před a po srážce musí lišit, abyste je v rámci chyby
+měření mohli prohlásit za shodné. Pečlivě si rozmyslete, kolikrát se vám do finálního výsledku
+chyba rychlosti, potažmo hybnosti a energie promítne.
+\item Z rychlosti vozíčků před srážkou a po srážce zjistěte změnu hybnosti ∆p a změnu energie ∆E
+pro každou ze startovacích rychlostí a obě konfigurace vozíčků. Diskutujte, zda výsledek odpovídá
+očekávanému, tedy zda je změna hybnosti a energie v rámci předpokládaného chybového intervalu
+(s přesností $1\sigma$, $2\sigma$ nebo $3\sigma$). Rozhodněte, zda můžete zákony zachování považovat za ověřené.
+\item Do grafu vyneste závislost celkové hybnosti po srážce $p_0$ na celkové hybnosti před srážkou p
+a závislost celkové energie po srážce E0 na celkové energii před srážkou $E$. V obou závislostech
+zobrazte i errorbary (viz poznámky na konci návodu) s předpokládanou chybou měření. Do grafu
+zaneste přímku ideálního případu, kdy $\Delta p = 0$, $\Delta E = 0$ a diskutujte, zda jste graficky dokázali
+či nedokázali zákony zachování. Pokud budete získaná data fitovat, nespoléhejte se pouze na
+Gnuplot, že vám výsledky sám správně nafituje, ale zjitěte a v protokolu uveďte jakou metodu
+fitu jste použili.
+\item Pomocí tlakového senzoru změřte průběh síly při odrazu vozíku. Vypočtěte změnu hybnosti
+pomocí integrálu průběhu síly a srovnejte ji se změnou hybnosti změřené pohybovým senzorem.
+1
+Opakujte měření pro každou startovací rychlost alespoň 10x. Vyneste do grafu změnu hybnosti
+naměřenou silovým senzorem ∆pint v závislosti na změně hybnosti určené pohybovým senzorem
+∆prychl, opět i s errorbary. Body proložte přímkou $\Delta p_{int} = a \Delta p_{rychl} + b$ a diskutujte rozdíl
+směrnice a posunu přímky oproti ideálnímu případu $a = 1$, $b = 0$.
+
+\end{enumerate}
+
+
+
+\section{Pomôcky}
+Vzduchová dráha s příslušenstvím, digitální váhy, 2x pohybový senzor PASCO, silový
+senzor PASCO, PC (DataStudio)
+
+\section{Teória}
+Odvodenie vzťahov nájdete na \cite{C_1}.
+
+Hybnosť telesa pre RPP je 
+\eq{
+p = m v\,, \lbl{R_1}
+}
+kde $m$ je hmotnosť vozíku a $v$ je jeho rýchlosť.
+
+Celkovú hybnosť sústavy určíme podľa vzťahu
+\eq{
+\vect p = \sum_i \vect{p_i} \,, \lbl{R_2}
+}
+kde $\vect p_i$ je hybnosť telesa $i$.
+
+Energiu telesa v našom prípade určíme ako
+\eq{
+E = \frac{1}{2} m v^2 \,,\lbl{R_3}
+}
+kde $m$ je hmotnosť vozíku a $v$ je jeho rýchlosť.
+
+Celkovú energiu sústavy získame ako 
+\eq{
+E = \sum_i E_i \,, \lbl{R_4}
+}
+kde $E_1$ je energia $i$-teho telesa.
+
+
+
+\subsubsection{Spracovanie chýb merania}
+
+Označme $\mean{t}$ aritmetický priemer nameraných hodnôt $t_i$, a $\Delta t$ hodnotu $\mean{t}-t$, pričom 
+\eq{
+\mean{t} = \frac{1}{n}\sum_{i=1}^n t_i \,, \lbl{SCH_1}
+}  
+a chybu aritmetického priemeru 
+\eq{
+  \sigma_0=\sqrt{\frac{\sum_{i=1}^n \(t_i - \mean{t}\)^2}{n\(n-1\)}}\,, \lbl{SCH_2}
+}
+pričom $n$ je počet meraní.
+
+\section{Postup merania}
+\begin{enumerate}
+\item Obidva vozíčky boli odvážené na digitálnych váhach, jeden samostatne druhý spolu s použitými závažiami
+\item Oba boli položené na vzduchoví dráhu odrazovými plochami proti sebe
+\item Jeden z vozíkov sa nastavil o odpaľovaciemu zariadeniu a bol pomocou neho uvedený do pohybu
+\item Pomocou DataStudio boli zaznamenávané polohy obch vozíčkov pred a po náraze.
+\item pomocou programu DataStudio boli fitnuté rýchlosti vozíčkov pred a vzájomnom náraze
+\item postup bol opakovaný pre každú kombináciu oddaľovaný vozíček -- poloha odpaľovacieho zariadenia $10 \times$.
+\item Následne bol jeden z pohybových senzorov nahradený senzorom sily
+\item pre každú pozíciu odpaľovacieho zariadenia bolo nameraných 5 odpalov a odrazov od senzoru.
+\item pri každom odpale sa zaznamenávala poloha s sila. z ktorých s následne určila rýchlosť a impulz.
+\end{enumerate}
+
+
+
+\section{Výsledky merania}
+Označením $i\rightarrow j$ označujeme pokus, kde vozíček č. $i$ naráža do stojaceho vozíku č $j$.
+Do tabuliek Tab. \ref{T_1}, Tab. \ref{T_2}, Tab. \ref{T_3}, Tab. \ref{T_4}, Tab. \ref{T_5} a Tab. \ref{T_6} 
+sú vynesené namerané dáta rýchlosti pred $v^B$ a po $v^A$ náraze pre vozíčky č.1 s hmotnosťou $m_1="247.98 g"$ a č.2 $m = "208.54 g"$.
+
+Z nich boli dopočítané podľa \ref{R_1} a \ref{R_2} hybnosti pred $p^B$ a po $p^A$ náraze a ich závislosť bola vynesená od grafu Obr. \ref{G_1}. 
+Ďalej bola vypočítaná podľa \ref{R_3} a \ref{R_4} celková energia sústavy pred $E^B$ a po $E^A$ náraze a ich závislosť bola vynesená od grafu Obr. \ref{G_2}.
+
+Scriptom v v prílohe bol vypočítaný impulz sily a vynesený do tabuľky Tab. \ref{T_7} a následne do grafu Obr. \ref{G_3}.
+
+Z tabuliek Tab. \ref{T_1}, Tab. \ref{T_2}, Tab. \ref{T_3}, Tab. \ref{T_4}, Tab. \ref{T_5} a Tab. \ref{T_6} boli za pomoci vzťahov \ref{SCH_1} a \ref{SCH_2}.
+boli vypočítané hodnoty $\Delta v_1^B$ a $\mean{v_1^B}$ pre jednotlivé kombinácie a vynesené do tabuľky \ref{T_8} a následne do grafu \ref{G_4}.
+
+
+
+\begin{figure}
+\input{data/graph_P.tex}
+\caption{Závislosť hybnosti pred $p^B$ a hybnosti po zrážke $p^A$ pre jednotlivé kombinácie hmotností a štartovacích impulzov}  \label{G_1}
+\end{figure}
+
+\begin{figure}
+\input{data/graph_E.tex}
+\caption{Závislosť energie pred $E^B$ a energie po zrážke $E^A$ pre jednotlivé kombinácie hmotností a štartovacích impulzov}  \label{G_2}
+\end{figure}
+
+\begin{figure}
+\input{data/graph_I.tex}
+\caption{Závislosť impulzu sily $I$ od zmeny hybnosti $p$ vyvolané a lineárny fit $\(1.43\pm0.07\)x -\(0.039\pm0.015\) $}  \label{G_3}
+\end{figure}
+
+
+\begin{figure}
+\input{data/graph_C.tex}
+\caption{Závislosť rýchlosti $v$ na absolútnej (abs. ch.) $\Delta v$ a relatívnej (rel. chyb.) $\sigma_v$ chybe, kde \uv{V} je najväčšia \uv{S} je stredná a \uv{M} je najmenšia pozícia odpaľovacieho zariadenia, č. vyjadruje číslo vozíka.}  \label{G_4}
+\end{figure}
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c | c | c | c | c |}
+\hline
+\popi{v_1^B}{m/s} & \popi{v_1^A}{m/s} & \popi{v_2^B}{m/s} & \popi{v_2^A}{m/s} & \popi{p^B}{mN\cdot s} & \popi{p^A}{mN\cdot s} & \popi{\Delta p}{mN\cdot s} & \popi{E^B}{mJ} & \popi{E^A}{mJ} & \popi{\Delta E}{mJ}\\
+\hline
+$"0.69"$ & $"0.08"$ & $"0.00"$ & $"0.67"$ & $"169.87"$ & $"160.25"$ & $"9.61"$ & $"58.18"$ & $"47.66"$ & $"10.52"$\\
+$"0.56"$ & $"0.03"$ & $"0.00"$ & $"0.57"$ & $"138.62"$ & $"127.98"$ & $"10.64"$ & $"38.74"$ & $"34.49"$ & $"4.25"$\\
+$"0.60"$ & $"0.07"$ & $"0.00"$ & $"0.59"$ & $"148.29"$ & $"139.98"$ & $"8.31"$ & $"44.34"$ & $"37.20"$ & $"7.14"$\\
+$"0.64"$ & $"0.06"$ & $"0.00"$ & $"0.66"$ & $"159.70"$ & $"151.61"$ & $"8.09"$ & $"51.42"$ & $"45.69"$ & $"5.73"$\\
+$"0.64"$ & $"0.05"$ & $"0.00"$ & $"0.64"$ & $"157.96"$ & $"145.74"$ & $"12.23"$ & $"50.31"$ & $"43.26"$ & $"7.05"$\\
+$"0.58"$ & $"0.03"$ & $"0.00"$ & $"0.56"$ & $"143.83"$ & $"125.14"$ & $"18.68"$ & $"41.71"$ & $"33.17"$ & $"8.54"$\\
+$"0.62"$ & $"0.06"$ & $"0.00"$ & $"0.64"$ & $"153.25"$ & $"148.64"$ & $"4.62"$ & $"47.35"$ & $"42.81"$ & $"4.54"$\\
+$"0.52"$ & $"0.06"$ & $"0.00"$ & $"0.56"$ & $"128.45"$ & $"130.56"$ & $"-2.11"$ & $"33.27"$ & $"32.98"$ & $"0.29"$\\
+$"0.52"$ & $"0.05"$ & $"0.00"$ & $"0.58"$ & $"128.45"$ & $"134.15"$ & $"-5.70"$ & $"33.27"$ & $"35.21"$ & $"-1.94"$\\
+$"0.65"$ & $"0.06"$ & $"0.00"$ & $"0.63"$ & $"160.44"$ & $"146.35"$ & $"14.09"$ & $"51.90"$ & $"42.08"$ & $"9.83"$\\
+$"0.64"$ & $"0.06"$ & $"0.00"$ & $"0.66"$ & $"157.96"$ & $"153.36"$ & $"4.60"$ & $"50.31"$ & $"46.29"$ & $"4.02"$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty rýchlosti pred zrážkou $v_1^B$ a $v_2^B$ a 
+po zrážke $v_1^A$ a $v_2^A$ a z nich vypočítané hodnoty celkovej hybnosti 
+pred $p^B$ a po zrážke $p^A$, rozdiel hybnosti $\Delta p$ a celkové energie 
+pred $E^B$ a po $E^A$ zrážke a ich rozdiel $\Delta E$ pre 
+\uv{najväčšiu} pozíciu štartovacieho zariadenia a naráža ťažší vozík do ľahšieho} \label{T_1}
+\end{center}
+\end{table}
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c | c | c | c | c |}
+\hline
+\popi{v_1^B}{m/s} & \popi{v_1^A}{m/s} & \popi{v_2^B}{m/s} & \popi{v_2^A}{m/s} & \popi{p^B}{mN\cdot s} & \popi{p^A}{mN\cdot s} & \popi{\Delta p}{mN\cdot s} & \popi{E^B}{mJ} & \popi{E^A}{mJ} & \popi{\Delta E}{mJ}\\
+\hline
+$"0.31"$ & $"0.02"$ & $"0.00"$ & $"0.32"$ & $"76.38"$ & $"71.52"$ & $"4.86"$ & $"11.76"$ & $"10.41"$ & $"1.35"$\\
+$"0.46"$ & $"0.04"$ & $"0.00"$ & $"0.46"$ & $"113.57"$ & $"106.19"$ & $"7.39"$ & $"26.01"$ & $"22.63"$ & $"3.38"$\\
+$"0.52"$ & $"0.05"$ & $"0.00"$ & $"0.52"$ & $"128.45"$ & $"119.79"$ & $"8.66"$ & $"33.27"$ & $"28.16"$ & $"5.11"$\\
+$"0.50"$ & $"0.04"$ & $"0.00"$ & $"0.51"$ & $"122.75"$ & $"115.09"$ & $"7.66"$ & $"30.38"$ & $"26.88"$ & $"3.50"$\\
+$"0.46"$ & $"0.04"$ & $"0.00"$ & $"0.47"$ & $"114.81"$ & $"107.74"$ & $"7.07"$ & $"26.58"$ & $"23.31"$ & $"3.27"$\\
+$"0.48"$ & $"0.05"$ & $"0.00"$ & $"0.49"$ & $"118.53"$ & $"113.61"$ & $"4.93"$ & $"28.33"$ & $"25.21"$ & $"3.12"$\\
+$"0.36"$ & $"0.02"$ & $"0.00"$ & $"0.38"$ & $"90.02"$ & $"83.76"$ & $"6.26"$ & $"16.34"$ & $"14.73"$ & $"1.61"$\\
+$"0.49"$ & $"0.04"$ & $"0.00"$ & $"0.50"$ & $"120.77"$ & $"113.64"$ & $"7.12"$ & $"29.41"$ & $"25.77"$ & $"3.64"$\\
+$"0.48"$ & $"0.05"$ & $"0.00"$ & $"0.50"$ & $"119.53"$ & $"116.89"$ & $"2.64"$ & $"28.81"$ & $"26.11"$ & $"2.70"$\\
+$"0.46"$ & $"0.03"$ & $"0.00"$ & $"0.47"$ & $"114.32"$ & $"105.91"$ & $"8.40"$ & $"26.35"$ & $"23.07"$ & $"3.28"$\\
+$"0.50"$ & $"0.05"$ & $"0.00"$ & $"0.52"$ & $"124.24"$ & $"119.57"$ & $"4.66"$ & $"31.12"$ & $"27.95"$ & $"3.17"$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty rýchlosti pred zrážkou $v_1^B$ a $v_2^B$ a 
+po zrážke $v_1^A$ a $v_2^A$ a z nich vypočítané hodnoty celkovej hybnosti 
+pred $p^B$ a po zrážke $p^A$, rozdiel hybnosti $\Delta p$ a celkové energie 
+pred $E^B$ a po $E^A$ zrážke a ich rozdiel $\Delta E$ pre 
+\uv{strednú} pozíciu štartovacieho zariadenia a naráža ťažší vozík do ľahšieho } \label{T_2}
+\end{center}
+\end{table}
+
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c | c | c | c | c |}
+\hline
+\popi{v_1^B}{m/s} & \popi{v_1^A}{m/s} & \popi{v_2^B}{m/s} & \popi{v_2^A}{m/s} & \popi{p^B}{mN\cdot s} & \popi{p^A}{mN\cdot s} & \popi{\Delta p}{mN\cdot s} & \popi{E^B}{mJ} & \popi{E^A}{mJ} & \popi{\Delta E}{mJ}\\
+\hline
+$"0.29"$ & $"0.02"$ & $"0.00"$ & $"0.25"$ & $"72.41"$ & $"57.51"$ & $"14.90"$ & $"10.57"$ & $"6.67"$ & $"3.90"$\\
+$"0.25"$ & $"0.03"$ & $"0.00"$ & $"0.25"$ & $"62.24"$ & $"59.81"$ & $"2.43"$ & $"7.81"$ & $"6.82"$ & $"0.99"$\\
+$"0.30"$ & $"0.03"$ & $"0.00"$ & $"0.25"$ & $"74.89"$ & $"59.25"$ & $"15.64"$ & $"11.31"$ & $"6.39"$ & $"4.92"$\\
+$"0.28"$ & $"0.02"$ & $"0.00"$ & $"0.30"$ & $"70.43"$ & $"69.16"$ & $"1.26"$ & $"10.00"$ & $"9.64"$ & $"0.36"$\\
+$"0.27"$ & $"0.03"$ & $"0.00"$ & $"0.28"$ & $"66.71"$ & $"63.77"$ & $"2.94"$ & $"8.97"$ & $"7.97"$ & $"1.00"$\\
+$"0.30"$ & $"0.04"$ & $"0.00"$ & $"0.31"$ & $"74.64"$ & $"73.75"$ & $"0.89"$ & $"11.23"$ & $"10.19"$ & $"1.05"$\\
+$"0.28"$ & $"0.03"$ & $"0.00"$ & $"0.29"$ & $"68.19"$ & $"67.08"$ & $"1.11"$ & $"9.38"$ & $"8.64"$ & $"0.74"$\\
+$"0.26"$ & $"0.02"$ & $"0.00"$ & $"0.25"$ & $"65.47"$ & $"57.31"$ & $"8.15"$ & $"8.64"$ & $"6.43"$ & $"2.21"$\\
+$"0.28"$ & $"0.03"$ & $"0.00"$ & $"0.26"$ & $"68.69"$ & $"61.05"$ & $"7.64"$ & $"9.51"$ & $"7.09"$ & $"2.42"$\\
+$"0.25"$ & $"0.03"$ & $"0.00"$ & $"0.26"$ & $"61.00"$ & $"60.50"$ & $"0.50"$ & $"7.50"$ & $"6.94"$ & $"0.57"$\\
+$"0.26"$ & $"0.02"$ & $"0.00"$ & $"0.27"$ & $"64.23"$ & $"62.24"$ & $"1.98"$ & $"8.32"$ & $"7.72"$ & $"0.59"$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty rýchlosti pred zrážkou $v_1^B$ a $v_2^B$ a 
+po zrážke $v_1^A$ a $v_2^A$ a z nich vypočítané hodnoty celkovej hybnosti 
+pred $p^B$ a po zrážke $p^A$, rozdiel hybnosti $\Delta p$ a celkové energie 
+pred $E^B$ a po $E^A$ zrážke a ich rozdiel $\Delta E$ pre 
+\uv{najmenšiu} pozíciu štartovacieho zariadenia a naráža ťažší vozík do ľahšieho} \label{T_3}
+\end{center}
+\end{table}
+
+
+
+
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c | c | c | c | c |}
+\hline
+\popi{v_2^B}{m/s} & \popi{v_2^A}{m/s} & \popi{v_1^B}{m/s} & \popi{v_1^A}{m/s} & \popi{p^B}{mN\cdot s} & \popi{p^A}{mN\cdot s} & \popi{\Delta p}{mN\cdot s} & \popi{E^B}{mJ} & \popi{E^A}{mJ} & \popi{\Delta E}{mJ}\\
+\hline
+$"0.743"$ & $"0.0552"$ & $"0"$ & $"0.653"$ & $"154.95"$ & $"150.42"$ & $"4.53"$ & $"57.56"$ & $"53.19"$ & $"4.37"$\\
+$"0.710"$ & $"0.0396"$ & $"0"$ & $"0.602"$ & $"148.06"$ & $"141.03"$ & $"7.04"$ & $"52.56"$ & $"45.10"$ & $"7.46"$\\
+$"0.771"$ & $"0.0439"$ & $"0"$ & $"0.670"$ & $"160.78"$ & $"156.99"$ & $"3.79"$ & $"61.98"$ & $"55.86"$ & $"6.12"$\\
+$"0.753"$ & $"0.0162"$ & $"0"$ & $"0.635"$ & $"157.03"$ & $"154.09"$ & $"2.94"$ & $"59.12"$ & $"50.02"$ & $"9.10"$\\
+$"0.743"$ & $"0.0760"$ & $"0"$ & $"0.674"$ & $"154.95"$ & $"151.29"$ & $"3.66"$ & $"57.56"$ & $"56.93"$ & $"0.63"$\\
+$"0.785"$ & $"0.0555"$ & $"0"$ & $"0.664"$ & $"163.70"$ & $"153.08"$ & $"10.62"$ & $"64.25"$ & $"54.99"$ & $"9.27"$\\
+$"0.755"$ & $"0.0293"$ & $"0"$ & $"0.553"$ & $"157.45"$ & $"131.02"$ & $"26.42"$ & $"59.44"$ & $"38.01"$ & $"21.43"$\\
+$"0.782"$ & $"0.0421"$ & $"0"$ & $"0.666"$ & $"163.08"$ & $"156.38"$ & $"6.70"$ & $"63.76"$ & $"55.18"$ & $"8.58"$\\
+$"0.776"$ & $"0.0430"$ & $"0"$ & $"0.713"$ & $"161.83"$ & $"167.84"$ & $"-6.02"$ & $"62.79"$ & $"63.23"$ & $"-0.44"$\\
+$"0.778"$ & $"0.051"$ & $"0"$ & $"0.673"$ &  $"162.24"$ & $"156.26"$ & $"5.99"$ & $"63.11"$ & $"56.43"$ & $"6.68"$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty rýchlosti pred zrážkou $v_1^B$ a $v_2^B$ a 
+po zrážke $v_1^A$ a $v_2^A$ a z nich vypočítané hodnoty celkovej hybnosti 
+pred $p^B$ a po zrážke $p^A$, rozdiel hybnosti $\Delta p$ a celkové energie 
+pred $E^B$ a po $E^A$ zrážke a ich rozdiel $\Delta E$ pre \uv{najväčšiu} pozíciu štartovacieho zariadenia a naráža ľahší vozík do ťažšieho} \label{T_4}
+\end{center}
+\end{table}
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c | c | c | c | c |}
+\hline
+\popi{v_2^B}{m/s} & \popi{v_2^A}{m/s} & \popi{v_1^B}{m/s} & \popi{v_1^A}{m/s} & \popi{p^B}{mN\cdot s} & \popi{p^A}{mN\cdot s} & \popi{\Delta p}{mN\cdot s} & \popi{E^B}{mJ} & \popi{E^A}{mJ} & \popi{\Delta E}{mJ}\\
+\hline
+$"0.555"$ & $"0.0425"$ & $"0"$ & $"0.538"$ & $"115.74"$ & $"124.55"$ & $"-8.81"$ & $"32.12"$ & $"36.08"$ & $"-3.96"$\\
+$"0.567"$ & $"0.0378"$ & $"0"$ & $"0.486"$ & $"118.24"$ & $"112.64"$ & $"5.61"$ & $"33.52"$ & $"29.43"$ & $"4.09"$\\
+$"0.556"$ & $"0.0415"$ & $"0"$ & $"0.467"$ & $"115.95"$ & $"107.15"$ & $"8.80"$ & $"32.23"$ & $"27.22"$ & $"5.01"$\\
+$"0.559"$ & $"0.0410"$ & $"0"$ & $"0.473"$ & $"116.57"$ & $"108.74"$ & $"7.83"$ & $"32.58"$ & $"27.92"$ & $"4.67"$\\
+$"0.552"$ & $"0.0409"$ & $"0"$ & $"0.442"$ & $"115.11"$ & $"101.08"$ & $"14.04"$ & $"31.77"$ & $"24.40"$ & $"7.37"$\\
+$"0.543"$ & $"0.0505"$ & $"0"$ & $"0.447"$ & $"113.24"$ & $"100.32"$ & $"12.92"$ & $"30.74"$ & $"25.04"$ & $"5.70"$\\
+$"0.571"$ & $"0.0343"$ & $"0"$ & $"0.482"$ & $"119.08"$ & $"112.37"$ & $"6.70"$ & $"34.00"$ & $"28.93"$ & $"5.07"$\\
+$"0.544"$ & $"0.0332"$ & $"0"$ & $"0.478"$ & $"113.45"$ & $"111.61"$ & $"1.83"$ & $"30.86"$ & $"28.44"$ & $"2.41"$\\
+$"0.535"$ & $"0.0202"$ & $"0"$ & $"0.459"$ & $"111.57"$ & $"109.61"$ & $"1.96"$ & $"29.84"$ & $"26.16"$ & $"3.68"$\\
+$"0.550"$ & $"0.0356"$ & $"0"$ & $"0.461"$ & $"114.70"$ & $"106.89"$ & $"7.80"$ & $"31.54"$ & $"26.48"$ & $"5.06"$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty rýchlosti pred zrážkou $v_1^B$ a $v_2^B$ a 
+po zrážke $v_1^A$ a $v_2^A$ a z nich vypočítané hodnoty celkovej hybnosti 
+pred $p^B$ a po zrážke $p^A$, rozdiel hybnosti $\Delta p$ a celkové energie 
+pred $E^B$ a po $E^A$ zrážke a ich rozdiel $\Delta E$ pre \uv{strednú} pozíciu štartovacieho zariadenia a naráža ľahší vozík do ťažšieho} \label{T_5}
+\end{center}
+\end{table}
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c | c | c | c | c |}
+\hline
+\popi{v_2^B}{m/s} & \popi{v_2^A}{m/s} & \popi{v_1^B}{m/s} & \popi{v_1^A}{m/s} & \popi{p^B}{mN\cdot s} & \popi{p^A}{mN\cdot s} & \popi{\Delta p}{mN\cdot s} & \popi{E^B}{mJ} & \popi{E^A}{mJ} & \popi{\Delta E}{mJ}\\
+\hline
+$"0.316"$ & $"0.0335"$ & $"0"$ & $"0.272"$ & $"65.90"$ & $"74.44"$ & $"-8.54"$ & $"10.41"$ & $"9.29"$ & $"1.12"$\\
+$"0.337"$ & $"0.0061"$ & $"0"$ & $"0.292"$ & $"70.28"$ & $"73.68"$ & $"-3.40"$ & $"11.84"$ & $"10.58"$ & $"1.27"$\\
+$"0.328"$ & $"0.0251"$ & $"0"$ & $"0.272"$ & $"68.40"$ & $"72.68"$ & $"-4.28"$ & $"11.22"$ & $"9.24"$ & $"1.98"$\\
+$"0.270"$ & $"0.0351"$ & $"0"$ & $"0.144"$ & $"56.31"$ & $"43.03"$ & $"13.28"$ & $"7.60"$ & $"2.70"$ & $"4.90"$\\
+$"0.334"$ & $"0.0254"$ & $"0"$ & $"0.299"$ & $"69.65"$ & $"79.44"$ & $"-9.79"$ & $"11.63"$ & $"11.15"$ & $"0.48"$\\
+$"0.335"$ & $"0.0399"$ & $"0"$ & $"0.293"$ & $"69.86"$ & $"80.98"$ & $"-11.12"$ & $"11.70"$ & $"10.81"$ & $"0.89"$\\
+$"0.333"$ & $"0.0378"$ & $"0"$ & $"0.272"$ & $"69.44"$ & $"75.33"$ & $"-5.89"$ & $"11.56"$ & $"9.32"$ & $"2.24"$\\
+$"0.338"$ & $"0.0381"$ & $"0"$ & $"0.294"$ & $"70.49"$ & $"80.85"$ & $"-10.36"$ & $"11.91"$ & $"10.87"$ & $"1.04"$\\
+$"0.325"$ & $"0.0433"$ & $"0"$ & $"0.299"$ & $"67.78"$ & $"83.18"$ & $"-15.40"$ & $"11.01"$ & $"11.28"$ & $"-0.27"$\\
+$"0.312"$ & $"0.0118"$ & $"0"$ & $"0.273"$ & $"65.06"$ & $"70.16"$ & $"-5.09"$ & $"10.15"$ & $"9.26"$ & $"0.89"$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty rýchlosti pred zrážkou $v_1^B$ a $v_2^B$ a 
+po zrážke $v_1^A$ a $v_2^A$ a z nich vypočítané hodnoty celkovej hybnosti 
+pred $p^B$ a po zrážke $p^A$, rozdiel hybnosti $\Delta p$ a celkové energie 
+pred $E^B$ a po $E^A$ zrážke a ich rozdiel $\Delta E$
+pre \uv{najmenšiu} pozíciu štartovacieho zariadenia
+a naráža lahší vozík do ťažšieho} \label{T_6}
+\end{center}
+\end{table}
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c | }
+\hline
+typ & \popi{v^B}{m/s} & \popi{v^A}{m/s} &\popi{I}{N\cdot s} & \popi{p^B}{mN\cdot s} & \popi{p^A}{mN\cdot s}\\
+\hline
+n & $"0.790"$ & $"0.321"$ & $"0.2175"$ & $"0.16"$ & $"0.067"$\\
+n & $"0.781"$ & $"0.305"$ & $"0.2145"$ & $"0.16"$ & $"0.063"$\\
+n & $"0.776"$ & $"0.276"$ & $"0.2205"$ & $"0.16"$ & $"0.057"$\\
+n & $"0.762"$ & $"0.275"$ & $"0.2089"$ & $"0.15"$ & $"0.057"$\\
+n & $"0.795"$ & $"0.292"$ & $"0.2222"$ & $"0.16"$ & $"0.061"$\\
+s & $"0.557"$ & $"0.217"$ & $"0.1562"$ & $"0.11"$ & $"0.045"$\\
+s & $"0.595"$ & $"0.219"$ & $"0.1673"$ & $"0.12"$ & $"0.045"$\\
+s & $"0.577"$ & $"0.209"$ & $"0.1617"$ & $"0.12"$ & $"0.043"$\\
+s & $"0.491"$ & $"0.193"$ & $"0.1372"$ & $"0.10"$ & $"0.040"$\\
+s & $"0.580"$ & $"0.224"$ & $"0.1638"$ & $"0.12"$ & $"0.046"$\\
+m & $"0.300"$ & $"0.141"$ & $"0.0872"$ & $"0.06"$ & $"0.029"$\\
+m & $"0.313"$ & $"0.142"$ & $"0.0896"$ & $"0.06"$ & $"0.029"$\\
+m & $"0.285"$ & $"0.123"$ & $"0.0804"$ & $"0.05"$ & $"0.025"$\\
+m & $"0.351"$ & $"0.151"$ & $"0.0957"$ & $"0.07"$ & $"0.031"$\\
+m & $"0.262"$ & $"0.125"$ & $"0.0760"$ & $"0.05"$ & $"0.026"$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty rýchlosti pred nárazom $v^B$  a 
+po náraze $v^A$ a z nich vypočítané hodnoty celkovej hybnosti 
+pred $p^B$ a po zrážke $p^A$, vypočítaný impulz sily $I$.} \label{T_7}
+\end{center}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| c | c | }
+\hline
+Tabuľka & \popi{v_1^B}{m/s}\\
+\hline
+Tab. \ref{T_1} & $"0.60\pm0.05"$\\
+Tab. \ref{T_1} & $"0.46\pm0.06"$\\
+Tab. \ref{T_1} & $"0.27\pm0.02"$\\
+Tab. \ref{T_1} & $"0.76\pm0.02"$\\
+Tab. \ref{T_1} & $"0.55\pm0.01"$\\
+Tab. \ref{T_1} & $"0.32\pm0.02"$\\
+\hline
+\end{tabular}
+\caption{Namerané hodnoty rýchlosti pred nárazom $v^B$  a 
+po náraze $v^A$ a z nich vypočítané hodnoty celkovej hybnosti 
+pred $p^B$ a po zrážke $p^A$, vypočítaný impulz sily $I$.} \label{T_8}
+\end{center}
+\end{table}
+
+
+
+
+\section{Diskusia \& Záver}
+Meraním sme zistili a vypočítali chyby resp. presnosť s akou sa dá určovať rýchlosť vozíčku.
+Tieto hodnoty sú v tabuľke \ref{T_8}.
+
+V našom meraní sú zdrojmi systematických chýb predovšetkým prehnutie dráhy, trenie vozíkov o dráhu. Prehnutie dráhy spôsobuje len veľmi malé zrýchlenie v porovnaní s rýchlosťami ktoré vozíky dosahujú.
+Toto prehnutie sa v strednej časti dráhy kompenzovalo trením a tak pohyb sa stával RPP.
+
+Odhad brzdného koeficientu dráha je dlhá $l=\sim "2 m"$ vozíček ju po odraze od tlakového senzoru skoro nedôjde a sem tam sa zastavil už na dráhe. 
+Teda 
+\eq{
+a = \frac{v^2}{2l}\,,
+}
+po dosadení dostávame $a=\sim "0.004 m s^{-2}"$.
+
+Z obrázkov Obr. \ref{G_1} a \ref{G_2}, že skoro via ako $60\%$ nameraných hodnôt padlo v $\sigma_0$ do predpokladanej závislosti a teda môžeme aj ZZE aj ZZH považovať za \textbf{nevyvrátený}.
+Základný ma najväčším problémom tohoto merania je senzor. Na toto meranie je hlboko nevhodný kvôli svojej veľmi malej snímacej frekvencií pri náraze zaznamenal cca 7 hodnôt.
+Na presné meranie by sme potrebovali väčšiu jemnosť dát. Teda impulz sily vychádza menší ako rozdiel hybnosti získavaných z rýchlostí. 
+
+
+
+
+
+\clearpage
+
+\section{Prílohy}
+
+\begin{lstlisting}
+<?php
+$files = scandir(__DIR__);
+echo '<pre>';
+foreach ($files as $file) {
+    if(is_dir($file)) continue;
+    if($file == "..") continue;
+    if($file == '.') continue;
+    $info = pathinfo($file);
+    if($info['extension'] != 'txt') continue;
+    $content = str_replace(',','.',file_get_contents('./'.$file));
+    $lines = explode("\n",$content);
+    unset($lines[0],$lines[1]);
+    $oldTime = 0;
+    $sum = 0;
+    foreach ($lines as $line) {
+        if($line == "") continue;
+        list ($newTime,$v) = explode("\t",$line);
+        if($v > 0.5){
+            $sum += ($newTime - $oldTime) * $v;
+        }
+        $oldTime = $newTime;
+    }
+    echo "$file\t$sum\n";
+}
+\end{lstlisting}
+
+
+
+\begin{thebibliography}{2}
+\bibitem{C_1}
+Mechanické pokusy na vzduchové dráze [cit. 19.12.2016]Dostupné po prihlásení z Kurz: Fyzikální praktikum I:\url{https://praktikum.fjfi.cvut.cz/pluginfile.php/102/mod_resource/content/9/Vzduchova_draha-2015-Oct-01.pdf}
+
+\end{thebibliography}
+
+\end{document}
+
